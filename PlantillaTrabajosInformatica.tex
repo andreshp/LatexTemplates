@@ -1,0 +1,159 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla de Latex para trabajos de informática.
+%%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp) 
+%         (https://www.researchgate.net/profile/Andres_Poyatos)
+%
+% Esta plantilla utiliza el paquete Minted para resaltar código.
+% Este paquete necesita una instalación previa. Para más información
+% ver:http://www.ctan.org/tex-archive/macros/latex/contrib/minted
+%
+% La plantilla se encuentra adaptada al español.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PAQUETES Y OTRAS CONFIGURACIONES DEL DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+% Paquetes para el diseño de página:
+\usepackage{fancyhdr}                   % Utilizado para hacer títulos propios.
+\usepackage{lastpage}                   % Referencia a la última página. Utilizado para el pie de página.
+\usepackage{extramarks}                 % Marcas extras. Utilizado en pie de página y cabecera.
+\usepackage[parfill]{parskip}           % Crea una nueva línea entre párrafos.
+\usepackage{lipsum}
+
+% Fuente utilizada. Elija uno de ellos:
+\usepackage{courier}                    % Fuente Courier.
+%\usepackage{fourier}                   % Fuente Adobe Utopia.
+
+% Paquetes para imágenes:
+\usepackage[usenames,dvipsnames]{color} % Permite crear colores propios. Utilizado para el bg de Minted.
+\usepackage{graphicx}                   % Utilizado para insertar gráficos.
+
+% Paquetes para la insercción y el resaltado del código:
+\usepackage{minted}                     % Insercción y resaltado de código con Minted.
+
+% Paquetes para matemáticas:
+\usepackage{amsthm}                     % Teoremas y definiciones.
+
+% Paquetes para adaptar Látex al Español:
+\usepackage[spanish,es-noquoting, es-tabla, es-lcroman]{babel} % Cambia 
+\usepackage[utf8]{inputenc}                                    % Permite los acentos.
+\selectlanguage{spanish}                                       % Selecciono como lenguaje el Español.
+
+% Estilo de página:
+\pagestyle{fancy}
+
+% Ajuste de los márgenes:
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+% Espacios en el documento:
+\linespread{1.1}                        % Espacio entre líneas.
+\setlength\parindent{0pt}               % Selecciona la indentación para cada inicio de párrafo.
+
+% Cabecera del documento:
+\lhead{\autor}                          % Parte izquierda.
+\chead{}                                % Centro.
+\rhead{\titulo \ \firstxmark}           % Parte derecha.
+\renewcommand\headrulewidth{0.4pt}      % Tamaño de la recta separadora de la cabecera.
+
+% Pie de página del documento:
+\lfoot{\lastxmark}                                       % Parte izquierda.
+\cfoot{}                                                 % Centro.
+\rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Parte derecha.
+\renewcommand\footrulewidth{0.4pt}                       % Tamaño de la recta separadora del pie de página.
+
+%----------------------------------------------------------------------------------------
+%	CONFIGURACIÓN DE LA INCLUSIÓN DE CÓDIGO
+%----------------------------------------------------------------------------------------
+
+\usemintedstyle{autumn}               % Se elige el estilo para minted.
+\definecolor{bg}{rgb}{0.95,0.95,0.95} % Se define el color bg usado para bgcolor de Minted.
+\renewcommand\listingscaption{Código} % Se redefine el nombre dado a un bloque de código.
+
+%----------------------------------------------------------------------------------------
+%	COMANDOS Y ESTRUCTURA DEL DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\newtheorem{definition}{Definición}[section]  % Se crea la subsección "Definición". 
+\setcounter{secnumdepth}{2}                   % Se enumeran las secciones con profundidad 2.
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\titulo}{Título}  % Título del trabajo.
+\newcommand{\fecha}{1 \ de \ Enero \ de \ 2015}                         % Fecha.
+\newcommand{\asignatura}{Latex}                                         % Asignatura.
+\newcommand{\autor}{Andrés Herrera Poyatos}                             % Autor.
+
+%----------------------------------------------------------------------------------------
+%	PORTADA 
+%----------------------------------------------------------------------------------------
+
+\title{                                             % Título
+    \vspace{2in}
+    \textmd{\textbf{\asignatura \\ \titulo}} \\         % - Nombre del trabajo
+    \normalsize\vspace{0.1in}\small{\fecha}  \\         % - Fecha (Arriba) 
+    \vspace{3in}
+}
+
+\author{\textbf{\autor}}                            % Autor
+\date{}                                             % Fecha. Elija entre esta y la del título.
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	ÍNDICE
+%----------------------------------------------------------------------------------------
+
+% Profundidad del Índice:
+%\setcounter{tocdepth}{1}
+
+\newpage
+\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	Sección 1: Páginas en Linux
+%----------------------------------------------------------------------------------------
+
+\begin{section}{Primera Sección}
+\lipsum[1]
+
+\begin{listing}
+\caption{Estructura que representa una Página en Linux}
+\begin{minted}[bgcolor=bg]{c}
+#include <linux/mm_types.h>
+
+struct page {
+   unsigned long flags;
+   atomic_t _count;
+   atomic_t _mapcount;
+   unsigned long private;
+   struct address_space *mapping;
+   pgoff_t index;
+   struct list_head lru;
+   void *virtual;
+}
+\end{minted}
+\label{listing:page}
+\end{listing}
+
+\lipsum[2]
+
+\end{section}
+
+\end{document}
