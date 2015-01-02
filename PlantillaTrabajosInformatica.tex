@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Plantilla de Latex para trabajos de informática.
-%%
+%
 % Autor: Andrés Herrera Poyatos (https://github.com/andreshp) 
 %         (https://www.researchgate.net/profile/Andres_Poyatos)
 %
@@ -16,6 +16,8 @@
 %	PAQUETES Y OTRAS CONFIGURACIONES DEL DOCUMENTO
 %----------------------------------------------------------------------------------------
 
+\RequirePackage[l2tabu, orthodox]{nag}  % Produce un warnig en caso de usar un comando obsoleto.
+
 \documentclass{article}
 
 % Paquetes para el diseño de página:
@@ -29,6 +31,7 @@
 % Fuente utilizada. Elija uno de ellos:
 \usepackage{courier}                    % Fuente Courier.
 %\usepackage{fourier}                   % Fuente Adobe Utopia.
+\usepackage{microtype}                  % Mejora la letra final de cara al lector.
 
 % Paquetes para imágenes:
 \usepackage[usenames,dvipsnames]{color} % Permite crear colores propios. Utilizado para el bg de Minted.
@@ -40,6 +43,9 @@
 
 % Paquetes para matemáticas:
 \usepackage{amsthm}                     % Teoremas y definiciones.
+
+% Paquetes para tablas:
+\usepackage{booktabs}
 
 % Paquetes para adaptar Látex al Español:
 \usepackage[spanish,es-noquoting, es-tabla, es-lcroman]{babel} % Cambia 
@@ -96,12 +102,6 @@
 %----------------------------------------------------------------------------------------
 %	NUEVOS COMANDOS
 %----------------------------------------------------------------------------------------
-
-\renewcommand{\footnoterule}{%
-  \kern -3pt
-  \hrule width \textwidth height 1pt
-  \kern 2pt
-}
 
 % Portada:
 \newcommand{\titulo}{Título}  % Título del trabajo.
@@ -204,22 +204,25 @@ struct page {
 
 \begin{table}[ht]
 \caption{Zonas de Memoria en la arquitectura x86-32}
+\kern 1mm                                  % Separa caption de la tabla
 \centering \begin{tabular}{@{}llc@{}}
-\hline
-\textbf{Zona} & \textbf{Descripción}   & \textbf{Memoria Física}  \\ [0.5ex]
-\hline
-ZONE\_DMA     & Soporta DMA            & \textless \ 16MB           \\ [0.5ex]
-ZONE\_NORMAL  & Páginas normales       & 16–896MB                 \\ [0.5ex]
-ZONE\_HIGHMEM & Alta memoria           & \textgreater \ 896MB       \\ [1ex]
-\hline
+\toprule
+\multicolumn{2}{c}{Info}                                            \\
+\cmidrule(r){1-2}
+\textbf{Zona} & \textbf{Descripción}   & \textbf{Memoria Física}    \\ 
+\midrule
+ZONE\_DMA     & Soporta DMA            & \textless \ 16MB           \\ 
+ZONE\_NORMAL  & Páginas normales       & 16–896MB                   \\
+ZONE\_HIGHMEM & Alta memoria           & \textgreater \ 896MB       \\ 
+\bottomrule
 \end{tabular}
 \label{table:memoria-x86-32}
-\\
 \end{table}
 
 \end{subsection}
 
 \begin{subsection}{Descripción}
+
 \begin{description}
 \item[ZONE\_DNA] Contiene páginas que soportan la entrada y salida de datos mediante DMA.
 \item[ZONE\_DNA\_32] Es análoga a la anterior pero ls páginas solo son accesibles para
@@ -236,7 +239,6 @@ dispositivos de 32-bits.
 \begin{subsection}{Configuración de la página}
 Se muestra la configuración de la página. Eliminarla en el documento final. 
 Puede dar problemas con la cabecera y pie de página.
-
 
 \centering\layout
 \end{subsection}
