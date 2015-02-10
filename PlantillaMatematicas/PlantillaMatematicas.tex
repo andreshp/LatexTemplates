@@ -1,0 +1,289 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla de Latex para trabajos de Matemáticas.
+%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp) 
+%
+% La plantilla se encuentra adaptada al español.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PAQUETES Y OTRAS CONFIGURACIONES DEL DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\RequirePackage[l2tabu, orthodox]{nag}  % Produce un warnig en caso de usar un comando obsoleto.
+
+\documentclass{article}
+
+% Paquetes para el diseño de página:
+\usepackage{fancyhdr}                   % Utilizado para hacer títulos propios.
+\usepackage{lastpage}                   % Referencia a la última página. Utilizado para el pie de página.
+\usepackage{extramarks}                 % Marcas extras. Utilizado en pie de página y cabecera.
+\usepackage[parfill]{parskip}           % Crea una nueva línea entre párrafos.
+\usepackage[margin=3cm]{geometry}       % Asigna la "geometría" de las páginas.
+\usepackage{lipsum}                     % Texto dummy. Quitar en el documento final.
+
+% Fuente utilizada. Elija uno de ellos:
+\usepackage{courier}                    % Fuente Courier.
+%\usepackage{fourier}                   % Fuente Adobe Utopia.
+\usepackage{microtype}                  % Mejora la letra final de cara al lector.
+
+% Paquetes para imágenes:
+\usepackage[usenames,dvipsnames]{color} % Permite crear colores propios. Utilizado para el bg de Minted.
+\usepackage{graphicx}                   % Utilizado para insertar gráficos.
+\usepackage{layout}                     % Introduce una imagen con el diseño de la página. Quitar en el documento.
+
+% Paquetes para matemáticas:                     
+\usepackage{amsmath,amsthm,verbatim,amssymb,amsfonts,amscd} % Teoremas, fuentes y símbolos.
+
+% Paquetes para tablas:
+\usepackage{booktabs}
+
+% Paquetes para adaptar Látex al Español:
+\usepackage[spanish,es-noquoting, es-tabla, es-lcroman]{babel} % Cambia 
+\usepackage[utf8]{inputenc}                                    % Permite los acentos.
+\selectlanguage{spanish}                                       % Selecciono como lenguaje el Español.
+
+% Estilo de página:
+\pagestyle{fancy}                      % fancy
+\fancyhf{}                             % Limpia la cabecera y el pie de página.
+\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,headheight=1cm,headsep=0.5cm} % Márgenes y cabecera.
+
+% Espacios en el documento:
+\linespread{1.1}                        % Espacio entre líneas.
+\setlength\parindent{0pt}               % Selecciona la indentación para cada inicio de párrafo.
+
+% Cabecera del documento:
+\renewcommand\headrule{                 % Se ajusta la línea de la cabecera.
+\begin{minipage}{1\textwidth}           % Elija una de las siguientes líneas:
+%    \hrule width \hsize \kern 1mm \hrule width \hsize height 2pt 
+    \hrule width \hsize 
+\end{minipage}
+}
+\lhead{\autor}                          % Parte izquierda.
+\chead{}                                % Centro.
+\rhead{\titulo}                         % Parte derecha.
+
+% Pie de página del documento:
+\renewcommand\footrule{                                 % Se ajusta la línea del pie de página.
+\begin{minipage}{1\textwidth}                           % Elija una de las siguientes líneas:
+%    \hrule width \hsize height 2pt \kern 1mm \hrule width \hsize   
+    \hrule width \hsize   
+\end{minipage}\par
+}
+\lfoot{}                                                 % Parte izquierda.
+\cfoot{}                                                 % Centro.
+\rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Parte derecha.
+
+%----------------------------------------------------------------------------------------
+%	ESTRUCTURA DEL DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\setcounter{secnumdepth}{2}                   % Se enumeran las secciones con profundidad 2.
+
+%----------------------------------------------------------------------------------------
+%	MATEMÁTICAS
+%----------------------------------------------------------------------------------------
+
+% Nuevo estilo para teoremas
+\newtheoremstyle{theorem-style} % Nombre del estilo
+  {3pt}                % Espacio por encima
+  {3pt}                % Espacio por debajo
+  {\itshape}                   % Fuente del cuerpo
+  {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+  {\bf}                % Fuente para la cabecera
+  {.}                  % Puntuación tras la cabecera
+  {.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+  {}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+% Nuevo estilo para teoremas
+\newtheoremstyle{example-style} % Nombre del estilo
+  {3pt}                % Espacio por encima
+  {3pt}                % Espacio por debajo
+  {}                   % Fuente del cuerpo
+  {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+  {\scshape}                % Fuente para la cabecera
+  {:}                  % Puntuación tras la cabecera
+  {.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+  {}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+% Teoremas:
+\theoremstyle{theorem-style}  % Otras posibilidades: plain (por defecto), definition, remark
+\newtheorem{theorem}{Teorema}[section]  % [section] indica que el contador se reinicia cada sección
+\newtheorem{corollary}[theorem]{Corolario} % [theorem] indica que comparte el contador con theorem
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposición}
+% Definiciones, notas, conjeturas
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[section]
+\newtheorem{conjecture}{Conjetura}[section] 
+\newtheorem*{note}{Nota} % * indica que no tiene contador
+% Ejemplos, ejercicios
+\theoremstyle{example-style}
+\newtheorem{example}{Ejemplo}[section]
+\newtheorem{exercise}{Ejercicio}[section]
+
+%----------------------------------------------------------------------------------------
+%	NUEVOS COMANDOS
+%----------------------------------------------------------------------------------------
+
+% Portada:
+\newcommand{\titulo}{Título}  % Título del trabajo.
+\newcommand{\fecha}{1 \ de \ Enero \ de \ 2015}                         % Fecha.
+\newcommand{\asignatura}{Latex}                                         % Asignatura.
+\newcommand{\autor}{Andrés Herrera Poyatos}                             % Autor.
+
+%----------------------------------------------------------------------------------------
+%	PORTADA 
+%----------------------------------------------------------------------------------------
+
+\title{                                             % Título
+    \vspace{2in}
+    \textmd{\textbf{\asignatura \\ \titulo}} \\         % - Nombre del trabajo
+    \normalsize\vspace{0.1in}\small{\fecha}  \\         % - Fecha (Arriba) 
+    \vspace{3in}
+}
+
+\author{\textbf{\autor}}                            % Autor
+\date{}                                             % Fecha. Elija entre esta y la del título.
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	ÍNDICE
+%----------------------------------------------------------------------------------------
+
+% Profundidad del Índice:
+%\setcounter{tocdepth}{1}
+
+\newpage
+\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	Sección 1: Deficiones y teoremas
+%----------------------------------------------------------------------------------------
+
+\begin{section}{Matemáticas}
+
+\begin{definition}
+ $\LaTeX$ es un sistema de composición de textos, orientado a la creación de documentos 
+ escritos que presenten una alta calidad tipográfica. Por sus características y 
+ posibilidades, es usado de forma especialmente intensa en la generación de 
+ artículos y libros científicos que incluyen, entre otros elementos, expresiones 
+ matemáticas.
+\end{definition}
+
+Se presentan en esta sección una serie de ejemplos del funcionamiento de la plantilla 
+para los comandos relacionados con las matemáticas.
+
+\begin{subsection}{Teoremas, Lemas, Proposiciones y Colorarios}
+
+\begin{theorem}
+El número $\sqrt{2}$ es irracional.
+\end{theorem}
+\begin{proof}
+La prueba se realiza por reducción al absurdo. Supongamos que es racional. En tal caso,
+se puede escribir $\sqrt{2} = \frac{p}{q}$ con $p,q \in \mathbb{N}$ primos relativos.
+De la igualdad anterior se deduce:
+$$ 2 = \left(\frac{p}{q}\right)^2 = \frac{p^2}{q^2} \Rightarrow 2 q^2 = p^2 $$
+Luego $2$ divide a $p$ por ser primo. Entonces, $p = 2k$ con $k \in \mathbb{N}$.
+Se tiene que:
+$$ 2 q^2 = p^2 = 4k^2 \Rightarrow q^2 = 2k^2 $$
+Análogamente, $2$ divide a $q$. Pero esto contradice que $p$ y $q$ sean primos relativos.
+\end{proof}
+
+\begin{corollary}
+Existen dos números irracionales $x$, $y$ tales que $x^y$ es racional.
+\end{corollary}
+\begin{proof}
+Consideramos $y = \sqrt 2$. Teniendo en cuenta que $\sqrt 2$ es irracional, si 
+${\sqrt 2} ^ {\sqrt 2}$ fuese racional se finaliza la prueba. En caso contrario,
+podemos tomar $x = {\sqrt 2} ^ {\sqrt 2}$ teniendo que:
+ $$ x ^ y = \left({\sqrt 2}^{\sqrt 2}\right) ^ {\sqrt 2} = {\sqrt 2} ^ {\sqrt 2 \sqrt 2} = {\sqrt 2} ^ 2 = 2 $$ 
+\end{proof}
+
+\begin{note}
+Es cierto que  ${\sqrt 2} ^ {\sqrt 2}$ es irracional por el Teorema de Gelfond–Schneider.
+\end{note}
+
+\end{subsection}
+
+\begin{subsection}{Ejemplos y Ejercicios}
+
+\begin{example}
+$\mathbb{R}$ no es homeomorfo a $\mathbb{R}^2$ con la topología usual pues los elementos de 
+$\mathbb{R}$ tienen orden de conexión $1$ mientras que los de $\mathbb{R}^2$ tienen orden
+de conexión $2$.
+\end{example}
+
+\begin{exercise}
+Probar que en todo anillo $R$ para todo $a \in R$ tal que $a-1$ es una unidad del anillo y 
+$n \in \mathbb{N}$ se tiene
+\begin{equation}
+\sum^n_{i=0} a^i = \frac{a^{n+1}-1}{a-1}
+\end{equation}
+
+\end{exercise}
+
+\end{subsection}
+
+\end{section}
+
+%----------------------------------------------------------------------------------------
+%	Sección 2: Minted en línea
+%----------------------------------------------------------------------------------------
+\begin{section}{Otros Aspectos de la Plantilla}
+
+\begin{subsection}{Tablas}
+
+\lipsum[1]
+
+\begin{table}[ht]
+\caption{Zonas de Memoria en la arquitectura x86-32}
+\kern 1mm                                  % Separa caption de la tabla
+\centering \begin{tabular}{@{}llc@{}}
+\toprule
+\multicolumn{2}{c}{Info}                                            \\
+\cmidrule(r){1-2}
+\textbf{Zona} & \textbf{Descripción}   & \textbf{Memoria Física}    \\ 
+\midrule
+ZONE\_DMA     & Soporta DMA            & \textless \ 16MB           \\ 
+ZONE\_NORMAL  & Páginas normales       & 16–896MB                   \\
+ZONE\_HIGHMEM & Alta memoria           & \textgreater \ 896MB       \\ 
+\bottomrule
+\end{tabular}
+\label{table:memoria-x86-32}
+\end{table}
+
+\end{subsection}
+
+\begin{subsection}{Descripción}
+
+\begin{description}
+\item[ZONE\_DNA] Contiene páginas que soportan la entrada y salida de datos mediante DMA.
+\item[ZONE\_DNA\_32] Es análoga a la anterior pero ls páginas solo son accesibles para
+dispositivos de 32-bits.
+\item[ZONE\_NORMAL] Esta zona contiene páginas normales y regularmente mapeadas.
+\item[ZONE\_HIGHMEM] Esta zona contiene \textit{alta memoria}, que consiste en
+ aquellas páginas que son mapeadas con poca frecuencia.
+\end{description}
+
+\end{subsection}
+
+\pagebreak
+
+\begin{subsection}{Configuración de la página}
+Se muestra la configuración de la página. Eliminarla en el documento final. 
+Puede dar problemas con la cabecera y pie de página.
+
+\centering\layout
+\end{subsection}
+
+\end{section}
+
+\end{document}
