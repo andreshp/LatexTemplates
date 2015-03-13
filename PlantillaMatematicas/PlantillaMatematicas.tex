@@ -84,11 +84,11 @@
 %	MATEMÁTICAS
 %----------------------------------------------------------------------------------------
 
-% Nuevo estilo para teoremas
-\newtheoremstyle{theorem-style} % Nombre del estilo
-  {3pt}                % Espacio por encima
-  {3pt}                % Espacio por debajo
-  {\itshape}                   % Fuente del cuerpo
+% Nuevo estilo para definiciones
+\newtheoremstyle{definition-style} % Nombre del estilo
+  {5pt}                % Espacio por encima
+  {0pt}                % Espacio por debajo
+  {}                   % Fuente del cuerpo
   {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
   {\bf}                % Fuente para la cabecera
   {.}                  % Puntuación tras la cabecera
@@ -96,9 +96,20 @@
   {}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
 
 % Nuevo estilo para teoremas
+\newtheoremstyle{theorem-style} % Nombre del estilo
+  {5pt}                % Espacio por encima
+  {0pt}                % Espacio por debajo
+  {\itshape}                   % Fuente del cuerpo
+  {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+  {\bf}                % Fuente para la cabecera
+  {.}                  % Puntuación tras la cabecera
+  {.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+  {}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+% Nuevo estilo para ejemplos y ejercicios
 \newtheoremstyle{example-style} % Nombre del estilo
-  {3pt}                % Espacio por encima
-  {3pt}                % Espacio por debajo
+  {5pt}                % Espacio por encima
+  {0pt}                % Espacio por debajo
   {}                   % Fuente del cuerpo
   {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
   {\scshape}                % Fuente para la cabecera
