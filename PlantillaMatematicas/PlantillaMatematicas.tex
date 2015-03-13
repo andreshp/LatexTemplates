@@ -4,7 +4,6 @@
 % Autor: Andrés Herrera Poyatos (https://github.com/andreshp) 
 %
 % La plantilla se encuentra adaptada al español.
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------------------------------------
@@ -124,11 +123,11 @@
 \newtheorem{exercise}{Ejercicio}[section]
 
 %----------------------------------------------------------------------------------------
-%	NUEVOS COMANDOS
+%	INFORMACIÓN DEL AUTOR Y DOCUMENTO
 %----------------------------------------------------------------------------------------
 
 % Portada:
-\newcommand{\titulo}{Título}  % Título del trabajo.
+\newcommand{\titulo}{Plantilla Matemáticas}                             % Título del trabajo.
 \newcommand{\fecha}{1 \ de \ Enero \ de \ 2015}                         % Fecha.
 \newcommand{\asignatura}{Latex}                                         % Asignatura.
 \newcommand{\autor}{Andrés Herrera Poyatos}                             % Autor.
@@ -168,122 +167,101 @@
 %	Sección 1: Deficiones y teoremas
 %----------------------------------------------------------------------------------------
 
-\begin{section}{Matemáticas}
+\section{Matemáticas}
 
-\begin{definition}
- $\LaTeX$ es un sistema de composición de textos, orientado a la creación de documentos 
- escritos que presenten una alta calidad tipográfica. Por sus características y 
- posibilidades, es usado de forma especialmente intensa en la generación de 
- artículos y libros científicos que incluyen, entre otros elementos, expresiones 
- matemáticas.
-\end{definition}
-
-Se presentan en esta sección una serie de ejemplos del funcionamiento de la plantilla 
-para los comandos relacionados con las matemáticas.
-
-\begin{subsection}{Teoremas, Lemas, Proposiciones y Colorarios}
-
-\begin{theorem}
-El número $\sqrt{2}$ es irracional.
-\end{theorem}
-\begin{proof}
-La prueba se realiza por reducción al absurdo. Supongamos que es racional. En tal caso,
-se puede escribir $\sqrt{2} = \frac{p}{q}$ con $p,q \in \mathbb{N}$ primos relativos.
-De la igualdad anterior se deduce:
-$$ 2 = \left(\frac{p}{q}\right)^2 = \frac{p^2}{q^2} \Rightarrow 2 q^2 = p^2 $$
-Luego $2$ divide a $p$ por ser primo. Entonces, $p = 2k$ con $k \in \mathbb{N}$.
-Se tiene que:
-$$ 2 q^2 = p^2 = 4k^2 \Rightarrow q^2 = 2k^2 $$
-Análogamente, $2$ divide a $q$. Pero esto contradice que $p$ y $q$ sean primos relativos.
-\end{proof}
-
-\begin{corollary}
-Existen dos números irracionales $x$, $y$ tales que $x^y$ es racional.
-\end{corollary}
-\begin{proof}
-Consideramos $y = \sqrt 2$. Teniendo en cuenta que $\sqrt 2$ es irracional, si 
-${\sqrt 2} ^ {\sqrt 2}$ fuese racional se finaliza la prueba. En caso contrario,
-podemos tomar $x = {\sqrt 2} ^ {\sqrt 2}$ teniendo que:
- $$ x ^ y = \left({\sqrt 2}^{\sqrt 2}\right) ^ {\sqrt 2} = {\sqrt 2} ^ {\sqrt 2 \sqrt 2} = {\sqrt 2} ^ 2 = 2 $$ 
-\end{proof}
-
-\begin{note}
-Es cierto que  ${\sqrt 2} ^ {\sqrt 2}$ es irracional por el Teorema de Gelfond–Schneider.
-\end{note}
-
-\end{subsection}
-
-\begin{subsection}{Ejemplos y Ejercicios}
-
-\begin{example}
-$\mathbb{R}$ no es homeomorfo a $\mathbb{R}^2$ con la topología usual pues los elementos de 
-$\mathbb{R}$ tienen orden de conexión $1$ mientras que los de $\mathbb{R}^2$ tienen orden
-de conexión $2$.
-\end{example}
-
-\begin{exercise}
-Probar que en todo anillo $R$ para todo $a \in R$ tal que $a-1$ es una unidad del anillo y 
-$n \in \mathbb{N}$ se tiene
-\begin{equation}
-\sum^n_{i=0} a^i = \frac{a^{n+1}-1}{a-1}
-\end{equation}
-
-\end{exercise}
-
-\end{subsection}
-
-\end{section}
+    \begin{definition}
+        $\LaTeX$ es un sistema de composición de textos, orientado a la creación de documentos escritos que presenten una alta calidad tipográfica. Por sus características y  posibilidades, es usado de forma especialmente intensa en la generación de artículos y libros científicos que incluyen, entre otros elementos, expresiones matemáticas.
+    \end{definition}
+    
+    Se presentan en esta sección una serie de ejemplos del funcionamiento de la plantilla 
+    para los comandos relacionados con las matemáticas.
+    
+    \subsection{Teoremas, Lemas, Proposiciones y Colorarios}
+    
+        \begin{theorem}
+            El número $\sqrt{2}$ es irracional.
+        \end{theorem}
+        \begin{proof}
+            La prueba se realiza por reducción al absurdo. Supongamos que es racional. En tal caso, se puede escribir $\sqrt{2} = \frac{p}{q}$ con $p,q \in \mathbb{N}$ primos relativos. De la igualdad anterior se deduce:
+            $$ 2 = \left(\frac{p}{q}\right)^2 = \frac{p^2}{q^2} \Rightarrow 2 q^2 = p^2 $$
+            Luego $2$ divide a $p$ por ser primo. Entonces, $p = 2k$ con $k \in \mathbb{N}$. Se tiene que:
+            $$ 2 q^2 = p^2 = 4k^2 \Rightarrow q^2 = 2k^2 $$
+            Análogamente, $2$ divide a $q$. Pero esto contradice que $p$ y $q$ sean primos relativos.
+        \end{proof}
+        
+        \begin{corollary}
+            Existen dos números irracionales $x$, $y$ tales que $x^y$ es racional.
+        \end{corollary}
+        \begin{proof}
+            Consideramos $y = \sqrt 2$. Teniendo en cuenta que $\sqrt 2$ es irracional, si 
+            ${\sqrt 2} ^ {\sqrt 2}$ fuese racional se finaliza la prueba. En caso contrario,
+            podemos tomar $x = {\sqrt 2} ^ {\sqrt 2}$ teniendo que:
+             $$ x ^ y = \left({\sqrt 2}^{\sqrt 2}\right) ^ {\sqrt 2} = {\sqrt 2} ^ {\sqrt 2 \sqrt 2} = {\sqrt 2} ^ 2 = 2 $$ 
+        \end{proof}
+        
+        \begin{note}
+            Es cierto que  ${\sqrt 2} ^ {\sqrt 2}$ es irracional por el Teorema de Gelfond–Schneider.
+        \end{note}
+    
+    
+    \subsection{Ejemplos y Ejercicios}
+    
+        \begin{example}
+            $\mathbb{R}$ no es homeomorfo a $\mathbb{R}^2$ con la topología usual pues los elementos de $\mathbb{R}$ tienen orden de conexión $1$ mientras que los de $\mathbb{R}^2$ tienen orden de conexión $2$.
+        \end{example}
+        
+        \begin{exercise}
+            Probar que en todo anillo $R$ para todo $a \in R$ tal que $a-1$ es una unidad del anillo y $n \in \mathbb{N}$ se tiene
+            \begin{equation}
+                \sum^n_{i=0} a^i = \frac{a^{n+1}-1}{a-1}
+            \end{equation}        
+        \end{exercise}
+    
 
 %----------------------------------------------------------------------------------------
 %	Sección 2: Otros ejemplos
 %----------------------------------------------------------------------------------------
-\begin{section}{Otros Ejemplos}
+\section{Otros Ejemplos}
 
-\begin{subsection}{Tablas}
-
-\lipsum[1]
-
-\begin{table}[ht]
-\caption{Zonas de Memoria en la arquitectura x86-32}
-\kern 1mm                                  % Separa caption de la tabla
-\centering \begin{tabular}{@{}llc@{}}
-\toprule
-\multicolumn{2}{c}{Info}                                            \\
-\cmidrule(r){1-2}
-\textbf{Zona} & \textbf{Descripción}   & \textbf{Memoria Física}    \\ 
-\midrule
-ZONE\_DMA     & Soporta DMA            & \textless \ 16MB           \\ 
-ZONE\_NORMAL  & Páginas normales       & 16–896MB                   \\
-ZONE\_HIGHMEM & Alta memoria           & \textgreater \ 896MB       \\ 
-\bottomrule
-\end{tabular}
-\label{table:memoria-x86-32}
-\end{table}
-
-\end{subsection}
-
-\begin{subsection}{Descripción}
-
-\begin{description}
-\item[ZONE\_DNA] Contiene páginas que soportan la entrada y salida de datos mediante DMA.
-\item[ZONE\_DNA\_32] Es análoga a la anterior pero ls páginas solo son accesibles para
-dispositivos de 32-bits.
-\item[ZONE\_NORMAL] Esta zona contiene páginas normales y regularmente mapeadas.
-\item[ZONE\_HIGHMEM] Esta zona contiene \textit{alta memoria}, que consiste en
- aquellas páginas que son mapeadas con poca frecuencia.
-\end{description}
-
-\end{subsection}
-
-\pagebreak
-
-\begin{subsection}{Configuración de la página}
-Se muestra la configuración de la página. Eliminarla en el documento final. 
-Puede dar problemas con la cabecera y pie de página.
-
-\centering\layout
-\end{subsection}
-
-\end{section}
-
+    \subsection{Tablas}
+    
+        \lipsum[1]
+        
+        \begin{table}[ht]
+            \caption{Zonas de Memoria en la arquitectura x86-32}
+            \kern 1mm                                  % Separa caption de la tabla
+            \centering 
+            \begin{tabular}{@{}llc@{}}
+                \toprule
+                \multicolumn{2}{c}{Info}                                            \\
+                \cmidrule(r){1-2}
+                \textbf{Zona} & \textbf{Descripción}   & \textbf{Memoria Física}    \\ 
+                \midrule
+                ZONE\_DMA     & Soporta DMA            & \textless \ 16MB           \\ 
+                ZONE\_NORMAL  & Páginas normales       & 16–896MB                   \\
+                ZONE\_HIGHMEM & Alta memoria           & \textgreater \ 896MB       \\ 
+                \bottomrule
+            \end{tabular}
+            \label{table:memoria-x86-32}
+        \end{table}
+    
+    \subsection{Descripción}
+    
+        \begin{description}
+            \item[ZONE\_DNA] Contiene páginas que soportan la entrada y salida de datos mediante DMA.
+            \item[ZONE\_DNA\_32] Es análoga a la anterior pero ls páginas solo son accesibles para
+            dispositivos de 32-bits.
+            \item[ZONE\_NORMAL] Esta zona contiene páginas normales y regularmente mapeadas.
+            \item[ZONE\_HIGHMEM] Esta zona contiene \textit{alta memoria}, que consiste en
+             aquellas páginas que son mapeadas con poca frecuencia.
+        \end{description}
+        
+    \pagebreak
+    
+    \subsection{Configuración de la página}
+        Se muestra la configuración de la página. Eliminarla en el documento final. 
+        Puede dar problemas con la cabecera y pie de página.
+        
+        \centering\layout
+    
 \end{document}
