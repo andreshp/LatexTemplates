@@ -1,0 +1,9 @@
+# Ignoring pdftex auxiliar files
+*.aux
+*.log
+*.backup
+*.out
+*.nav
+*.snm
+*.toc
+*.vrb
