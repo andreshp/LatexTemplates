@@ -101,4 +101,10 @@ Los siguientes comandos utilizados dentro del propio documento  cambian la etiqu
             \EndFunction
         \end{algorithmic}
     \end{algorithm}
-~~~  
+~~~
+
+## tikz
+
+## SageTEX
+
+Permite incluir código Sage (entorno de Python con un sistema algebraico computacional) en el texto Latex de forma que al compilar aparezcan los resultados. Más información en la [web oficial](http://www.ctan.org/pkg/sagetex).
