@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Plantilla de Latex para trabajos de informática.
+% Plantilla de Latex para trabajos de Matemáticas.
 %
 % Autor: Andrés Herrera Poyatos (https://github.com/andreshp) 
 %         (https://www.researchgate.net/profile/Andres_Poyatos)
@@ -36,15 +36,13 @@
 % Paquetes para imágenes:
 \usepackage[usenames,dvipsnames]{color} % Permite crear colores propios. Utilizado para el bg de Minted.
 \usepackage{graphicx}                   % Utilizado para insertar gráficos.
-\usepackage{caption}                    % Títulos y leyendas para los gráficos.
-\usepackage{subcaption}                 % Subfiguras.
 \usepackage{layout}                     % Introduce una imagen con el diseño de la página. Quitar en el documento.
 
 % Paquetes para la insercción y el resaltado del código:
 \usepackage{minted}                     % Insercción y resaltado de código con Minted.
 
-% Paquetes para matemáticas:
-\usepackage{amsthm}                     % Teoremas y definiciones.
+% Paquetes para matemáticas:                     
+\usepackage{amsmath,amsthm,verbatim,amssymb,amsfonts,amscd} % Teoremas, fuentes y símbolos.
 
 % Paquetes para tablas:
 \usepackage{booktabs}
@@ -98,8 +96,19 @@
 %	ESTRUCTURA DEL DOCUMENTO
 %----------------------------------------------------------------------------------------
 
-\newtheorem{definition}{Definición}[section]  % Se crea la subsección "Definición". 
 \setcounter{secnumdepth}{2}                   % Se enumeran las secciones con profundidad 2.
+
+% Comandos para Matemáticas:
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}
+\newtheorem{corollary}{Corolario}
+\newtheorem{lemma}{Lema}
+\newtheorem{proposition}{Proposición}
+\newtheorem*{surfacecor}{Corolario 1}
+\newtheorem{conjecture}{Conjetura} 
+\newtheorem{question}{Cuestión} 
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[section]  % Se crea la subsección "Definición". 
 
 %----------------------------------------------------------------------------------------
 %	NUEVOS COMANDOS
