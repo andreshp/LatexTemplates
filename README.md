@@ -9,10 +9,9 @@ The templates are classified in terms of the language and the purpose.
 
 ## Templates in Spanish
 
-- **PlantillaTrabajosInformatica** : Permite insertar código con el paquete Minted. Adaptada al Español. Recomendada para trabajos de informática.
-- **PlantillaMatemáticas** : Plantilla orientada a la redacción de matemáticas en Español. Define los entornos necesarios para su cometido.
-- **PaquetesLatex** : Descripción de algunos paquetes de Latex. Muchos de ellos no se incluyen en las plantillas por simplicidad pero pueden ser de gran ayuda puntualmente.
-- **IntroRMarkdown** : Sencillo código R-markdown que sirve de introducción al funcionamiento del mismo.
+- **PlantillaBasica.** Plantilla que sirve de base para redactar el documento. Permite escoger entre diferentes estilos de portada.
+- **PaquetesLatex.** Descripción de algunos paquetes y utilidades de Latex. Puedes utilizarlos para aumentar la funcionalidad de la plantilla básica.
+- **IntroRMarkdown.** Sencillo código R-markdown que sirve de introducción al funcionamiento del mismo.
 
 ## Templates in English
 
