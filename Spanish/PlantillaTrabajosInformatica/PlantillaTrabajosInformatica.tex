@@ -147,104 +147,93 @@
 %	Sección 1: Listing y Minted
 %----------------------------------------------------------------------------------------
 
-\begin{section}{Primera Sección}
+\section{Primera Sección}
 
-\begin{definition}
-El paquete \textbf{Minted} permite insertar código en el texto de diferentes formas.
-Utiliza para ello \textbf{pygments}. Este se debe instalar por separado.
-\end{definition}
+	\begin{definition}
+	El paquete \textbf{Minted} permite insertar código en el texto de diferentes formas.
+	Utiliza para ello \textbf{pygments}. Este se debe instalar por separado.
+	\end{definition}
 
-\begin{subsection}{Listing con Minted}
+	\subsection{Listing con Minted}
 
-\lipsum[1]
+		\lipsum[1]
+		
+		Puedo referenciar el Código \ref{listing:page}! 
+		
+		\begin{listing}
+		\caption{Estructura que representa una Página en Linux}
+		\begin{minted}[bgcolor=bg]{c}
+		#include <linux/mm_types.h>
+		
+		struct page {
+		   unsigned long flags;
+		   atomic_t _count;
+		   atomic_t _mapcount;
+		   unsigned long private;
+		   struct address_space *mapping;
+		   pgoff_t index;
+		   struct list_head lru;
+		   void *virtual;
+		}
+		\end{minted}
+		\label{listing:page}
+		\end{listing}
 
-Puedo referenciar el Código \ref{listing:page}! 
+		\lipsum[2]
 
-\begin{listing}
-\caption{Estructura que representa una Página en Linux}
-\begin{minted}[bgcolor=bg]{c}
-#include <linux/mm_types.h>
 
-struct page {
-   unsigned long flags;
-   atomic_t _count;
-   atomic_t _mapcount;
-   unsigned long private;
-   struct address_space *mapping;
-   pgoff_t index;
-   struct list_head lru;
-   void *virtual;
-}
-\end{minted}
-\label{listing:page}
-\end{listing}
+	\subsection{Minted en línea}
 
-\lipsum[2]
+		\lipsum[3]
+		
+		\mint[bgcolor=bg]{c}|struct page * alloc_pages(gfp_t gfp_mask, unsigned int order)|
+		
+		\lipsum[4]
 
-\end{subsection}
-
-\begin{subsection}{Minted en línea}
-
-\lipsum[3]
-
-\mint[bgcolor=bg]{c}|struct page * alloc_pages(gfp_t gfp_mask, unsigned int order)|
-
-\lipsum[4]
-
-\end{subsection}
-
-\end{section}
 
 %----------------------------------------------------------------------------------------
 %	Sección 2: Minted en línea
 %----------------------------------------------------------------------------------------
-\begin{section}{Segunda Sección}
 
-\begin{subsection}{Tablas}
+\section{Segunda Sección}
 
-\lipsum[5]
+	\subsection{Tablas}
 
-\begin{table}[ht]
-\caption{Zonas de Memoria en la arquitectura x86-32}
-\kern 1mm                                  % Separa caption de la tabla
-\centering \begin{tabular}{@{}llc@{}}
-\toprule
-\multicolumn{2}{c}{Info}                                            \\
-\cmidrule(r){1-2}
-\textbf{Zona} & \textbf{Descripción}   & \textbf{Memoria Física}    \\ 
-\midrule
-ZONE\_DMA     & Soporta DMA            & \textless \ 16MB           \\ 
-ZONE\_NORMAL  & Páginas normales       & 16–896MB                   \\
-ZONE\_HIGHMEM & Alta memoria           & \textgreater \ 896MB       \\ 
-\bottomrule
-\end{tabular}
-\label{table:memoria-x86-32}
-\end{table}
+		\lipsum[5]
 
-\end{subsection}
+		\begin{table}[ht]
+		\caption{Zonas de Memoria en la arquitectura x86-32}
+		\kern 1mm                                  % Separa caption de la tabla
+		\centering \begin{tabular}{@{}llc@{}}
+		\toprule
+		\multicolumn{2}{c}{Info}                                            \\
+		\cmidrule(r){1-2}
+		\textbf{Zona} & \textbf{Descripción}   & \textbf{Memoria Física}    \\ 
+		\midrule
+		ZONE\_DMA     & Soporta DMA            & \textless \ 16MB           \\ 
+		ZONE\_NORMAL  & Páginas normales       & 16–896MB                   \\
+		ZONE\_HIGHMEM & Alta memoria           & \textgreater \ 896MB       \\ 
+		\bottomrule
+		\end{tabular}
+		\label{table:memoria-x86-32}
+		\end{table}
 
-\begin{subsection}{Descripción}
+\subsection{Descripción}
 
-\begin{description}
-\item[ZONE\_DNA] Contiene páginas que soportan la entrada y salida de datos mediante DMA.
-\item[ZONE\_DNA\_32] Es análoga a la anterior pero ls páginas solo son accesibles para
-dispositivos de 32-bits.
-\item[ZONE\_NORMAL] Esta zona contiene páginas normales y regularmente mapeadas.
-\item[ZONE\_HIGHMEM] Esta zona contiene \textit{alta memoria}, que consiste en
- aquellas páginas que son mapeadas con poca frecuencia.
-\end{description}
+	\begin{description}
+		\item[ZONE\_DNA] Contiene páginas que soportan la entrada y salida de datos mediante DMA.
+		\item[ZONE\_DNA\_32] Es análoga a la anterior pero ls páginas solo son accesibles para dispositivos de 32-bits.
+		\item[ZONE\_NORMAL] Esta zona contiene páginas normales y regularmente mapeadas.
+		\item[ZONE\_HIGHMEM] Esta zona contiene \textit{alta memoria}, que consiste en aquellas páginas que son mapeadas con poca frecuencia.
+	\end{description}
 
-\end{subsection}
+	\pagebreak
 
-\pagebreak
+	\subsection{Configuración de la página}
 
-\begin{subsection}{Configuración de la página}
-Se muestra la configuración de la página. Eliminarla en el documento final. 
-Puede dar problemas con la cabecera y pie de página.
+		Se muestra la configuración de la página. Eliminarla en el documento final. Puede dar problemas con la cabecera y pie de página.
 
-\centering\layout
-\end{subsection}
+		\centering\layout
 
-\end{section}
 
 \end{document}

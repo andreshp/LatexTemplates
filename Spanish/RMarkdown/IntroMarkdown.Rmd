@@ -1,15 +1,16 @@
 ---
 title: "Sencilla Introducción a R-Markdown"
 author: "Andrés Herrera Poyatos"
-date: "11/10/2014"
-header-includes:
-   - \usepackage{graphicx}
+date: "`r format(Sys.time(), '%d de %B de %Y')`"
 output:
-  pdf_document:
-    highlight: zenburn
-    includes:
-        in_header:
-            mystyles.sty
+   pdf_document:
+     highlight: zenburn
+     number_sections: yes
+     toc: yes
+     fig_caption: yes
+     includes:
+         in_header:
+             mystyles.sty
 ---
 
 # Título en markdown 1 #
@@ -29,7 +30,7 @@ output:
 
 Esto es texto normal. Para crear un salto de línea en el mismo parráfo  
 dejar dos blancos al final. Si no se ponen salen las líneas seguidas. Los retorno de carro
-en el .Rmd no tienen nada que ver con el resultado final. Para obtener un punto y a parte 
+en el .Rmd no tienen nada que ver con el resultado final. Para obtener un punto y a parte
 dejamos una línea en blanco.
 
 Salto.
