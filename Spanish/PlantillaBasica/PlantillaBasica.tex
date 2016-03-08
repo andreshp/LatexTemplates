@@ -66,15 +66,15 @@
 % Texto de la cabecera:
 \lhead{\docauthor}                          % Parte izquierda.
 \chead{}                                    % Centro.
-\rhead{\subject \ - \doctitle}                % Parte derecha.
+\rhead{\subject \ - \doctitle}              % Parte derecha.
 
-% Pie de página del documento:
-\renewcommand\footrule{                                 % Se ajusta la línea del pie de página.
-\begin{minipage}{1\textwidth}                           % Elija una de las siguientes líneas:
-%    \hrule width \hsize height 2pt \kern 1mm \hrule width \hsize   
+% Pie de página del documento. Se ajusta la línea del pie de página.
+\renewcommand\footrule{                                 
+\begin{minipage}{1\textwidth}
     \hrule width \hsize   
 \end{minipage}\par
 }
+
 \lfoot{}                                                 % Parte izquierda.
 \cfoot{}                                                 % Centro.
 \rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Parte derecha.
@@ -99,7 +99,7 @@
 % Subtítulo.
 \newcommand{\docsubtitle}{Un subtítulo}
 % Fecha.
-\newcommand{\fecha}{1 \ de \ Enero \ de \ 2015}
+\newcommand{\docdate}{1 \ de \ Enero \ de \ 2015}
 % Asignatura.
 \newcommand{\subject}{Latex}
 % Autor.
@@ -107,6 +107,14 @@
 \newcommand{\docaddress}{Universidad de Granada}
 \newcommand{\docemail}{andreshp9@gmail.com}
 
+%-----------------------------------------------------------------------------------------------------
+%	RESUMEN
+%-----------------------------------------------------------------------------------------------------
+
+% Resumen del documento. Va en la portada.
+% Puedes también dejarlo vacío, en cuyo caso no aparece en la portada.
+%\newcommand{\docabstract}{}
+\newcommand{\docabstract}{En este texto puedes incluir un resumen del documento. Este informa al lector sobre el contenido del texto, indicando el objetivo del mismo y qué se puede aprender de él.}
 
 \begin{document}
 
@@ -135,6 +143,7 @@
 		\item En la sección TÍTULO, AUTOR Y OTROS DATOS DEL DOCUMENTO puedes introducir estos datos de manera sencilla para que se utilicen en a lo largo del documento.
 		\item En la sección ÍNDICE puedes seleccionar su profundidad.
 		\item Puedes elegir diversos formatos para la portada. Estos se encuentran implementados en los archivos \texttt{title*.sty} que se encuentran junto a esta plantilla en el repositorio. No olvides situar el archivo que desees utilizar junto con el \texttt{.tex} del documento. Por último, selecciónalo mediante \texttt{usepackage} dentro de la sección PORTADA.
+		\item En la sección RESUMEN puedes escribir un resumen del documento. En tal caso, este aparecerá en la portada. Si dejas vacío el resumen, entonces la portada cambiará levemente y no lo incluirá.
 	\end{itemize}
 
 	He intentado mantener esta plantilla lo más sencilla posible para facilitar su uso. Si necesitas mayor funcionalidad puedes encontrarla en el repositorio de GitHub (https://github.com/andreshp/LatexTemplates). 

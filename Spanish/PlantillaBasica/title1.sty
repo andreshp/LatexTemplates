@@ -12,9 +12,9 @@
 \ProvidesPackage{title1}[2016]
 
 % Paquetes que requiere el título.
-\usepackage{tikz}
-\usepackage{epigraph}
 \usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{tikz}
 
 % Color para el dibujo.
 \definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
@@ -23,6 +23,44 @@
 \DeclareFixedFont{\subjectfont}{\encodingdefault}{ppl}{b}{it}{0.5in}
 \DeclareFixedFont{\titlefont}{\encodingdefault}{ppl}{b}{it}{0.5in}
 \DeclareFixedFont{\subtitlefont}{\encodingdefault}{ppl}{b}{it}{0.3in}
+
+% Comando para mostrar el autor y su información asociada.
+\newcommand{\titlepageauthor}{
+	\begin{flushright}
+		\begin{minipage}{0.4\linewidth}
+			\Large\textbf{\docauthor} \\
+			\centering \large\docaddress \\
+			\centering \large{\color{titlepagecolor}\docemail} \\
+		\end{minipage}
+		\begin{minipage}{0.02\linewidth}
+			\rule{1pt}{125pt}
+		\end{minipage}
+	\end{flushright}
+}
+
+% Comando para mostrar el resumen y el autor.
+\newcommand{\titlepageabstractauthor}{
+	\begin{minipage}{0.5\linewidth}
+		\begin{abstract} 
+			\docabstract
+		\end{abstract}
+	\end{minipage}
+	\begin{minipage}{0.02\linewidth}
+		\rule{1pt}{125pt}
+	\end{minipage}\hspace{0.5cm}
+	\begin{minipage}{0.4\linewidth}
+		\Large\textbf{\docauthor} \\
+		\centering \large\docaddress \\
+		\centering \large{\color{titlepagecolor}\docemail} \\
+	\end{minipage}
+}
+
+
+% Comando para presentar el resumen y el autor en función de si el primero está vacío o no.
+\newcommand{\titlepagebottom}{
+	\ifthenelse{\equal{\docabstract}{}}{\titlepageauthor}{\titlepageabstractauthor}
+}
+
 
 % El siguiente código ha sido tomado de:
 % http://tex.stackexchange.com/a/86310/10898
@@ -87,16 +125,7 @@
 		%\normalsize\vspace{0.1in}\small{\fecha} 
 		
 		% Autor
-		\begin{flushright}
-			\begin{minipage}{0.4\linewidth}
-					\Large\textbf{\docauthor} \\
-					\centering \large\docaddress \\
-					\centering \large{\color{titlepagecolor}\docemail} \\
-			\end{minipage}
-			\begin{minipage}{0.02\linewidth}
-				\rule{1pt}{125pt}
-			\end{minipage}
-		\end{flushright}
+		\titlepagebottom
 
 		% Decoración
 		\titlepagedecoration
