@@ -4,9 +4,9 @@ Información sobre el paquete Minted. Se indica cómo utilizarlo junto a la plan
 
 ## Introducción
 
-Este paquete necesita una instalación previa. Para más información
-ver: <http://www.ctan.org/tex-archive/macros/latex/contrib/minted>
+Aunque el paquete viene con `texlive-full`, si has utlizado otra distribución puede que el paquete requiera una instalación previa. Para más información ver:
 
+<http://www.ctan.org/tex-archive/macros/latex/contrib/minted>
 
 ## ¿Qué incluir en la plantilla?
 
