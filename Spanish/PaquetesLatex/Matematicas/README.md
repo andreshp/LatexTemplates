@@ -2,11 +2,15 @@
 
 Utilidades y paquetes necesarios para redactar matemáticas en Latex.
 
+## Plantilla
+
+En este directorio puedes encontrar la plantilla básica adaptada para escribir matemáticas junto con algunos ejemplos. En la siguiente sección explico qué paquetes y códigos se necesitan.
+
 ## Paquetes a introducir
 
 Yo normalmente introduzco los siguientes paquetes en la plantilla.
 
-~~~
+~~~Tex
 %----------------------------------------------------------------------------------------
 %	MATEMÁTICAS
 %----------------------------------------------------------------------------------------

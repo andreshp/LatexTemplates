@@ -1,121 +1,123 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Plantilla de Latex para trabajos de Matemáticas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla básica de Latex en Español.
 %
 % Autor: Andrés Herrera Poyatos (https://github.com/andreshp) 
 %
+% Es una plantilla básica para redactar documentos. Utiliza el paquete fancyhdr para darle un
+% estilo moderno pero serio.
+%
 % La plantilla se encuentra adaptada al español.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
-%	PAQUETES Y OTRAS CONFIGURACIONES DEL DOCUMENTO
-%----------------------------------------------------------------------------------------
-
-\RequirePackage[l2tabu, orthodox]{nag}  % Produce un warnig en caso de usar un comando obsoleto.
+%-----------------------------------------------------------------------------------------------------
+%	INCLUSIÓN DE PAQUETES BÁSICOS
+%-----------------------------------------------------------------------------------------------------
 
 \documentclass{article}
 
-% Paquetes para el diseño de página:
-\usepackage{fancyhdr}                   % Utilizado para hacer títulos propios.
-\usepackage{lastpage}                   % Referencia a la última página. Utilizado para el pie de página.
-\usepackage{extramarks}                 % Marcas extras. Utilizado en pie de página y cabecera.
-\usepackage[parfill]{parskip}           % Crea una nueva línea entre párrafos.
-\usepackage[margin=3cm]{geometry}       % Asigna la "geometría" de las páginas.
 \usepackage{lipsum}                     % Texto dummy. Quitar en el documento final.
 
-% Fuente utilizada. Elija uno de ellos:
-\usepackage{courier}                    % Fuente Courier.
-%\usepackage{fourier}                   % Fuente Adobe Utopia.
-\usepackage{microtype}                  % Mejora la letra final de cara al lector.
-
-% Paquetes para imágenes:
-\usepackage[usenames,dvipsnames]{color} % Permite crear colores propios. Utilizado para el bg de Minted.
-\usepackage{graphicx}                   % Utilizado para insertar gráficos.
-\usepackage{layout}                     % Introduce una imagen con el diseño de la página. Quitar en el documento.
-
-% Paquetes para matemáticas:                     
-\usepackage{amsmath,amsthm,verbatim,amssymb,amsfonts,amscd} % Teoremas, fuentes y símbolos.
-
-% Paquetes para tablas:
-\usepackage{booktabs}
+%-----------------------------------------------------------------------------------------------------
+%	SELECCIÓN DEL LENGUAJE
+%-----------------------------------------------------------------------------------------------------
 
 % Paquetes para adaptar Látex al Español:
 \usepackage[spanish,es-noquoting, es-tabla, es-lcroman]{babel} % Cambia 
 \usepackage[utf8]{inputenc}                                    % Permite los acentos.
 \selectlanguage{spanish}                                       % Selecciono como lenguaje el Español.
 
-% Estilo de página:
-\pagestyle{fancy}                      % fancy
-\fancyhf{}                             % Limpia la cabecera y el pie de página.
+%-----------------------------------------------------------------------------------------------------
+%	SELECCIÓN DE LA FUENTE
+%-----------------------------------------------------------------------------------------------------
+
+% Fuente utilizada.
+\usepackage{courier}                    % Fuente Courier.
+\usepackage{microtype}                  % Mejora la letra final de cara al lector.
+
+%-----------------------------------------------------------------------------------------------------
+%	ESTILO DE PÁGINA
+%-----------------------------------------------------------------------------------------------------
+
+% Paquetes para el diseño de página:
+\usepackage{fancyhdr}               % Utilizado para hacer títulos propios.
+\usepackage{lastpage}               % Referencia a la última página. Utilizado para el pie de página.
+\usepackage{extramarks}             % Marcas extras. Utilizado en pie de página y cabecera.
+\usepackage[parfill]{parskip}       % Crea una nueva línea entre párrafos.
+\usepackage{geometry}               % Asigna la "geometría" de las páginas.
+
+% Se elige el estilo fancy y márgenes de 3 centímetros.
+\pagestyle{fancy}
 \geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,headheight=1cm,headsep=0.5cm} % Márgenes y cabecera.
+% Se limpia la cabecera y el pie de página para poder rehacerlos luego.
+\fancyhf{}
 
 % Espacios en el documento:
 \linespread{1.1}                        % Espacio entre líneas.
 \setlength\parindent{0pt}               % Selecciona la indentación para cada inicio de párrafo.
 
-% Cabecera del documento:
-\renewcommand\headrule{                 % Se ajusta la línea de la cabecera.
-\begin{minipage}{1\textwidth}           % Elija una de las siguientes líneas:
-%    \hrule width \hsize \kern 1mm \hrule width \hsize height 2pt 
-    \hrule width \hsize 
-\end{minipage}
+% Cabecera del documento. Se ajusta la línea de la cabecera.
+\renewcommand\headrule{
+	\begin{minipage}{1\textwidth}
+		\hrule width \hsize 
+	\end{minipage}
 }
-\lhead{\autor}                          % Parte izquierda.
-\chead{}                                % Centro.
-\rhead{\titulo}                         % Parte derecha.
 
-% Pie de página del documento:
-\renewcommand\footrule{                                 % Se ajusta la línea del pie de página.
-\begin{minipage}{1\textwidth}                           % Elija una de las siguientes líneas:
-%    \hrule width \hsize height 2pt \kern 1mm \hrule width \hsize   
-    \hrule width \hsize   
-\end{minipage}\par
+% Texto de la cabecera:
+\lhead{\docauthor}                          % Parte izquierda.
+\chead{}                                    % Centro.
+\rhead{\subject \ - \doctitle}              % Parte derecha.
+
+% Pie de página del documento. Se ajusta la línea del pie de página.
+\renewcommand\footrule{                                 
+	\begin{minipage}{1\textwidth}
+		\hrule width \hsize   
+	\end{minipage}\par
 }
+
 \lfoot{}                                                 % Parte izquierda.
 \cfoot{}                                                 % Centro.
 \rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Parte derecha.
 
 %----------------------------------------------------------------------------------------
-%	ESTRUCTURA DEL DOCUMENTO
-%----------------------------------------------------------------------------------------
-
-\setcounter{secnumdepth}{2}                   % Se enumeran las secciones con profundidad 2.
-
-%----------------------------------------------------------------------------------------
 %	MATEMÁTICAS
 %----------------------------------------------------------------------------------------
 
+% Paquetes para matemáticas:                     
+\usepackage{amsmath, amsthm, amssymb, amsfonts, amscd} % Teoremas, fuentes y símbolos.
+
 % Nuevo estilo para definiciones
 \newtheoremstyle{definition-style} % Nombre del estilo
-  {5pt}                % Espacio por encima
-  {0pt}                % Espacio por debajo
-  {}                   % Fuente del cuerpo
-  {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
-  {\bf}                % Fuente para la cabecera
-  {.}                  % Puntuación tras la cabecera
-  {.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
-  {}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+{5pt}                % Espacio por encima
+{0pt}                % Espacio por debajo
+{}                   % Fuente del cuerpo
+{}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+{\bf}                % Fuente para la cabecera
+{.}                  % Puntuación tras la cabecera
+{.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+{}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
 
 % Nuevo estilo para teoremas
 \newtheoremstyle{theorem-style} % Nombre del estilo
-  {5pt}                % Espacio por encima
-  {0pt}                % Espacio por debajo
-  {\itshape}                   % Fuente del cuerpo
-  {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
-  {\bf}                % Fuente para la cabecera
-  {.}                  % Puntuación tras la cabecera
-  {.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
-  {}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+{5pt}                % Espacio por encima
+{0pt}                % Espacio por debajo
+{\itshape}           % Fuente del cuerpo
+{}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+{\bf}                % Fuente para la cabecera
+{.}                  % Puntuación tras la cabecera
+{.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+{}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
 
 % Nuevo estilo para ejemplos y ejercicios
 \newtheoremstyle{example-style} % Nombre del estilo
-  {5pt}                % Espacio por encima
-  {0pt}                % Espacio por debajo
-  {}                   % Fuente del cuerpo
-  {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
-  {\scshape}                % Fuente para la cabecera
-  {:}                  % Puntuación tras la cabecera
-  {.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
-  {}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+{5pt}                % Espacio por encima
+{0pt}                % Espacio por debajo
+{}                   % Fuente del cuerpo
+{}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+{\scshape}                % Fuente para la cabecera
+{:}                  % Puntuación tras la cabecera
+{.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+{}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
 
 % Teoremas:
 \theoremstyle{theorem-style}  % Otras posibilidades: plain (por defecto), definition, remark
@@ -123,49 +125,61 @@
 \newtheorem{corollary}[theorem]{Corolario} % [theorem] indica que comparte el contador con theorem
 \newtheorem{lemma}[theorem]{Lema}
 \newtheorem{proposition}[theorem]{Proposición}
+
 % Definiciones, notas, conjeturas
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}[section]
-\newtheorem{conjecture}{Conjetura}[section] 
+\newtheorem{conjecture}{Conjetura}[section]
 \newtheorem*{note}{Nota} % * indica que no tiene contador
+
 % Ejemplos, ejercicios
 \theoremstyle{example-style}
 \newtheorem{example}{Ejemplo}[section]
 \newtheorem{exercise}{Ejercicio}[section]
 
-%----------------------------------------------------------------------------------------
-%	INFORMACIÓN DEL AUTOR Y DOCUMENTO
-%----------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------
+%	PORTADA
+%-----------------------------------------------------------------------------------------------------
 
-% Portada:
-\newcommand{\titulo}{Plantilla Matemáticas}                             % Título del trabajo.
-\newcommand{\fecha}{1 \ de \ Enero \ de \ 2015}                         % Fecha.
-\newcommand{\asignatura}{Latex}                                         % Asignatura.
-\newcommand{\autor}{Andrés Herrera Poyatos}                             % Autor.
+% Elija uno de los siguientes formatos.
+% No olvide incluir los archivos .sty asociados en el directorio del documento.
+%\usepackage{title1}
+\usepackage{title2}
+%\usepackage{title3}
 
-%----------------------------------------------------------------------------------------
-%	PORTADA 
-%----------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------
+%	TÍTULO, AUTOR Y OTROS DATOS DEL DOCUMENTO
+%-----------------------------------------------------------------------------------------------------
 
-\title{                                             % Título
-    \vspace{2in}
-    \textmd{\textbf{\asignatura \\ \titulo}} \\         % - Nombre del trabajo
-    \normalsize\vspace{0.1in}\small{\fecha}  \\         % - Fecha (Arriba) 
-    \vspace{3in}
-}
+% Título del documento.
+\newcommand{\doctitle}{Matemáticas en \LaTeX}
+% Subtítulo.
+\newcommand{\docsubtitle}{Un subtítulo}
+% Fecha.
+\newcommand{\docdate}{1 \ de \ Enero \ de \ 2015}
+% Asignatura.
+\newcommand{\subject}{\LaTeX}
+% Autor.
+\newcommand{\docauthor}{Andrés Herrera Poyatos}
+\newcommand{\docaddress}{Universidad de Granada}
+\newcommand{\docemail}{andreshp9@gmail.com}
 
-\author{\textbf{\autor}}                            % Autor
-\date{}                                             % Fecha. Elija entre esta y la del título.
+%-----------------------------------------------------------------------------------------------------
+%	RESUMEN
+%-------------------------------					----------------------------------------------------------------------
 
-%----------------------------------------------------------------------------------------
+% Resumen del documento. Va en la portada.
+% Puedes también dejarlo vacío, en cuyo caso no aparece en la portada.
+%\newcommand{\docabstract}{}
+\newcommand{\docabstract}{En este texto puedes incluir un resumen del documento. Este informa al lector sobre el contenido del texto, indicando el objetivo del mismo y qué se puede aprender de él.}
 
 \begin{document}
-
+	
 \maketitle
 
-%----------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------
 %	ÍNDICE
-%----------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------
 
 % Profundidad del Índice:
 %\setcounter{tocdepth}{1}
@@ -173,7 +187,7 @@
 \newpage
 \tableofcontents
 \newpage
-
+	
 %----------------------------------------------------------------------------------------
 %	Sección 1: Deficiones y teoremas
 %----------------------------------------------------------------------------------------
@@ -227,52 +241,5 @@
                 \sum^n_{i=0} a^i = \frac{a^{n+1}-1}{a-1}
             \end{equation}        
         \end{exercise}
-    
-
-%----------------------------------------------------------------------------------------
-%	Sección 2: Otros ejemplos
-%----------------------------------------------------------------------------------------
-\section{Otros Ejemplos}
-
-    \subsection{Tablas}
-    
-        \lipsum[1]
-        
-        \begin{table}[ht]
-            \caption{Zonas de Memoria en la arquitectura x86-32}
-            \kern 1mm                                  % Separa caption de la tabla
-            \centering 
-            \begin{tabular}{@{}llc@{}}
-                \toprule
-                \multicolumn{2}{c}{Info}                                            \\
-                \cmidrule(r){1-2}
-                \textbf{Zona} & \textbf{Descripción}   & \textbf{Memoria Física}    \\ 
-                \midrule
-                ZONE\_DMA     & Soporta DMA            & \textless \ 16MB           \\ 
-                ZONE\_NORMAL  & Páginas normales       & 16–896MB                   \\
-                ZONE\_HIGHMEM & Alta memoria           & \textgreater \ 896MB       \\ 
-                \bottomrule
-            \end{tabular}
-            \label{table:memoria-x86-32}
-        \end{table}
-    
-    \subsection{Descripción}
-    
-        \begin{description}
-            \item[ZONE\_DNA] Contiene páginas que soportan la entrada y salida de datos mediante DMA.
-            \item[ZONE\_DNA\_32] Es análoga a la anterior pero ls páginas solo son accesibles para
-            dispositivos de 32-bits.
-            \item[ZONE\_NORMAL] Esta zona contiene páginas normales y regularmente mapeadas.
-            \item[ZONE\_HIGHMEM] Esta zona contiene \textit{alta memoria}, que consiste en
-             aquellas páginas que son mapeadas con poca frecuencia.
-        \end{description}
-        
-    \pagebreak
-    
-    \subsection{Configuración de la página}
-        Se muestra la configuración de la página. Eliminarla en el documento final. 
-        Puede dar problemas con la cabecera y pie de página.
-        
-        \centering\layout
     
 \end{document}
