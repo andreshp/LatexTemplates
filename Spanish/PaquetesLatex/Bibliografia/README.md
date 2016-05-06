@@ -1,6 +1,6 @@
 # Bibliografía en LaTeX
 
-Existen varias formas de introducir bibliografía en Latex. Personalmente, prefiero mantener la bibliografía separada el .tex. Para ello hay que utilizar un archivo .bib en el que se incluyen las referencias con la información correspondiente. En esta carpeta tenéis un ejemplo en [references.bib]().
+Existen varias formas de introducir bibliografía en Latex. Personalmente, prefiero mantener la bibliografía separada el .tex. Para ello hay que utilizar un archivo .bib en el que se incluyen las referencias con la información correspondiente. En esta carpeta tenéis un ejemplo en [references.bib](https://github.com/andreshp/LatexTemplates/blob/master/Spanish/PaquetesLatex/Bibliografia/references.bib).
 
 Introducir la bibliografía en el pdf es muy sencillo. Simplemente necesitas incluir varios paquetes e indicar cuál es tu fichero .bib:
 
@@ -41,4 +41,4 @@ En el archivo .bib tienes que incluir estructuras como la que sigue:
 }
 ~~~
 
-@article indica que la referencia se corresponde con un artículo. La primera palabra es el nombre que se le da a la referencia. Se utiliza para citarla durante el texto con el comando `\cite{map-reduce}`. 
+@article indica que la referencia se corresponde con un artículo. La primera palabra es el nombre que se le da a la referencia. Se utiliza para citarla durante el texto con el comando `\cite{map-reduce}`. El resto de entradas conforman la información de la referencia.
