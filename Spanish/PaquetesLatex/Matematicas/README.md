@@ -73,7 +73,7 @@ Estos paquetes se explican a continuación.
 \newtheorem{proposition}[theorem]{Proposición}
 
 % Definiciones, notas, conjeturas
-\theoremstyle{definition}
+\theoremstyle{definition-style}
 \newtheorem{definition}{Definición}[section]
 \newtheorem{conjecture}{Conjetura}[section]
 \newtheorem*{note}{Nota} % * indica que no tiene contador
