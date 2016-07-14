@@ -70,13 +70,13 @@ Hemos definido un tipo columna alineada a la izquierda (`L`), columna centrada (
 El valor dado entre {} tras el tipo de la columna indica la anchura de esta. Es mejor utilizar anchuras relativas, multiplicando \textwidth por un valor real entre 0 y 1. De esta forma obtenemos la siguiente tabla:
 
 ~~~tex
-    \begin{tabular}{|L{0.25\textwidth}|L{0.25\textwidth}|}
-        \hline
-        Ciudad & Código Postal \\
-        \hline
-        La Zubia & 18140 \\
-        \hline
-    \end{tabular}
-    ~~~
+\begin{tabular}{|L{0.25\textwidth}|L{0.25\textwidth}|}
+    \hline
+    Ciudad & Código Postal \\
+    \hline
+    La Zubia & 18140 \\
+    \hline
+\end{tabular}
+~~~
 
 Si en una celta el texto sobrepasa la anchura asignada, entonces se introduce una nueva línea en la celda de forma automática. Por tanto, este método para crear tablas es mucho más cómo y permite una mayor configuración.
