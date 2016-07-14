@@ -69,7 +69,7 @@ Hemos definido un tipo columna alineada a la izquierda (`L`), columna centrada (
 
 El valor dado entre {} tras el tipo de la columna indica la anchura de esta. Es mejor utilizar anchuras relativas, multiplicando \textwidth por un valor real entre 0 y 1. De esta forma obtenemos la siguiente tabla:
 
-    ~~~tex
+~~~tex
     \begin{tabular}{|L{0.25\textwidth}|L{0.25\textwidth}|}
         \hline
         Ciudad & Código Postal \\
