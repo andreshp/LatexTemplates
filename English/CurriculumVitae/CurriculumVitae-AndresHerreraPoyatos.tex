@@ -38,17 +38,26 @@
 \moderncvstyle{casual} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
 \moderncvcolor{blue} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
 
-%\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
-
 % Allow spanish accents
 \usepackage[utf8]{inputenc}
-
-% Tables
-\usepackage{booktabs}
 
 \usepackage[scale=0.75]{geometry} % Reduce document margins
 %\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
 %\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+%-----------------------------------------------------------------------------------------------------
+% TABLES
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{float}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 %----------------------------------------------------------------------------------------
 %	NAME AND CONTACT INFORMATION SECTION
@@ -60,8 +69,8 @@
 % All information in this block is optional, comment out any lines you don't need
 \title{Curriculum Vitae}
 \address{La Zubia}{Granada, Spain}
-\mobile{680 44 16 06}
-\phone{958 59 07 85 }
+\mobile{+34 680 44 16 06}
+\phone{+34 958 59 07 85 }
 %\fax{(000) 111 1113}
 \email{andreshp9@gmail.com}
 \homepage{github.com/andreshp}{github.com/andreshp} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
@@ -76,89 +85,109 @@
 \makecvtitle % Print the CV title
 
 %----------------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%----------------------------------------------------------------------------------------
+
+\section{Personal Information}
+
+	\begin{itemize}
+		\item \textbf{Fist name:} Andrés
+		\item \textbf{Last name:} Herrera Poyatos
+		\item \textbf{Date of birth:} August 9th, 1995
+		\item \textbf{Address: } Nº 48 La Yedra Street, La Zubia, Granada, 18140, Spain
+		\item \textbf{Email: } \texttt{andreshp9@gmail.com}
+		\item \textbf{Mobile number:} +34 680 44 16 06
+	\end{itemize}
+
+%----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
 %----------------------------------------------------------------------------------------
 
 \section{Education}
 
-\cventry{2009-2013}{\href{http://thales.cica.es/estalmat/}{Estalmat}}{SAEM Thales}{University of Granada}{Granada, Spain}{A project to detect and stimulate the precocious mathematical talent.}
+	\cventry{2009-2013}{\href{http://thales.cica.es/estalmat/}{Estalmat}}{SAEM Thales}{University of Granada}{Granada, Spain}{A project to detect and stimulate the precocious mathematical talent.}
+	
+	\cventry{2011-2013}{High School}{IES Trevenque}{La Zubia, Granada, Spain}{}{
+		\begin{itemize}
+			\item Cum Laude at High School. 
+			\item Access to university grade -- 13.63 / 14 (13.63 out of 14).
+		\end{itemize}
+	}
+	
+	\cventry{2013-Present}{Double Degree in Computer Science and Mathematics}{University of Granada}{Granada, Spain}{}{
+		The double degree lasts 5 years and contains 72 ECTS credits per year.
+		The following table summarizes my university grades (each subject's grade is presented in the appendix).
+		\begin{center}
+			\begin{tabular}{|C{0.25\textwidth}|C{0.2\textwidth}|C{0.2\textwidth}|C{0.2\textwidth}|}
+				\hline
+				\textbf{Degree}  & \textbf{Number of taken subjects} & \textbf{Average grade} & \textbf{Number of Cum Laude grades} \\ 
+				\hline
+				Computer Science & 18                                & 9.411 / 10                & 13 \\
+				\hline
+				Mathematics      & 17                                & 9.835 / 10                & 14 \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\kern1mm
+	}
+	
+	\cventry{2014}{\href{http://blogs.unia.es/uniatv/archives/2571}{Practical data science and big data: Knime, R, Hadoop and Mahout tools}}{International University of Andalucía (UNIA)}{Baeza}{Grade 10 / 10}{} 
+	
+	\cventry{2015}{\href{https://www.coursera.org/account/accomplishments/records/AHz97RsSWEVHpqkY}{R Programming}}{Coursera}{Johns Hopkins University}{Average grade -- 100.0 \%}{Verified Statement with Distiction} 
+	
+	\cventry{2015}{\href{https://www.coursera.org/maestro/api/certificate/get_certificate?course_id=974416}{Algorithms: Design and Analysis, Part 1}}{Coursera}{Stanford University}{Average grade -- 98.0 \%. Statement of Accomplishment}{} 
 
-\cventry{2011-2013}{High School}{IES Trevenque}{La Zubia, Granada, Spain}{}{Academic average grade -- 9.84 / 10. Access to university grade -- 13.63 / 14}
-
-\cventry{2013-Now}{Double Degree in Computer Science and Mathematics}{University of Granada}{Granada, Spain}{}{Computer Science average grade -- 9.78 / 10. Mathematics average grade -- 9.93 / 10}
-
-\kern 2mm
-
-\centerline{\textbf{Computer Science Subjects Grades at University}}
-\centering \begin{tabular}{lcc}
-    \toprule
-    \textbf{Subject} & \textbf{ Grade } & \textbf{ Qualification}   \\ 
-    \midrule
-    Programming Fundaments                        & 10.0 & Cum Laude  \\ 
-    Software Fundaments                           & 9.6  & Cum Laude  \\
-    Physics and Technology Fundaments             & 10.0 & Cum Laude  \\ 
-    Logic and Discrete Methods                    & 10.0 & Cum Laude  \\
-    Programming Methodology                       & 10.0 & Cum Laude  \\
-    Computers Technology                          & 9.6  & Excelent   \\
-    Data Structures                               & 10.0 & Cum Laude  \\
-    Computers Estructure                          & 9,6  & Cum Laude  \\
-    Operating Systems                             & 9.2  & Excelent   \\
-    \bottomrule
-    \\
-\end{tabular}
-
-\centerline{\textbf{Mathematics Subjects Grades at University}}
-\centering \begin{tabular}{lcc}
-    \toprule
-    \textbf{Subject} & \textbf{ Grade } & \textbf{ Qualification}   \\ 
-    \midrule
-    Calculus I                              & 10.0 & Cum Laude  \\ 
-    Geometry I                              & 10.0 & Cum Laude  \\
-    Calculus II                             & 10.0 & Cum Laude  \\ 
-    Geometry II                             & 10.0 & Cum Laude  \\
-    Descriptive Statistics and Probability  & 9.8  & Cum Laude  \\
-    Numerical Methods I                     & 9.8  & Cum Laude  \\
-    Analysis I                              & 9.8  & Cum Laude  \\
-    Topology I                              & 10.0 & Cum Laude  \\
-    Algebra I                               & 10.0 & Cum Laude  \\
-    \bottomrule
-    \\
-\end{tabular}
-
-\kern 2mm
-
-\cventry{2014}{\href{http://blogs.unia.es/uniatv/archives/2571}{Aproximación práctica a la ciencia de datos y big data: herramientas Knime, R, Hadoop y Mahout (Practical data science and big data: Knime, R, Hadoop and Mahout tools.)}}{International University of Andalucía (UNIA)}{Baeza}{Grade 10/10}{} 
-
-\cventry{2015}{\href{https://www.coursera.org/maestro/api/certificate/get_certificate?course_id=973486}{The Data Scientist’s Toolbox}}{Coursera}{Johns Hopkins University}{Average grade -- 100.0 \%. Statement of Accomplishment with Distiction}{} 
-
-\cventry{2015}{\href{https://www.coursera.org/account/accomplishments/records/AHz97RsSWEVHpqkY}{R Programming}}{Coursera}{Johns Hopkins University}{Average grade -- 100.0 \%}{Verified Statement with Distiction} 
-
-\cventry{2015}{\href{https://www.coursera.org/maestro/api/certificate/get_certificate?course_id=974416}{Algorithms: Design and Analysis, Part 1}}{Coursera}{Stanford University}{Average grade -- 98.0 \%. Statement of Accomplishment}{} 
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS SECTION
+%----------------------------------------------------------------------------------------
 
 \section{Publications}
 
-\cvitem{Title}{\emph{Algoritmo Genético con Diversificación Voraz y
-Equilibrio entre Exploración y Explotación. (Genetic algorithm with greedy diversification and equilibrium between exploration and exploitation)}}
-\cvitem{Authors}{Andrés Herrera Poyatos \& Professor Francisco Herrera}
-\cvitem{Published}{2105 - Conference at  \textcolor{blue}{\textit{\href{http://www.eweb.unex.es/eweb/maeb2015/}{MAEB 2015}}}}
-\cvitem{Abstract}{Genetic algorithms may converge too fast if population diversity is not enough to keep an equilibrium between exploration and exploitation. In this work we propose an hybrid genetic algorithm which keeps the population diversity updating the population with new solutions obtained from an randomized greedy algorithm. It also achieves a good equilibrium between exploration and exploitation using parents and children competition and other specific components for the algorithm.}
+	{\large \textcolor{color1}{Conferences}}
+
+		\begin{itemize}
+			\item  Andrés Herrera-Poyatos, Francisco Herrera. \textit{Algoritmo Genético con Diversificación Voraz y Equilibrio entre Exploración y Explotación (Genetic Algorithm with Greedy Diversification and Equilibrium between Exploration and Exploitation)}. 10th Spanish Conference on Metaheuristics, Evolutionary and Bio-inspired Algorithms (\textcolor{color1}{\textit{\href{http://www.eweb.unex.es/eweb/maeb2015/}{MAEB 2015}}}), pp. 9--18, 2015.
+		\end{itemize}
+
+		\begin{itemize}
+			\item  Andrés Herrera-Poyatos, Francisco Herrera. \textit{Algoritmo Memético Equilibrado con Diversificación Voraz. (Memetic Algorithm with Diversity Equilibrium based on Greedy Diversification)}. 16th National Conference on Artificial Intelligence: 2nd Workshop on Metaheuristics and Evolutionary Algorithms (\textcolor{color1}{\textit{\href{http://simd.albacete.org/caepia15/conferencia/jaem2015/}{JAEM 2015}}}), 2015.
+		\end{itemize}
+
+		\begin{itemize}
+			\item Daniel Peralta, Andrés Herrera-Poyatos, Francisco Herrera. \textit{Un Estudio sobre el Preprocesamiento para Redes Neuronales Profundas y Aplicación sobre Reconocimiento de Dígitos Manuscritos. (A Study on Data Preprocessing for Deep Neuronal Network and its Application to Handwriting Digit Recognition)}. 17th National Conference on Artificial Intelligence (\textcolor{color1}{\textit{\href{http://www.congresocedi.es/es/caepia}{CAEPIA 2016}}}), 2016.
+		\end{itemize}
+
+	{\large \textcolor{color1}{Journals}}
+
+		\begin{itemize}
+			\item Andrés Herrera-Poyatos, Francisco Herrera. \textit{Genetic and Memetic Algorithm with Diversity Equilibrium based on Greedy Diversification}. Submitted to Information Sciences. Date of submission: March 25th, 2016.
+		\end{itemize}
+	
 
 %----------------------------------------------------------------------------------------
-%	AWARDS SECTION
+%	EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\section{Experience}
+
+
+	\cventry{\footnotesize September 2015 -- July 2016}{Research training contract on metaheuristics and software development}{Fundación General Universidad de Granada - Empresa}{}{}{Computational Intelligence techniques applied to the development of optimization algorithms for resource scheduling on bus and coach companies.}
+	
+%----------------------------------------------------------------------------------------
+%	AWARDS
 %----------------------------------------------------------------------------------------
 
 \section{Awards}
 
-\cvitem{2009}{Top 5 in XXV Thales Mathematics Olympiad - Granada. Classified for the regional phase.}
+\cvitem{2009}{Top 5 in XXV Thales Mathematics Olympiad - Granada (12 -- 13 years old). Classified for the regional phase in Andalucía.}
 \cvitem{2009}{Selected for ESTALMAT - Andalucía, a project to detect and stimulate the precocious mathematical talent.}
 \cvitem{2011}{2nd place - I Short Story Competition, "Al borde de lo inconcedible", Villa de la Zubia.}
 \cvitem{2012}{1st place - II Short Story Competition, "Al borde de lo inconcedible", Villa de la Zubia.}
-\cvitem{2013}{4th place - XIII Mathematics Olympiad "Guadalentín" - 16 to 17 years old.}
-\cvitem{2013}{4th place - XXIV Spanish Physics Olympiad - Local Phase in Granada.}
-\cvitem{2013}{1st place - XLIX Spanish Mathematics Olympiad - Local Phase in Granada.}
-\cvitem{2013}{Top 12 - XLIX Spanish Mathematics Olympiad - Regional Phase in Andalucía. Classified for the XLIX Spanish Mathematics Olympiad - National Phase representing Andalucía.}
-\cvitem{2013}{Honourable Mention - Best High School Academic Record in La Zubia, Granada, Spain.}
-\cvitem{2013}{Top 10 students with highest grades in Granada province - University Access Exam (PAU) (Grade: 13.63 / 14)}
+\cvitem{2013}{4th place - XXIV Spanish Physics Olympiad - Local Phase in Granada province.}
+\cvitem{2013}{1st place - XLIX Spanish Mathematics Olympiad - Local Phase in Granada province.}
+\cvitem{2013}{Top 12 - XLIX Spanish Mathematics Olympiad - Regional Phase in Andalucía. Classified for the XLIX Spanish Mathematics Olympiad - National Phase.}
+\cvitem{2013}{Honourable Mention to the Best High School Academic Record in La Zubia, Granada, Spain.}
+\cvitem{2013}{Award Top 10 students with highest grades in Granada province - University Access Exam (PAU) (Grade: 13.63 / 14)}
 
 %----------------------------------------------------------------------------------------
 %	LANGUAGES SECTION
@@ -167,24 +196,13 @@ Equilibrio entre Exploración y Explotación. (Genetic algorithm with greedy div
 \section{Languages}
 
 \cvitemwithcomment{Spanish}{Mothertongue}{}
-\cvitemwithcomment{English}{Certificate in Advanced English (CAE)}{}
-
-
-%----------------------------------------------------------------------------------------
-%	COMPUTER SKILLS SECTION
-%----------------------------------------------------------------------------------------
-
-\newpage
-
-\section{Programming Languages}
-
-\cvitem{Basic}{\textsc{Assembler}, \textsc{Octave}, \textsc{Maxima}, \textsc{Prolog}, \textsc{Haskell}}
-\cvitem{Intermediate}{\textsc{Scala}, \LaTeX, \textsc{Ruby}, \textsc{Java}}
-\cvitem{Advanced}{\textsc{Python}, \textsc{R}, \textsc{c++}, \textsc{c}, \textsc{Bash}}
+\cvitemwithcomment{English}{Cambridge English: Advanced (CAE)}{}
 
 %----------------------------------------------------------------------------------------
 %	INTERESTS SECTION
 %----------------------------------------------------------------------------------------
+
+\pagebreak
 
 \section{Interests}
 
@@ -193,13 +211,83 @@ Equilibrio entre Exploración y Explotación. (Genetic algorithm with greedy div
 \end{center}
 
 \renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
-\cvlistitem{Learning. \textcolor{blue}{\href{https://www.coursera.org/user/i/bfdaf7e4c4a969b9fba10803ab2fb2f0}{My Coursera Profile}}}
-\cvlistitem{Algorithms. \textcolor{blue}{\href{https://www.hackerrank.com/andreshp}{My Hackerrank Profile}}}
-\cvlistitem{Machine Learning. \textcolor{blue}{\href{https://www.kaggle.com/andreshp}{My Kaggle Profile}}}
-\cvlistitem{Heuristics. \textcolor{blue}{\href{https://github.com/andreshp/TSPSolver}{An Open Source Project}. \href{https://github.com/andreshp/GeneticAlgorithms}{Genetic Algorithms}}}
-\cvlistitem{Writing. Computer science and mathematics dissemination. \textcolor{blue}{\href{http://dgiim.github.io/blog/categories/}{A blog where I write}}}
 \cvlistitem{Mathematics.} 
-\cvlistitem{Solving real world problems applying mathematics and computer science theory.} 
+\cvlistitem{Writing. Mathematics and computer science dissemination. \textcolor{blue}{\href{http://tux.ugr.es/dgiimblog/}{A blog where I write}} (Double Degree in Mathematics and Computer Science's blog). I have written the following posts:
+	\begin{itemize}
+		\item Algoritmos Genéticos (Genetic Algorithms).
+		\item Problemas -- Fibonacci GCD (Problems -- Fibonacci GCD). Written in collaboration with Mario Román.
+		\item Teorema de Dini (Dini's theorem).
+		\item Segment trees and Range minimum query.
+	\end{itemize}}
+\cvlistitem{Learning. \textcolor{blue}{\href{https://www.coursera.org/user/i/bfdaf7e4c4a969b9fba10803ab2fb2f0}{My Coursera Profile}}.}
+\cvlistitem{Algorithms. \textcolor{blue}{\href{https://www.hackerrank.com/andreshp}{My Hackerrank Profile}}.}
+\cvlistitem{Heuristics. \textcolor{blue}{\href{https://github.com/andreshp/TSPSolver}{An Open Source Project}. \href{https://github.com/andreshp/GeneticAlgorithms}{Genetic Algorithms}}.}
+
+
+%----------------------------------------------------------------------------------------
+%	Appendix
+%----------------------------------------------------------------------------------------
+
+\section{Appendix: University Subjects Grades}
+
+	\kern 3mm
+
+	\centerline{\textbf{Subjects grades in Computer Science Degree}}
+	\kern 2mm
+	\centering \begin{tabular}{lcc}
+		\toprule
+		\textbf{Subject} & \textbf{ Grade } & \textbf{ Qualification}     \\
+		\midrule
+		Fundamentals of Programming                   & 10   & Cum Laude  \\ 
+		Fundamentals of Software                      & 9.6  & Cum Laude  \\
+		Fundamentals of Physics and Technologies      & 10   & Cum Laude  \\ 
+		Logic and Discrete Methods                    & 10   & Cum Laude  \\
+		Programming Methodology                       & 10   & Cum Laude  \\
+		Computers Technology                          & 9.6  & Excellent   \\
+		Data Structures                               & 10   & Cum Laude  \\
+		Computer Structures                           & 9.6  & Cum Laude  \\
+		Operating Systems                             & 9.2  & Excellent   \\
+		Algorithms                                    & 9.4  & Cum Laude  \\
+		Computer Architecture                         & 9.5  & Cum Laude  \\
+		Object-Oriented Programming and Design        & 9    & Cum Laude  \\    
+		Fundamentals of Data Bases                    & 9.1  & Cum Laude  \\ 
+		Fundamentals of Computer Networks             & 7.6  & Good       \\
+		Models of Computation                         & 10   & Cum Laude  \\
+		Concurrent and Distributed Systems            & 9.3  & Excellent   \\
+		Fundamentals of Software Engineering          & 7.5  & Good       \\
+		Artificial Intelligence                       & 10   & Cum Laude  \\
+		\bottomrule
+		\\
+	\end{tabular}
+	
+	\pagebreak
+	
+	\centerline{\textbf{Subjects Grades in Mathematics Degree}}
+	\kern 2mm
+	\centering \begin{tabular}{lcc}
+		\toprule
+		\textbf{Subject} & \textbf{ Grade } & \textbf{ Qualification}   \\ 
+		\midrule
+		Calculus I                                              & 10  & Cum Laude  \\ 
+		Geometry I                                              & 10  & Cum Laude  \\
+		Calculus II                                             & 10  & Cum Laude  \\ 
+		Geometry II                                             & 10  & Cum Laude  \\
+		Descriptive Statistics and Introduction to Probability  & 9.8 & Cum Laude  \\
+		Numerical Methods I                                     & 9.8 & Cum Laude  \\
+		Analysis I                                              & 9.8 & Cum Laude  \\
+		Topology I                                              & 10  & Cum Laude  \\
+		Algebra I                                               & 10  & Cum Laude  \\
+		Analysis II                                             & 10  & Cum Laude  \\
+		Geometry III                                            & 9.8 & Excellent  \\
+		Mathematical Models I                                   & 10  & Cum Laude  \\
+		Differential Equations I                                & 9   & Excellent  \\
+		Probability                                             & 9.5 & Excellent  \\
+		Numerical Methods II                                    & 9.5 & Cum Laude  \\
+		Complex Analysis                                        & 10  & Cum Laude  \\
+		Algebra II                                              & 10  & Cum Laude  \\
+		\bottomrule
+		\\
+	\end{tabular}
 
 %----------------------------------------------------------------------------------------
 %	COVER LETTER

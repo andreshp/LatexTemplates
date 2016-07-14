@@ -209,6 +209,15 @@
     \ifx&#7&%
       \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
 
+\renewcommand*{\cvpublication}[5][.25em]{%
+	\cvitem[#1]{#2}{%
+		{\slshape#3}%
+		\ifthenelse{\equal{#4}{}}{}{, #4}%
+		.\strut%
+		\ifx&#5&%
+		\else{\newline{}\begin{minipage}[t]{\linewidth}\small#5\end{minipage}}\fi}}
+
+
 \newbox{\cvitemwithcommentmainbox}
 \newlength{\cvitemwithcommentmainlength}
 \newlength{\cvitemwithcommentcommentlength}
