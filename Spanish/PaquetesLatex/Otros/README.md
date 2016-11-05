@@ -1,7 +1,22 @@
 # Otros paquetes de latex
 
+## doclicense
+
+Paquete para incluir licencias CC en el documento pdf. El paquete se incluye como sigue:
+
+~~~tex
+\usepackage[
+    type={CC},
+    modifier={by},
+    version={4.0},
+]{doclicense}
+~~~
+
+El comando `\doclicenseThis` añade al pdf el resumen de la licencia, un enlace con hyperref y la imagen asociada.
+
 ## lastpage
-Paquere para referenciar la última página. Utilizado normalmente para el pie de página.
+
+Paquete para referenciar la última página. Utilizado normalmente para el pie de página.
 
 ~~~latex
 \usepackage{lastpage}
