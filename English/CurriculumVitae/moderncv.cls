@@ -350,7 +350,7 @@
 \newcommand*{\cvlistdoubleitem}[3][\listitemsymbol]{}
 
 % Entry for a publication
-% usage: \cvpublication[year]{title}{authors}{journal}{other information}
+% usage: \cvpublication{year}{title}{authors}{journal}{other information}
 \newcommand*{\cvpublication}[5][0.25em]{}
 
 % makes a typical resume job / education entry
