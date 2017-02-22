@@ -2,7 +2,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Curriculum Vitae
 %
-% Author: Andrés Herrera Poyatos (https://github.com/andreshp) 
+% Author: Andrés Herrera Poyatos (https://github.com/andreshp)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -261,7 +261,7 @@
 % loads a style scheme
 \newcommand*{\moderncvstyle}[1]{
   \RequirePackage{moderncvstyle#1}}
-  
+
 % loads a color scheme
 \newcommand*{\moderncvcolor}[1]{
   \RequirePackage{moderncvcolor#1}}

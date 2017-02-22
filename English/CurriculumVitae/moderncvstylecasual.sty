@@ -101,11 +101,21 @@
     {{\null\hfill\begin{minipage}{\quotewidth}\centering\quotestyle{\@quote}\end{minipage}\hfill\null\\[2.5em]}}%
   \par}% to avoid weird spacing bug at the first section if no blank line is left after \maketitle
 
+
 \renewcommand*{\makecvfooter}{%
   \setlength{\footerwidth}{0.8\textwidth}%
   \fancypagestyle{plain}{%
+    \renewcommand\footrule{
+    \begin{minipage}{1\textwidth}
+        \hrule width \hsize
+    \end{minipage}\par
+    }
+    \fancyhead[c]{%
+      \lhead \chead \rhead
+    }
+
     \fancyfoot[c]{%
-      \parbox[b]{\footerwidth}{%
+      \parbox[b]{\textwidth}{%
         \centering%
         \color{color2}\addressfont%
         \ifthenelse{\isundefined{\@addressstreet}}{}{\addtofooter[]{\addresssymbol\@addressstreet}%
@@ -117,11 +127,12 @@
         	\ifthenelse{\isundefined{\@homepage}}{}{%
 	\ifthenelse{\equal{\@homepagetitle}{}}% \homepagetitle could be empty
 	{\addtofooter{\homepagesymbol\httplink{\@homepage}}}%
-	{\addtofooter{\homepagesymbol\httplink[\@homepagetitle]{\@homepage}}}}% 
+	{\addtofooter{\homepagesymbol\httplink[\@homepagetitle]{\@homepage}}}}%
         \ifthenelse{\isundefined{\@extrainfo}}{}{\addtofooter{\@extrainfo}}%
         \ifthenelse{\lengthtest{\footerboxwidth=0pt}}{}{\flushfooter}% the lengthtest is required to avoid flushing an empty footer, which could cause a blank line due to the \\ after the address, if no other personal info is used
         }}}%
-  \pagestyle{plain}}
+  \pagestyle{plain}
+}
 
 
 %-------------------------------------------------------------------------------
