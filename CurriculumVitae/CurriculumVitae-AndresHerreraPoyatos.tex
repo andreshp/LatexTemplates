@@ -1,0 +1,430 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Curriculum Vitae
+%
+% Author: Andrés Herrera Poyatos (https://github.com/andreshp)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The template has been taken from:
+% http://www.latextemplates.com/template/moderncv-cv-and-cover-letter
+% The original information is the following one:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV and Cover Letter
+% LaTeX Template
+% Version 1.11 (19/6/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Xavier Danaux (xdanaux@gmail.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the moderncv.cls and .sty files to be in the same
+% directory as this .tex file. These files provide the resume style and themes
+% used for structuring the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvstyle{casual} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+% Allow spanish accents
+\usepackage[utf8]{inputenc}
+
+\usepackage[left=2cm,right=2cm,top=1.5cm,bottom=2.5cm]{geometry} % Reduce document margins
+\setlength{\hintscolumnwidth}{2.4cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+\usepackage{comment}
+
+%-----------------------------------------------------------------------------------------------------
+% TABLES
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{float}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Andrés} % Your first name
+\familyname{Herrera Poyatos} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Curriculum Vitae}
+%\address{48 La Yedra}{La Zubia, 18140, Granada, Spain}
+\mobile{+34 680 44 16 06}
+\phone{+34 958 59 07 85 }
+%\fax{(000) 111 1113}
+\email{andreshp9@gmail.com}
+\homepage{github.com/andreshp}{github.com/andreshp} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
+\extrainfo{Ocupation: Student - Double Degree in Maths and C.S.}
+%\photo[70pt][0.4pt]{pictures/andreshp.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{"A witty and playful quotation" - John Smith}
+
+% Heading
+\lhead{\firstname \familyname}
+\chead{}
+\rhead{\title}
+
+\usepackage{tasks}
+\NewTasks[style=itemize]{itemlist}[\item]
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makecvtitle % Print the CV title
+
+%----------------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%----------------------------------------------------------------------------------------
+
+\vspace*{-19mm}
+\section{Personal information}
+
+\begin{itemlist}[label=~](2)
+\item \textbf{Fist name:} Andrés
+\item* \textbf{Last name:} Herrera Poyatos
+\item	\textbf{Date of birth:} August 9th, 1995
+\item *\textbf{Place of birth:} La Zubia, Granada, Spain
+\end{itemlist}
+\vspace*{-4mm}
+	%\textbf{Address: } 48 La Yedra, La Zubia, Granada, 18140, Spain \\
+	%\textbf{Email: } {\color{color1}\texttt{andreshp9@gmail.com}} \\
+	%\textbf{Mobile number:} +34 680 44 16 06 \\
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+
+\cventry{2013-Present}{Double Bachelor's degree in Mathematics and Computer Science}{\newline University of Granada}{Granada, Spain}{}{%Grades ($k$ / $n$ means $k$ out of $n$ points): http://thales.cica.es/estalmat/
+\vspace*{1mm}
+	\begin{flushleft}
+		\begin{tabular}            
+                {C{0.25\textwidth}C{0.2\textwidth}C{0.2\textwidth}C{0.2\textwidth}}
+		\hline
+		\textbf{Degree}  & \textbf{Number of completed courses} & \textbf{Average grade \linebreak (out of 10)} & \textbf{Number of courses with highest honours} \\
+		\hline
+		Computer Science & 24 & 9.506 & 15 \\
+                % \hline
+                Mathematics      & 24 & 9.825 & 21 \\
+		\hline
+		\end{tabular}
+	\end{flushleft}
+	\begin{itemize}
+%        	\item %The double bachelor's degree lasts 5 years and contains the subjects studied in both bachelor degrees. Each year we complete 72 ECTS 		credits, divided into 12 different subjects. The following table summarizes my university grades (each subject's grade is presented in the appendix).
+%		Grades ($k$ / $n$ means $k$ out of $n$ points):
+		\item Bachelor thesis (in preparation): \emph{Numerical semigroups and cyclotomic polynomials}. \\ Advisor: \textcolor{colorl}{\href{https://scholar.google.es/citations?user=gvq9UmMAAAAJ&hl=es&oi=ao}{Prof. Pedro A. Garc\'ia-S\'anchez}}. 
+	\end{itemize}
+}
+
+\cventry{2009-2013}{\href{http://thales.cica.es/estalmat}{Estalmat}}{SAEM Thales, University of Granada}{Granada, Spain}{}{  
+\begin{itemize}
+\item A project to detect and stimulate the precocious mathematical talent.
+\item Web: \textcolor{colorl}{\url{thales.cica.es/estalmat}}.
+\end{itemize}
+}
+
+\cventry{2011-2013}{High School}{IES Trevenque}{La Zubia, Granada, Spain}{}{
+	\begin{itemize}
+		\item High school grade -- with highest honours (top 5 best students of the year).
+		\item Access to university grade -- 13.63 out of 14.
+	\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------
+%	EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+%\vspace*{-2mm}
+\section{Experience in research}
+
+\begin{itemize}
+\item \textbf{Initiation to research fellowship} \\
+  July 2017 -- July 2018, University of Granada, Spain. Advisor: \textcolor{colorl}{\href{https://scholar.google.es/citations?user=gvq9UmMAAAAJ&hl=es&oi=ao}{Prof. Pedro A. Garc\'ia-S\'anchez}}.
+  % Prof. Pedro A. García-Sánchez (\textcolor{colorl}{\url{https://www.researchgate.net/profile/Pedro_Garcia-Sanchez}})
+\begin{itemize}
+\item Research in numerical semigroups presentations and their connections with cyclotomic polynomials.
+\item  Contributions to the GAP package \texttt{NumericalSgps}, \textcolor{colorl}{\url{gap-packages.github.io/numericalsgps}}.
+\end{itemize}
+
+\item \textbf{Young researcher at 5th Heidelberg Laureate Forum} \\
+  23rd September -- 30th September 2017, Heidelberg, Germany. Web: \textcolor{colorl}{ \url{heidelberg-laureate-forum.org}}.
+\item \textbf{Visiting researcher at Max Planck Institute for Mathematics} \\
+  19th -- 23th September 2017, Bonn, Germany.
+\begin{itemize}
+\item Collaboration with \textcolor{colorl}{\href{https://www.mpim-bonn.mpg.de/node/95}{Dr. Pieter Moree}} in cyclotomic polynomials.
+\end{itemize}
+\item \textbf{Internship at Max Planck Institute for Mathematics} \\ 20th August -- 20th September 2016, Bonn, Germany.} Advisor: \textcolor{colorl}{\href{https://www.mpim-bonn.mpg.de/node/95}{Dr. Pieter Moree}}. 
+\begin{itemize}
+\item Research in evaluating cyclotomic polynomials and its derivatives at roots of unity.
+\item Applications to cyclotomic numerical semigroups.
+\end{itemize}
+\item \textbf{Research training contract on metaheuristics and software development} \\ October 2015 -- July 2016, Fundación General Universidad de Granada - Empresa, University of Granada, Spain. \\
+Advisor: \textcolor{colorl}{\href{https://scholar.google.es/citations?user=HULIk-QAAAAJ&hl=es}{Prof. Francisco Herrera}}.
+  % Prof. Francisco Herrera (\textcolor{colorl}{\url{http://sci2s.ugr.es/es/node/130#FHerrera}})
+\begin{itemize}
+\item %Computational intelligence techniques applied to the development of optimization algorithms for resource scheduling on bus and coach companies.
+  Design of algorithms and heuristics to solve timetabling and vehicle scheduling problems. 
+\item Implementation of those algorithms and heuristics in C++.
+\end{itemize}
+\end{itemize}
+
+%\cventry{\footnotesize July 2017 -- \\ July 2018}{Initiation to research fellowship}{University of Granada, Spain}{\newline Advisor: \textcolor{colorl}{\href{https://scholar.google.es/citations?user=gvq9UmMAAAAJ&hl=es&oi=ao}{Prof. Pedro A. Garc\'ia-S\'anchez}}%  Prof. Pedro A. García-Sánchez (\textcolor{colorl}{\url{https://www.researchgate.net/profile/Pedro_Garcia-Sanchez}})}{}{Research in numerical semigroups presentations and their connections with cyclotomic polynomials. Contributions to the GAP package \texttt{NumericalSgps}, \textcolor{colorl}{\url{gap-packages.github.io/numericalsgps}}.}
+
+%	\cventry{\scriptsize 23rd -- 30th September 2017}{Young researcher at 5th Heidelberg Laureate Forum}{Heidelberg, Germany}{}{}{Web: \textcolor{colorl}{ \url{heidelberg-laureate-forum.org}}.}
+
+%	\cventry{\scriptsize 19th -- 23th September 2017}{Visiting researcher at Max Planck Institute for Mathematics}{Bonn, Germany}{}{}{Collaboration with \textcolor{colorl}{\href{https://www.mpim-bonn.mpg.de/node/95}{Dr. Pieter Moree}} in cyclotomic polynomials.}
+        
+%	\cventry{\scriptsize 20th August 2016 -- 20th September 2016}{Internship at Max Planck Institute for Mathematics}{Bonn, Germany}{\newline Advisor: \textcolor{colorl}{\href{https://www.mpim-bonn.mpg.de/node/95}{Dr. Pieter Moree}} }{}{Research in evaluating cyclotomic polynomials and its derivatives at roots of unity. Applications to cyclotomic numerical semigroups.}
+        
+%	\cventry{\footnotesize October 2015 -- July 2016}{Research training contract on metaheuristics and software development}{Fundación General Universidad de Granada - Empresa, University of Granada, Spain}{\newline Advisor: \textcolor{colorl}{\href{https://scholar.google.es/citations?user=HULIk-QAAAAJ&hl=es}{Prof. Francisco Herrera}}% Prof. Francisco Herrera (\textcolor{colorl}{\url{http://sci2s.ugr.es/es/node/130#FHerrera}}) }{}{Computational intelligence techniques applied to the development of optimization algorithms for resource scheduling on bus and coach companies.}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS SECTION
+%----------------------------------------------------------------------------------------
+
+%\vspace*{-2mm}
+\section{Publications}
+
+Contact me in order to get a copy of any of the following publications.
+
+{\large \textcolor{color1}{Journal papers}}
+
+	\begin{itemize}
+		%\item Andrés Herrera-Poyatos, Francisco Herrera. \textit{Genetic and Memetic Algorithm with Diversity Equilibrium based on Greedy Diversification}. Submitted to Information Sciences. Date of submission: March 25th, 2016.
+        \item \textbf{Cyclotomic polynomials at roots of unity}. Bart{\l}omiej Bzd\c{e}ga, Andrés Herrera-Poyatos and Pieter Moree. %Uploaded to arXiv on 21th November, 2016,
+              Submitted to Acta Arithmetica, accepted subject to minor revision, \textcolor{colorl}{\href{https://arxiv.org/abs/1611.06783}{arXiv:1611.06783}}.
+	\item \textbf{A snapshot of image pre-processing for convolutional neural networks: case study of MNIST}. \\ Siham Tabik, Daniel Peralta, Andrés Herrera-Poyatos and Francisco Herrera, International Journal of Computational Intelligence Systems, 2017, vol. 10, no. 1, pp. 555 -- 568, \textcolor{colorl}{\href{http://www.atlantis-press.com/journals/ijcis/25867315}{doi:10.2991/ijcis.2017.10.1.38}}.
+	\end{itemize}
+                          
+{\large \textcolor{color1}{In preparation for journal submission}}
+
+	\begin{itemize}
+		\item \textbf{Genetic and Memetic Algorithm with Diversity Equilibrium based on Greedy Diversification}. \\ Andr\'es Herrera-Poyatos and Francisco Herrera.
+          	% Uploaded to arXiv on 13th February, 2017, .
+          	A second version is in preparation, \textcolor{colorl}{\href{https://arxiv.org/abs/1702.03594}{arXiv:1702.03594}}.
+		\item \textbf{Higher order derivatives of cyclotomic polynomials: old and new}. Andr\'es Herrera-Poyatos and Pieter Moree. %In preparation.
+		\item \textbf{Isolated factorizations and applications: Betti sorted and Betti divisible numerical semigroups}. \\ Pedro A. Garc\'ia-S\'anchez and Andr\'es Herrera-Poyatos. %In preparation.
+		\item \textbf{Exponent sequences of cyclotomic numerical semigroups}.\\ Alexandru Ciolan, Pedro A. Garc\'ia-S\'anchez, Andr\'es Herrera-Poyatos and Pieter Moree. %In preparation.                          
+		\end{itemize}
+
+{\large \textcolor{color1}{Conference contributions}}
+
+	\begin{itemize}
+		\item \textbf{A study on Data Preprocessing for Deep Neuronal Networks and its application to Handwriting Digit Recognition} (\textcolor{colorl}{\href{https://www.researchgate.net/publication/308901913_Un_Estudio_sobre_el_Preprocesamiento_para_Redes_Neuronales_Profundas_y_Aplicacion_sobre_Reconocimiento_de_Digitos_Manuscritos}{Un Estudio sobre el Preprocesamiento para Redes Neuronales Profundas y Aplicación sobre Reconocimiento de Dígitos Manuscritos}}). Daniel Peralta, Andrés Herrera-Poyatos and Francisco Herrera. 17th Spanish Conference on Artificial Intelligence: 8th Workshop on Data Mining and Applications (\textcolor{colorl}{\textit{\href{http://www.congresocedi.es/en/tamida}{TAMIDA 2016}}}), pp. 867--876.
+		\item \textbf{Memetic Algorithm with Diversity Equilibrium based on Greedy Diversification} (\textcolor{colorl}{\href{https://www.researchgate.net/publication/320701097_Algoritmo_Memetico_Equilibrado_con_Diversificacion_Voraz}{Algoritmo Memético Equilibrado con Diversificación Voraz}}). Andrés Herrera-Poyatos and Francisco Herrera. 16th Spanish Conference on Artificial Intelligence: 2nd Workshop on Metaheuristics and Evolutionary Algorithms (\textcolor{colorl}{\textit{\href{http://simd.albacete.org/caepia15/en/conference/jaem15/}{JAEM 2015}}}), pp. 219--229.
+		\item  \textbf{Genetic Algorithm with Greedy Diversification and Equilibrium between Exploration and Exploitation} (\textcolor{colorl}{\href{https://www.researchgate.net/publication/320701127_Algoritmo_Genetico_con_Diversificacion_Voraz_y_Equilibrio_entre_Exploracion_y_Explotacion}{Algoritmo Genético con Diversificación Voraz y Equilibrio entre Exploración y Explotación}}). Andrés Herrera-Poyatos and Francisco Herrera. 10th Spanish Conference on Metaheuristics, Evolutionary and Bio-inspired Algorithms (\textcolor{colorl}{\textit{\href{http://www.eweb.unex.es/eweb/maeb2015/}{MAEB 2015}}}), pp. 9--18.
+	\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+%	COURSES
+%----------------------------------------------------------------------------------------
+
+\section{Courses}
+
+\begin{itemize}
+\item \textbf{R Programming}, Johns Hopkins University, Coursera, 2015. \\ Grade -- 100.0 \%. \textcolor{colorl}{\href{https://www.coursera.org/account/accomplishments/records/AHz97RsSWEVHpqkY}{Verified Statement with Distinction}}.
+ 
+\item \href{http://blogs.unia.es/uniatv/archives/2571}{\textbf{Practical data science and big data: Knime, R, Hadoop and Mahout tools}}, International University of Andalucía (UNIA), Baeza, Ja\'en, Spain, 2014. Grade -- 10 out of 10.
+\end{itemize}
+
+%\cventry{2015}{\href{https://www.coursera.org/account/accomplishments/records/AHz97RsSWEVHpqkY}{R Programming}}{Coursera}{Johns Hopkins University}{\newline Average grade -- 100.0 \%. Verified Statement with Distinction}{}
+
+%\cventry{2014}{\href{http://blogs.unia.es/uniatv/archives/2571}{Practical data science and big data: Knime, R, Hadoop and Mahout tools}}{\newline International University of Andalucía (UNIA)}{Baeza}{Grade -- 10 / 10}{}
+
+%\cventry{2015}{\href{https://www.coursera.org/maestro/api/certificate/get_certificate?course_id=974416}{Algorithms: Design and Analysis, Part 1}}{Coursera}{Stanford University}{Average grade -- 98.0 \%. Statement of Accomplishment}{}
+
+
+
+%----------------------------------------------------------------------------------------
+%	AWARDS
+%---------------------------------------------------------------------------------------
+
+\section{Awards}
+
+\cvitem{2013}{Top 10 students with the highest access to university grades in Granada, Spain.} %- University Access Exam.}
+\cvitem{2013}{Honourable Mention to the Best High School Academic Record in La Zubia, Granada, Spain.}
+\cvitem{2013}{%Top 12 - XLIX Spanish Mathematics Olympiad - Regional Phase in Andalucía.
+  Qualified for the XLIX Spanish Mathematics Olympiad - National Phase.}
+\cvitem{2013}{1st place - XLIX Spanish Mathematics Olympiad - Local Phase in Granada province.}
+\cvitem{2013}{4th place - XXIV Spanish Physics Olympiad - Local Phase in Granada province.}
+\cvitem{2012}{1st place - II Short Story Competition, "Al borde de lo inconcedible", Villa de la Zubia.}
+\cvitem{2011}{2nd place - I Short Story Competition, "Al borde de lo inconcedible", Villa de la Zubia.}
+\cvitem{2009}{Selected for ESTALMAT - Andalucía.}% \newline A project to detect and stimulate the precocious mathematical talent.}
+\cvitem{2009}{Top 5 in XXV Thales Mathematics Olympiad - Granada (12 -- 13 years old). \newline Qualified for the regional phase in Andalucía.}
+
+%----------------------------------------------------------------------------------------
+%	LANGUAGES SECTION
+%----------------------------------------------------------------------------------------
+\section{Languages}
+
+\cvitemwithcomment{Spanish}{Mother-tongue}{}
+\cvitemwithcomment{English}{Cambridge English: Advanced (CAE)}{Obtained on July, 2013.}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Interests and activities}
+\begin{center}
+\textit{Topics of interest and some related links.}
+\end{center}
+\vspace*{-2mm}
+\begin{itemize}
+    \item \textbf{Research in Mathematics and Computer Science}. Links to \textcolor{colorl}{\href{https://scholar.google.es/citations?user=oLAt2JsAAAAJ&hl=es}{Scholar Google}} and \textcolor{colorl}{\href{https://www.researchgate.net/profile/Andres_Herrera-Poyatos}{Research Gate}}.
+    \item \textbf{Seminars and collaboration with other students}. Member and lecturer of LibreIM (\textcolor{colorl}{\url{libreim.github.io}}), a students group dedicated to Mathematics and Computer Science.
+      Seminars: \textcolor{colorl}{\url{libreim.github.io/t/seminarios}}.
+    \item \textbf{Mathematics and Computer Science dissemination}. Writer for LibreIM's blog, \textcolor{colorl}{\link{libreim.github.io}}. Posts:
+    	\begin{itemize}
+    		\item Segment trees and Range minimum query.
+    		\item Teorema de Dini (Dini's theorem).
+    		\item Problemas -- Fibonacci GCD (Problems -- Fibonacci GCD). Written in collaboration with Mario Román.
+    		\item Algoritmos Genéticos (Genetic Algorithms).
+    	\end{itemize}
+    \item \textbf{Open source projects}, \textcolor{colorl}{\link{github.com/andreshp}}, which range from latex templates and class notes to bash commands and several algorithms implementations.
+    \item \textbf{Algorithms competitions}. Participant in Hackerrank's competitions. Profile: \textcolor{colorl}{\link{www.hackerrank.com/andreshp}}.
+    \item \textbf{Sports: table tennis}. Highest achievement: winner of the 2nd Spanish Under-10 Team Championship, 2005.
+%	\begin{itemize}
+%        	\item Table tennis player. Highest achievement: winner of the 2nd Spanish Under-10 Team Championship.
+%        	\item Chess player. Highest achievement: winner of the 1st Under-12 International Villa de la Zubia Championship.
+%    	\end{itemize}
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	HOBBIES SECTION
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	Appendix
+%----------------------------------------------------------------------------------------
+
+\begin{comment}
+\pagebreak
+
+\section{Appendix: University Subjects Grades}
+
+    \begin{center}
+        \begin{tabular}{C{\textwidth}}
+        \toprule
+    	\textbf{Subjects grades in Computer Science Degree}
+        \end{tabular}
+    	\kern 2mm
+        \begin{tabular}{L{0.5\textwidth}C{0.2\textwidth}C{0.3\textwidth}}
+    		\toprule
+    		\textbf{Subject} & \textbf{ Grade } & \textbf{ Qualification}     \\
+    		\midrule
+    		Fundamentals of Programming                   & 10   & Cum Laude  \\
+    		Fundamentals of Software                      & 9.6  & Cum Laude  \\
+    		Fundamentals of Physics and Technologies      & 10   & Cum Laude  \\
+    		Logic and Discrete Methods                    & 10   & Cum Laude  \\
+    		Programming Methodology                       & 10   & Cum Laude  \\
+    		Computers Technology                          & 9.6  & Excellent  \\
+    		Data Structures                               & 10   & Cum Laude  \\
+    		Computer Structures                           & 9.6  & Cum Laude  \\
+    		Operating Systems                             & 9.2  & Excellent  \\
+    		Algorithms                                    & 9.4  & Cum Laude  \\
+    		Computer Architecture                         & 9.5  & Cum Laude  \\
+    		Object-Oriented Programming and Design        & 9    & Cum Laude  \\
+    		Fundamentals of Data Bases                    & 9.1  & Cum Laude  \\
+    		Fundamentals of Computer Networks             & 7.6  & Good       \\
+    		Models of Computation                         & 10   & Cum Laude  \\
+    		Concurrent and Distributed Systems            & 9.3  & Excellent  \\
+    		Fundamentals of Software Engineering          & 7.5  & Good       \\
+    		Artificial Intelligence                       & 10   & Cum Laude  \\
+    		Servers Engineering                           & 10   & Excellent  \\
+    		Computer Graphics                             & 10   & Cum Laude  \\
+    		Design and Development of Information Systems & 9.5  & Excellent  \\
+    		Engineering, Business and Society             & 9    & Excellent  \\
+    		Metaheuristics                                & 10   & Excellent  \\
+    		Advanded Models of Computation                & 10   & Cum Laude  \\
+    	\end{tabular}
+
+        Grade: (10  + 9.6 + 10  + 10  + 10  + 9.6 + 10  + 9.6 + 9.2 + 9.4 + 9.5 + 9   + 9.1 + 7.6 + 10  + 9.3 + 7.5 + 10  + 10  + 10  + 9.5 + 4.5   + 10  + 10) / 23.5
+        
+        \begin{tabular}{C{\textwidth}}
+        \toprule
+        \textbf{Subjects Grades in Mathematics Degree}
+        \end{tabular}
+    	\begin{tabular}{L{0.5\textwidth}C{0.2\textwidth}C{0.3\textwidth}}
+    		\toprule
+    		\textbf{Subject} & \textbf{ Grade } & \textbf{ Qualification}   \\
+    		\midrule
+    		Calculus I                                              & 10  & Cum Laude  \\
+    		Geometry I                                              & 10  & Cum Laude  \\
+    		Calculus II                                             & 10  & Cum Laude  \\
+    		Geometry II                                             & 10  & Cum Laude  \\
+    		Descriptive Statistics and Introduction to Probability  & 9.8 & Cum Laude  \\
+    		Numerical Methods I                                     & 9.8 & Cum Laude  \\
+    		Analysis I                                              & 9.8 & Cum Laude  \\
+    		Topology I                                              & 10  & Cum Laude  \\
+    		Algebra I                                               & 10  & Cum Laude  \\
+    		Analysis II                                             & 10  & Cum Laude  \\
+    		Geometry III                                            & 9.8 & Excellent  \\
+    		Mathematical Models I                                   & 10  & Cum Laude  \\
+    		Differential Equations I                                & 9   & Excellent  \\
+    		Probability                                             & 9.5 & Excellent  \\
+    		Numerical Methods II                                    & 9.5 & Cum Laude  \\
+    		Complex Analysis                                        & 10  & Cum Laude  \\
+    		Algebra II                                              & 10  & Cum Laude  \\
+    		Functional Analysis                                     & 10  & Cum Laude  \\
+    		Statistical Inference                                   & 9.5 & Cum Laude  \\
+    		Topology II                                             & 9.8 & Cum Laude  \\
+    		Algebra III                                             & 10  & Cum Laude  \\
+    		Differential Equations II                               & 9.8 & Cum Laude  \\
+    		Mathematical Models II                                  & 9.5 & Cum Laude  \\
+    		Curves and Surfaces                                     & 10  & Cum Laude  \\
+    		\bottomrule
+    	\end{tabular}
+    \end{center}
+
+    Grade: (10 + 10 + 10 + 10 + 9.8 + 9.8 + 9.8 + 10 + 10 + 10 + 9.8 + 10 + 9   + 9.5 + 9.5 + 10 + 10 + 10 + 9.5 + 9.8 + 10 + 9.8 + 9.5 + 10) / 24
+\end{comment}
+
+    
+%----------------------------------------------------------------------------------------
+%	COVER LETTER
+%----------------------------------------------------------------------------------------
+
+% To remove the cover letter, comment out this entire block
+
+%\clearpage
+
+%\recipient{HR Department}{Corporation\\123 Pleasant Lane\\12345 City, State} % Letter recipient
+%\date{\today} % Letter date
+%\opening{Dear Sir or Madam,} % Opening greeting
+%\closing{Sincerely yours,} % Closing phrase
+%\enclosure[Attached]{curriculum vit\ae{}} % List of enclosed documents
+
+%\makelettertitle % Print letter title
+
+%\lipsum[1-3] % Dummy text
+
+%\makeletterclosing % Print letter signature
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
