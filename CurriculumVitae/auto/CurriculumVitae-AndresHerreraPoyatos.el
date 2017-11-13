@@ -27,6 +27,8 @@
     "tasks")
    (TeX-add-symbols
     "newline")
+   (LaTeX-add-labels
+    "sec:education")
    (LaTeX-add-array-newcolumntypes
     "L"
     "C"
