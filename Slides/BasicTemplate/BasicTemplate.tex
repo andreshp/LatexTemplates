@@ -1,0 +1,242 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Authors: A. Herrera Poyatos, J. Poyatos Amador
+% Tittle: Big Data: Map Reduce y TPCx-HS
+% Date: April - 2016
+% University of Granada, Servers Engineering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------------------------------
+%	ESSENTIAL PACKAGES
+%-----------------------------------------------------------------------------------------------------
+
+% Beamer
+\PassOptionsToPackage{unicode}{hyperref}      % Avoid mistakes with non-ASCII characters.
+\PassOptionsToPackage{naturalnames}{hyperref} % tex.stackexchange.com/questions/10555
+\documentclass[compress]{beamer}
+
+%-----------------------------------------------------------------------------------------------------
+%	LANGUAGE CONFIGURATION
+%-----------------------------------------------------------------------------------------------------
+
+% Language
+\usepackage[spanish, es-tabla]{babel} % Translations
+\usepackage[utf8]{inputenc} % Allow UTF-8 characters
+\usepackage{lmodern}        % Sources with arbitrary size
+\usepackage[T1]{fontenc}    % Allow copying and avoid errors
+\uselanguage{Spanish}       % Translations for beamer
+\languagepath{Spanish}      % (tex.stackexchange.com/questions/168208)
+
+%-----------------------------------------------------------------------------------------------------
+%	FONTS
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage{marvosym}
+
+\DeclareUnicodeCharacter{00A0}{~}
+
+%-----------------------------------------------------------------------------------------------------
+%	OTHER PACKAGES
+%-----------------------------------------------------------------------------------------------------
+
+% Mathematics
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Images
+\usepackage{graphicx}                   % Utilizado para insertar gráficos.
+\usepackage{caption}                    % Títulos y leyendas para los gráficos.
+\usepackage{subcaption}                 % Subfiguras.
+\usepackage{wrapfig}
+
+% Algorithms
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\input{./Code/spanishAlgorithmic}
+
+% Graphics
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}   % Graphics options
+
+% Color box
+\usepackage{tcolorbox}
+
+% Notes
+\usepackage{todonotes}
+
+% tikz
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows}
+\usetikzlibrary{mindmap,trees,shadows, shapes}
+\tikzset{ % Generate overlays
+    invisible/.style={opacity=0},
+    visible on/.style={alt={#1{}{invisible}}},
+    alt/.code args={<#1>#2#3}{\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}},
+}
+
+%-----------------------------------------------------------------------------------------------------
+%	COMMANDS
+%-----------------------------------------------------------------------------------------------------
+
+% Colours
+\definecolor{ChetwodeBlue}{HTML}{6b77ad} % Background
+\definecolor{Jaguar}{HTML}{262731}       % Titles
+\definecolor{TurkishRose}{HTML}{B46275}  % Comments
+\definecolor{Grandis}{HTML}{F5CF73}      % Details
+
+% New commands
+\newcommand{\importsection}[1]{\input{./Sections/#1}}           % Include sections from sections directory.
+\newcommand{\link}[3]{\href{#1}{\textbf{#2}} - {\small #3}}  % Unique style for references
+
+% Background block
+\makeatletter	
+\newbox\@backgroundblock
+\newenvironment{backgroundblock}[2]{%
+	\global\setbox\@backgroundblock=\vbox\bgroup%
+	\unvbox\@backgroundblock%
+	\vbox to0pt\bgroup\vskip#2\hbox to0pt\bgroup\hskip#1\relax%
+}{\egroup\egroup\egroup}
+\addtobeamertemplate{background}{\box\@backgroundblock}{}
+
+% Two part definitions
+\newcommand{\twopartdef}[2]
+{
+	\left\{
+	\begin{array}{ll}
+		#1 \\
+		#2
+	\end{array}
+	\right.
+}
+
+%----------------------------------------------------------------------------------------
+%	THEMES AND DOCUMENT STRUCTURE
+%----------------------------------------------------------------------------------------
+
+% Theme and colour theme
+\usetheme{Dresden}
+\usecolortheme{dolphin}
+\useinnertheme{circles}
+\setbeamercovered{transparent}
+
+\setbeamercolor{title}{fg=Jaguar}
+\setbeamercolor{frametitle}{fg=ChetwodeBlue}
+\setbeamercolor{structure}{fg=Jaguar}
+
+\setbeamertemplate{itemize item}{\color{TurkishRose}$\bullet$}
+\setbeamertemplate{itemize subitem}{\color{ChetwodeBlue}$\circ$}
+\setbeamercolor{section number projected}{bg=TurkishRose}
+	
+% Auxiliar color for itemize
+\newcommand*\MyPitem{\item[\color{ChetwodeBlue}{\textbullet}]}
+
+% Blocks colour
+\hypersetup{colorlinks,linkcolor=,urlcolor=TurkishRose}
+% Remove navigation links (stackoverflow.com/questions/3017030)
+\setbeamertemplate{navigation symbols}{}
+
+% Remove footline  (stackoverflow.com/questions/1435837)
+%\setbeamertemplate{footline}{}
+
+% Avoid warning boxes
+\hfuzz=20pt
+\vfuzz=20pt
+% Avoid warnings in itemize
+\renewcommand\textbullet{\ensuremath{\bullet}}
+
+%-----------------------------------------------------------------------------------------------------
+%	LINKS
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage{hyperref}
+
+\hypersetup{
+	% pdf information
+	unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+	pdftoolbar=true,        % show Acrobat’s toolbar?
+	pdfmenubar=true,        % show Acrobat’s menu?
+	pdffitwindow=false,     % window fit to page when opened
+	%    pdfstartview={FitW},    % fits the width of the page to the window
+	pdftitle={Big Data, Map Reduce y TPCx-HS},    % title
+	pdfauthor={},     % author
+	pdfsubject={Ingeniería de servidores},   % subject of the document
+	pdfcreator={},   % creator of the document
+	pdfproducer={},  % producer of the document
+	pdfkeywords={Big Data, } {Map Reduce, } {Hadoop, } {TPCx-HS, } {benchmarks, } {ingeniería de servidores}, % list of keywords
+	pdfnewwindow=true, 	     % links in new window
+}
+
+%-----------------------------------------------------------------------------------------------------
+%	TITLE PAGE
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage[framemethod=tikz]{mdframed}
+
+\newmdenv[tikzsetting={draw=Jaguar,fill=white,fill opacity=0.7, line width=2pt}, backgroundcolor=none,leftmargin=100,rightmargin=0,innertopmargin=4pt, roundcorner=15pt] {titleBox}
+
+% Define the title page.
+\defbeamertemplate*{title page}{customized}[1][] {
+
+		\vspace{0.48\paperheight}
+		\begin{titleBox}
+			\begin{beamercolorbox}[sep=2pt,center]{title}	
+				\usebeamerfont{title}\textbf{\inserttitle}\par
+			\end{beamercolorbox}
+%			\begin{columns}
+%				\column{0.05\textwidth}
+%				\href{https://github.com/andreshp/Big-Data-TPCx-HS}{\includegraphics[width=40pt]{./Images/Logos/github.png}}
+%				\column{0.95\textwidth}
+%				\begin{beamercolorbox}[sep=4pt,center]{author}	
+%					\usebeamerfont{author}\authors
+%				\end{beamercolorbox}
+%			\end{columns}
+		\end{titleBox}
+		
+}
+
+%----------------------------------------------------------------------------------------
+%	TITLE, AUTHOR AND OTHER INFO
+%----------------------------------------------------------------------------------------
+
+% Title
+\title{Big Data, Map Reduce y TCPx-HS}
+
+
+\author[Ingeniería de Servidores]{}
+
+% Date
+\date{10 de Mayo de 2016}
+
+%----------------------------------------------------------------------------------------
+%	SLIDES STRUCTURE
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+	% Title page.
+	{
+		\usebackgroundtemplate{\includegraphics[width=1\paperwidth]{./Images/Wallpapers/BigDataCropped.jpg}}
+		\begin{frame}[plain]
+			\titlepage
+		\end{frame}			
+	}
+
+	% Work motivation. Population diverisity. Target.
+	\importsection{Motivacion.tex}
+
+	% Index.
+	\begin{frame}{Índice}
+		\hypertarget{index}{}
+		\tableofcontents
+	\end{frame}
+	
+	\importsection{BigData.tex}
+
+	\importsection{MapReduce.tex}
+
+	\importsection{TPCx-HS.tex}
+
+	% Conclusion.
+	\importsection{Conclusion.tex}
+	
+\end{document}

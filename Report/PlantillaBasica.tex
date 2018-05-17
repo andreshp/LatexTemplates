@@ -1,0 +1,164 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla básica de Latex en Español.
+%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp)
+%
+% Es una plantilla básica para redactar documentos. Utiliza el paquete fancyhdr para darle un
+% estilo moderno pero serio.
+%
+% La plantilla se encuentra adaptada al español.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------------------------------
+%	INCLUSIÓN DE PAQUETES BÁSICOS
+%-----------------------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{lipsum}                     % Texto dummy. Quitar en el documento final.
+
+%-----------------------------------------------------------------------------------------------------
+%	SELECCIÓN DEL LENGUAJE
+%-----------------------------------------------------------------------------------------------------
+
+% Paquetes para adaptar Látex al Español:
+\usepackage[spanish,es-noquoting, es-tabla, es-lcroman]{babel} % Cambia
+\usepackage[utf8]{inputenc}                                    % Permite los acentos.
+\selectlanguage{spanish}                                       % Selecciono como lenguaje el Español.
+
+%-----------------------------------------------------------------------------------------------------
+%	SELECCIÓN DE LA FUENTE
+%-----------------------------------------------------------------------------------------------------
+
+% Fuente utilizada.
+\usepackage{courier}                    % Fuente Courier.
+\usepackage{microtype}                  % Mejora la letra final de cara al lector.
+
+%-----------------------------------------------------------------------------------------------------
+%	ESTILO DE PÁGINA
+%-----------------------------------------------------------------------------------------------------
+
+% Paquetes para el diseño de página:
+\usepackage{fancyhdr}               % Utilizado para hacer títulos propios.
+\usepackage{lastpage}               % Referencia a la última página. Utilizado para el pie de página.
+\usepackage{extramarks}             % Marcas extras. Utilizado en pie de página y cabecera.
+\usepackage[parfill]{parskip}       % Crea una nueva línea entre párrafos.
+\usepackage{geometry}               % Asigna la "geometría" de las páginas.
+
+% Se elige el estilo fancy y márgenes de 3 centímetros.
+\pagestyle{fancy}
+\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,headheight=1cm,headsep=0.5cm} % Márgenes y cabecera.
+% Se limpia la cabecera y el pie de página para poder rehacerlos luego.
+\fancyhf{}
+
+% Espacios en el documento:
+\linespread{1.1}                        % Espacio entre líneas.
+\setlength\parindent{0pt}               % Selecciona la indentación para cada inicio de párrafo.
+
+% Cabecera del documento. Se ajusta la línea de la cabecera.
+\renewcommand\headrule{
+	\begin{minipage}{1\textwidth}
+	    \hrule width \hsize
+	\end{minipage}
+}
+
+% Texto de la cabecera:
+\lhead{\docauthor}                          % Parte izquierda.
+\chead{}                                    % Centro.
+\rhead{\subject \ - \doctitle}              % Parte derecha.
+
+% Pie de página del documento. Se ajusta la línea del pie de página.
+\renewcommand\footrule{
+\begin{minipage}{1\textwidth}
+    \hrule width \hsize
+\end{minipage}\par
+}
+
+\lfoot{}                                                 % Parte izquierda.
+\cfoot{}                                                 % Centro.
+\rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Parte derecha.
+
+
+%-----------------------------------------------------------------------------------------------------
+%	PORTADA
+%-----------------------------------------------------------------------------------------------------
+
+% Elija uno de los siguientes formatos.
+% No olvide incluir los archivos .sty asociados en el directorio del documento.
+\usepackage{title1}
+%\usepackage{title2}
+
+%-----------------------------------------------------------------------------------------------------
+%	TÍTULO, AUTOR Y OTROS DATOS DEL DOCUMENTO
+%-----------------------------------------------------------------------------------------------------
+
+% Título del documento.
+\newcommand{\doctitle}{Título de mi documento}
+% Subtítulo.
+\newcommand{\docsubtitle}{Un subtítulo}
+% Fecha.
+\newcommand{\docdate}{1 \ de \ Enero \ de \ 2015}
+% Asignatura.
+\newcommand{\subject}{LaTeX}
+% Autor.
+\newcommand{\docauthor}{Andrés Herrera Poyatos}
+\newcommand{\docaddress}{Universidad de Granada}
+\newcommand{\docemail}{andreshp9@gmail.com}
+
+%-----------------------------------------------------------------------------------------------------
+%	RESUMEN
+%-----------------------------------------------------------------------------------------------------
+
+% Resumen del documento. Va en la portada.
+% Puedes también dejarlo vacío, en cuyo caso no aparece en la portada.
+%\newcommand{\docabstract}{}
+\newcommand{\docabstract}{En este texto puedes incluir un resumen del documento. Este informa al lector sobre el contenido del texto, indicando el objetivo del mismo y qué se puede aprender de él.}
+
+\begin{document}
+
+\maketitle
+
+%-----------------------------------------------------------------------------------------------------
+%	ÍNDICE
+%-----------------------------------------------------------------------------------------------------
+
+% Profundidad del Índice:
+%\setcounter{tocdepth}{1}
+
+\newpage
+\tableofcontents
+\newpage
+
+%-----------------------------------------------------------------------------------------------------
+%	SECCIÓN 1
+%-----------------------------------------------------------------------------------------------------
+
+\section{Primera Sección}
+
+	Bienvenido a mi plantilla de \LaTeX. Esta es la versión básica que dispone de la siguiente capacidad de configuración:
+
+	\begin{itemize}
+		\item En la sección TÍTULO, AUTOR Y OTROS DATOS DEL DOCUMENTO puedes introducir estos datos de manera sencilla para que se utilicen en a lo largo del documento.
+		\item En la sección ÍNDICE puedes seleccionar su profundidad.
+		\item Puedes elegir diversos formatos para la portada. Estos se encuentran implementados en los archivos \texttt{title*.sty} que se encuentran junto a esta plantilla en el repositorio. No olvides situar el archivo que desees utilizar junto con el \texttt{.tex} del documento. Por último, selecciónalo mediante \texttt{usepackage} dentro de la sección PORTADA.
+		\item En la sección RESUMEN puedes escribir un resumen del documento. En tal caso, este aparecerá en la portada. Si dejas vacío el resumen, entonces la portada cambiará levemente y no lo incluirá.
+	\end{itemize}
+
+	He intentado mantener esta plantilla lo más sencilla posible para facilitar su uso. Si necesitas mayor funcionalidad puedes encontrarla en el repositorio de GitHub (https://github.com/andreshp/LatexTemplates).
+
+%-----------------------------------------------------------------------------------------------------
+%	SECCIÓN 2
+%-----------------------------------------------------------------------------------------------------
+
+\section{Segunda Sección}
+
+	\subsection{Primera subsección}
+
+		\lipsum[1]
+
+	\subsection{Segunda subsección}
+
+		\lipsum[2]
+
+\end{document}

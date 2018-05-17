@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Minor package for writing tex in Spanish.
+%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp)
+%
+% It contains the sentences that I use when I write in Spanish.
+% The purpose of the package is avoiding copying the same commands in every latex file.
+% You can put this package in the directory ~/texmf/tex/latex/ and use it with \usepackage{spanish}
+% whenever you want.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{spanish}[2017]
+
+% -----------------------------------------------------------------------------------------------------
+%	SELECCIÓN DEL LENGUAJE
+%-----------------------------------------------------------------------------------------------------
+
+% Paquetes para adaptar Látex al Español:
+\usepackage[spanish,es-noquoting, es-tabla, es-lcroman]{babel} % Cambia
+\usepackage[utf8]{inputenc}                                    % Permite los acentos.
+\selectlanguage{spanish}                                       % Selecciono como lenguaje el Español.

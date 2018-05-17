@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla básica de Latex en Español.
+%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp)
+%
+% Es una plantilla básica para redactar documentos. Utiliza el paquete fancyhdr para darle un
+% estilo moderno pero serio.
+%
+% La plantilla se encuentra adaptada al español.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------------------------------
+%	INCLUSIÓN DE PAQUETES BÁSICOS
+%-----------------------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{lipsum}                     % Texto dummy. Quitar en el documento final.
+% Utiliza la plantilla para reports.
+\usepackage{template}
+% Utiliza el paquete de español.
+\usepackage{spanish}
+% Utiliza una portada (elija una de las portadas disponibles y comente el resto).
+\usepackage{title1}
+%\usepackage{title2}
+
+%-----------------------------------------------------------------------------------------------------
+%	TÍTULO, AUTOR Y OTROS DATOS DEL DOCUMENTO
+%-----------------------------------------------------------------------------------------------------
+
+% Título del documento.
+\newcommand{\doctitle}{Título de mi documento}
+% Subtítulo.
+\newcommand{\docsubtitle}{Un subtítulo}
+% Fecha.
+\newcommand{\docdate}{1 \ de \ Enero \ de \ 2015}
+% Asignatura.
+\newcommand{\subject}{LaTeX}
+% Autor.
+\newcommand{\docauthor}{Andrés Herrera Poyatos}
+\newcommand{\docaddress}{Universidad de Granada}
+\newcommand{\docemail}{andreshp9@gmail.com}
+
+%-----------------------------------------------------------------------------------------------------
+%	RESUMEN
+%-----------------------------------------------------------------------------------------------------
+
+% Resumen del documento. Va en la portada.
+% Puedes también dejarlo vacío, en cuyo caso no aparece en la portada.
+%\newcommand{\docabstract}{}
+\newcommand{\docabstract}{En este texto puedes incluir un resumen del documento. Este informa al lector sobre el contenido del texto, indicando el objetivo del mismo y qué se puede aprender de él.}
+
+\begin{document}
+
+\maketitle
+
+%-----------------------------------------------------------------------------------------------------
+%	ÍNDICE
+%-----------------------------------------------------------------------------------------------------
+
+% Profundidad del Índice:
+%\setcounter{tocdepth}{1}
+
+\newpage
+\tableofcontents
+\newpage
+
+%-----------------------------------------------------------------------------------------------------
+%	SECCIÓN 1
+%-----------------------------------------------------------------------------------------------------
+
+\section{Primera Sección}
+
+	Bienvenido a mi plantilla de \LaTeX. Esta es la versión básica que dispone de la siguiente capacidad de configuración:
+
+	\begin{itemize}
+		\item En la sección TÍTULO, AUTOR Y OTROS DATOS DEL DOCUMENTO puedes introducir estos datos de manera sencilla para que se utilicen en a lo largo del documento.
+		\item En la sección ÍNDICE puedes seleccionar su profundidad.
+		\item Puedes elegir diversos formatos para la portada. Estos se encuentran implementados en los archivos \texttt{title*.sty} que se encuentran junto a esta plantilla en el repositorio. No olvides situar el archivo que desees utilizar junto con el \texttt{.tex} del documento. Por último, selecciónalo mediante \texttt{usepackage} dentro de la sección PORTADA.
+		\item En la sección RESUMEN puedes escribir un resumen del documento. En tal caso, este aparecerá en la portada. Si dejas vacío el resumen, entonces la portada cambiará levemente y no lo incluirá.
+	\end{itemize}
+
+	He intentado mantener esta plantilla lo más sencilla posible para facilitar su uso. Si necesitas mayor funcionalidad puedes encontrarla en el repositorio de GitHub (https://github.com/andreshp/LatexTemplates).
+
+%-----------------------------------------------------------------------------------------------------
+%	SECCIÓN 2
+%-----------------------------------------------------------------------------------------------------
+
+\section{Segunda Sección}
+
+	\subsection{Primera subsección}
+
+		\lipsum[1]
+
+	\subsection{Segunda subsección}
+
+		\lipsum[2]
+
+\end{document}

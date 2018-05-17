@@ -1,0 +1,97 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paquete con un estilo para el título de la plantilla básica.
+%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp) 
+%
+% La idea original ha sido obtenida del siguiente enlace:
+%
+% http://tex.stackexchange.com/questions/85904/showcase-of-beautiful-title-page-done-in-tex
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{title2}[2016]
+
+% Paquetes que requiere el título.
+\usepackage[some]{background}
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% Color para el dibujo.
+\definecolor{titlepagecolor}{cmyk}{1,0.60,0,0.40}
+
+% Fondo del título
+\backgroundsetup{
+	scale=1,
+	angle=0,
+	opacity=1,
+	contents={
+		\begin{tikzpicture}[remember picture,overlay]
+			\path [fill=titlepagecolor] (current page.west)rectangle (current page.north east); 
+			\draw [color=white, very thick] (5,0)--(5,0.5\paperheight);
+		\end{tikzpicture}}
+}
+
+
+% Comando para mostrar el autor y su información asociada.
+\newcommand{\titlepageauthor}{
+	\centering \Large\textbf{\docauthor}
+
+	\centering \large\docaddress
+
+	\centering \large{\color{titlepagecolor}\docemail}	        
+}
+
+% Comando para mostrar el resumen y el autor.
+\newcommand{\titlepageabstractauthor}{
+	\begin{adjustwidth}{0cm}{-3cm}
+		\begin{minipage}{0.63\linewidth}
+			\begin{abstract} 
+				\docabstract
+			\end{abstract}
+		\end{minipage}
+		\begin{minipage}{0.02\linewidth}
+			\rule{1pt}{175pt}
+		\end{minipage} \hspace{1cm}
+		\begin{minipage}{0.35\linewidth}
+			\titlepageauthor
+		\end{minipage}
+	\end{adjustwidth}
+}
+
+
+% Comando para presentar el resumen y el autor en función de si el primero está vacío o no.
+\newcommand{\titlepagebottom}[1]{
+		\ifthenelse{\equal{#1}{}}{
+				\vspace*{2cm}
+				\begin{adjustwidth}{0cm}{-5cm}\titlepageauthor\end{adjustwidth}
+		}
+		{\titlepageabstractauthor}
+}
+
+% Se crea el comando maketitle asociado al paquete.
+\renewcommand*{\maketitle}{
+
+	\begin{titlepage}
+		\BgThispage
+		\newgeometry{left=1cm,right=6cm,bottom=2cm}
+		\vspace*{0.28\textheight}
+		\noindent
+		\centering \textcolor{white}{\Huge\textbf{\textsf{\subject}}}
+		\vspace*{0.5cm}
+
+		\textcolor{white}{\Huge\textbf{\textsf{\doctitle}}}
+		\vspace*{0.5cm}
+
+		\textcolor{white}{\huge\textbf{\textsf{\docsubtitle}}}
+		\vspace*{2cm} \par
+		\noindent
+
+		\titlepagebottom{\docabstract}
+			
+	\end{titlepage}
+}
+
+\endinput

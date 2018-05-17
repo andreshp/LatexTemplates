@@ -1,0 +1,89 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package which include a template for writing a report in latex.
+%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% You can put this package in the directory ~/texmf/tex/latex/ and use it with \usepackage{template}
+% whenever you want.
+%
+% The template does not provide a title environment. You have to use one of the titlex.sty packages
+% in order to define a title environment.
+% Furthermore, the template requires you to define the following variables:
+
+% Title of the document.
+%\newcommand{\doctitle}{This is the title}
+% Subtitle.
+%\newcommand{\docsubtitle}{A cool subtitle}
+% Date.
+%\newcommand{\docdate}{March 17th, 2017}
+% Subject.
+%\newcommand{\subject}{LaTeX}
+% Author.
+%\newcommand{\docauthor}{Andrés Herrera Poyatos}
+%\newcommand{\docaddress}{University of Granada}
+%\newcommand{\docemail}{andreshp9@gmail.com}
+% Document's abstract. If you leave it empty, then it won't be used.
+%\newcommand{\docabstract}{}
+
+\ProvidesPackage{template}[2017]
+
+%-----------------------------------------------------------------------------------------------------
+%	FONT SELECTION
+%-----------------------------------------------------------------------------------------------------
+
+% Fuente utilizada.
+\usepackage{courier}                    % Fuente Courier.
+\usepackage{microtype}                  % Mejora la letra final de cara al lector.
+
+%-----------------------------------------------------------------------------------------------------
+%	PAGE STYLE
+%-----------------------------------------------------------------------------------------------------
+
+% Paquetes para el diseño de página:
+\usepackage{fancyhdr}               % Utilizado para hacer títulos propios.
+\usepackage{lastpage}               % Referencia a la última página. Utilizado para el pie de página.
+\usepackage{extramarks}             % Marcas extras. Utilizado en pie de página y cabecera.
+\usepackage[parfill]{parskip}       % Crea una nueva línea entre párrafos.
+\usepackage{geometry}               % Asigna la "geometría" de las páginas.
+
+% Se elige el estilo fancy y márgenes de 3 centímetros.
+\pagestyle{fancy}
+\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,headheight=1cm,headsep=0.5cm} % Márgenes y cabecera.
+% Se limpia la cabecera y el pie de página para poder rehacerlos luego.
+%\fancyhfb{}
+
+% Espacios en el documento:
+\linespread{1.1}                        % Espacio entre líneas.
+\setlength\parindent{0pt}               % Selecciona la indentación para cada inicio de párrafo.
+
+% Cabecera del documento. Se ajusta la línea de la cabecera.
+\renewcommand\headrule{
+	\begin{minipage}{1\textwidth}
+	    \hrule width \hsize
+	\end{minipage}
+}
+
+% Texto de la cabecera:
+\lhead{\docauthor}                          % Parte izquierda.
+\chead{}                                    % Centro.
+\rhead{\subject \ - \doctitle \ifthenelse{\equal{\docsubtitle}{}}{}{ \ - \docsubtitle}}              % Parte derecha.
+
+% Pie de página del documento. Se ajusta la línea del pie de página.
+\renewcommand\footrule{
+\begin{minipage}{1\textwidth}
+    \hrule width \hsize
+\end{minipage}\par
+}
+
+\lfoot{}                                                 % Parte izquierda.
+\cfoot{}                                                 % Centro.
+\rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Parte derecha.
+
+%-----------------------------------------------------------------------------------------------------
+%	IMAGES
+%-----------------------------------------------------------------------------------------------------
+
+% Allows the H placement in images.
+\usepackage{float}
