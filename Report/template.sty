@@ -24,62 +24,109 @@
 %\newcommand{\docauthor}{Andrés Herrera Poyatos}
 %\newcommand{\docaddress}{University of Granada}
 %\newcommand{\docemail}{andreshp9@gmail.com}
+% Left and right header text. If they are left empty,
+% then the header is chosen by default.
+%\newcommand{\doclhead}{} % Default: \docauthor
+%\newcommand{\docrhead}{} % \subject - \doctitle
+
 % Document's abstract. If you leave it empty, then it won't be used.
 %\newcommand{\docabstract}{}
 
-\ProvidesPackage{template}[2017]
+\ProvidesPackage{template}[2018]
 
 %-----------------------------------------------------------------------------------------------------
 %	FONT SELECTION
 %-----------------------------------------------------------------------------------------------------
 
-% Fuente utilizada.
-\usepackage{courier}                    % Fuente Courier.
-\usepackage{microtype}                  % Mejora la letra final de cara al lector.
+% Improves the font rendering.
+\usepackage{microtype}
+
+%-----------------------------------------------------------------------------------------------------
+%	LANGUAGE CHOICE
+%-----------------------------------------------------------------------------------------------------
+
+% Chooses the footer words in english or spanish.
+\newcommand{\pageWord}{\iflanguage{english}{Page}{P\'agina}}
+\newcommand{\ofWord}{\iflanguage{english}{of}{de}}
 
 %-----------------------------------------------------------------------------------------------------
 %	PAGE STYLE
 %-----------------------------------------------------------------------------------------------------
 
-% Paquetes para el diseño de página:
-\usepackage{fancyhdr}               % Utilizado para hacer títulos propios.
+% Package to format the header and the footer.
+\usepackage{fancyhdr}
+
 \usepackage{lastpage}               % Referencia a la última página. Utilizado para el pie de página.
+\usepackage{calc}
+
 \usepackage{extramarks}             % Marcas extras. Utilizado en pie de página y cabecera.
-\usepackage[parfill]{parskip}       % Crea una nueva línea entre párrafos.
 \usepackage{geometry}               % Asigna la "geometría" de las páginas.
 
-% Se elige el estilo fancy y márgenes de 3 centímetros.
+% Chooses the margins
+\geometry{left=3cm, right=3cm, top=3cm, bottom=3cm, headheight=1cm, headsep=0.5cm}
+%\geometry{left=2cm,right=2cm,top=2.5cm,bottom=2.5cm,headheight=0.8cm,headsep=0.3cm}
+
+
+% Chooses the fancy page style.
 \pagestyle{fancy}
-\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm,headheight=1cm,headsep=0.5cm} % Márgenes y cabecera.
-% Se limpia la cabecera y el pie de página para poder rehacerlos luego.
-%\fancyhfb{}
 
-% Espacios en el documento:
-\linespread{1.1}                        % Espacio entre líneas.
-\setlength\parindent{0pt}               % Selecciona la indentación para cada inicio de párrafo.
+% Spaces of the document:
+% Chooses the space between lines.
+\linespread{1.1}
+% Selects the indentation for each paragraph beginning.
+\usepackage[parfill]{parskip}
+\setlength\parindent{0pt}
 
-% Cabecera del documento. Se ajusta la línea de la cabecera.
+%-----------------------------------------------------------------------------------------------------
+%	HEADER
+%-----------------------------------------------------------------------------------------------------
+
+% Chooses the header style
 \renewcommand\headrule{
-	\begin{minipage}{1\textwidth}
-	    \hrule width \hsize
-	\end{minipage}
-}
-
-% Texto de la cabecera:
-\lhead{\docauthor}                          % Parte izquierda.
-\chead{}                                    % Centro.
-\rhead{\subject \ - \doctitle \ifthenelse{\equal{\docsubtitle}{}}{}{ \ - \docsubtitle}}              % Parte derecha.
-
-% Pie de página del documento. Se ajusta la línea del pie de página.
-\renewcommand\footrule{
-\begin{minipage}{1\textwidth}
+  \begin{minipage}{\textwidth}
     \hrule width \hsize
-\end{minipage}\par
+  \end{minipage}
 }
 
-\lfoot{}                                                 % Parte izquierda.
-\cfoot{}                                                 % Centro.
-\rfoot{Página\ \thepage\ de\ \protect\pageref{LastPage}} % Parte derecha.
+% Computes the right header text.
+% The rheader contains the subject, title and subtitle
+% of the document. If any of those is not specified, then
+% it is omitted.
+\newcommand{\rheadtext}{
+  \ifthenelse{\equal{\subject}{}}{}{\subject \ -}
+  \doctitle \ifthenelse{\equal{\docsubtitle}{}}{}{\ - \docsubtitle}
+}
+
+% Left part of the header.
+% If the user has specified an specific lhead by defining the command,
+% then this header is used. Otherwise, the lhead is the author.
+\fancyhead[L]{
+  \ifthenelse{\equal{\doclhead}{}}{\docauthor}{\doclhead}
+}
+% Right part of the header.
+% If the user has specified an specific lhead by defining the command,
+% then this header is used. Otherwise, the lhead is the author.
+\fancyhead[R]{
+    \ifthenelse{\equal{\docrhead}{}}{\rheadtext}{\docrhead}
+}
+
+%-----------------------------------------------------------------------------------------------------
+%	FOOTER
+%-----------------------------------------------------------------------------------------------------
+
+% Chooses the footer style
+\renewcommand\footrule{
+  \begin{minipage}{\textwidth}
+    \hrule width \hsize
+  \end{minipage}\par
+}
+
+% Left part of the footer
+\fancyfoot[L]{}
+% Center part of the footer
+\fancyfoot[C]{}
+% Right part of the footer
+\fancyfoot[R]{\pageWord\ \thepage\ \ofWord\ \protect\pageref{LastPage}}
 
 %-----------------------------------------------------------------------------------------------------
 %	IMAGES
@@ -87,3 +134,22 @@
 
 % Allows the H placement in images.
 \usepackage{float}
+
+%-----------------------------------------------------------------------------------------------------
+%	HYPERREF SET UP
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage{hyperref}
+
+\hypersetup{
+    % Removes the boxes and puts the links with color:
+    colorlinks   = true,                    
+    % Color selection:
+    linkcolor    = [rgb]{0,0.2,0.5},
+    anchorcolor  = gray,
+    citecolor    = magenta,
+    filecolor    = red,
+    menucolor    = green,
+    runcolor     = red,
+    urlcolor     = [rgb]{0,0.2,0.5}
+}

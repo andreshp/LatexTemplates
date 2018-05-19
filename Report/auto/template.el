@@ -1,20 +1,21 @@
 (TeX-add-style-hook
  "template"
  (lambda ()
+   (TeX-add-to-alist 'LaTeX-provided-package-options
+                     '(("parskip" "parfill")))
    (TeX-run-style-hooks
-    "latex2e"
-    "article"
-    "art10"
-    "lipsum"
-    "spanish"
-    "title1")
+    "microtype"
+    "fancyhdr"
+    "lastpage"
+    "calc"
+    "extramarks"
+    "geometry"
+    "parskip"
+    "float"
+    "hyperref")
    (TeX-add-symbols
-    "doctitle"
-    "docsubtitle"
-    "subject"
-    "docauthor"
-    "docaddress"
-    "docemail"
-    "docabstract"))
+    "pageWord"
+    "ofWord"
+    "rheadtext"))
  :latex)
 

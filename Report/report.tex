@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla básica de Latex en Español.
+%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp)
+%
+% Es una plantilla básica para redactar documentos. Utiliza el paquete fancyhdr para darle un
+% estilo moderno pero serio.
+%
+% La plantilla se encuentra adaptada al español.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------------------------------
+% BASIC PACKAGES
+%-----------------------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{template}
+
+% Dummy text. Can be removed after updating the document.
+\usepackage{lipsum}
+
+%-----------------------------------------------------------------------------------------------------
+% LANGUAGE
+%-----------------------------------------------------------------------------------------------------
+
+%\usepackage{spanish}
+
+%-----------------------------------------------------------------------------------------------------
+% TITLE PAGE
+%-----------------------------------------------------------------------------------------------------
+
+% Choose one of the following title page formats.
+\usepackage{title1}
+%\usepackage{title2}
+
+%-----------------------------------------------------------------------------------------------------
+% TITLE, AUTHOR AND OTHER DATA
+%-----------------------------------------------------------------------------------------------------
+
+% Title.
+\newcommand{\doctitle}{Title of my document}
+% Subtitle.
+\newcommand{\docsubtitle}{A cool subtitle}
+% Date.
+\newcommand{\docdate}{1st January 2018}
+% Subject
+\newcommand{\subject}{LaTeX}
+% Author.
+\newcommand{\docauthor}{Andr\'es Herrera Poyatos}
+\newcommand{\docaddress}{Universidad de Granada}
+\newcommand{\docemail}{andreshp9@gmail.com}
+
+%-----------------------------------------------------------------------------------------------------
+% SUMMARY
+%-----------------------------------------------------------------------------------------------------
+
+% Document summary.
+% When the summary is not empty, it is renderized in the title page and the format is change accordingly.
+% Otherwise, it doesn't appear.
+%\newcommand{\docabstract}{}
+\newcommand{\docabstract}{Here you can include a summary of your document in order to inform the reader about the document content. It will be renderized in the tile page.}
+
+%-----------------------------------------------------------------------------------------------------
+% DOCUMENT
+%-----------------------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%-----------------------------------------------------------------------------------------------------
+% TOC
+%-----------------------------------------------------------------------------------------------------
+
+% Depth of the TOC
+%\setcounter{tocdepth}{1}
+
+\newpage
+\tableofcontents
+\newpage
+
+%-----------------------------------------------------------------------------------------------------
+% SECTION 1
+%-----------------------------------------------------------------------------------------------------
+
+\section{First section}
+
+Welcome! You are about to use this cool \LaTeX template. First, you should be aware of the following information regarding its configuration.
+
+  \begin{itemize}
+  \item In the section TITLE, AUTHOR AND OTHER DATA you should fill the following data:
+\begin{verbatim}
+% Title.
+\newcommand{\doctitle}{Title of my document}
+% Subtitle.
+\newcommand{\docsubtitle}{A cool subtitle}
+% Date.
+\newcommand{\docdate}{1st January 2018}
+% Subject
+\newcommand{\subject}{LaTeX}
+% Author.
+\newcommand{\docauthor}{Andrés Herrera Poyatos}
+\newcommand{\docaddress}{Universidad de Granada}
+\newcommand{\docemail}{andreshp9@gmail.com}
+\end{verbatim}
+    \item You can choose the TOC's depth in the section TOC.
+    \item You can choose among several title page formats. These are implemented in the files \texttt{title*.sty} which are also provided in the repository.
+    \item You can write a summary of the document in the section SUMMARY. If it is the case, then it will appear in the title page, which will be formated accordingly. Otherwise, the summary won't be used.
+  \end{itemize}
+
+I tried to keep this template as simple as possible. If you need more functionality, then it may be helpful for you to check the repository   \url{https://github.com/andreshp/LatexTemplates}.
+
+%-----------------------------------------------------------------------------------------------------
+% SECTION 2
+%-----------------------------------------------------------------------------------------------------
+
+\section{Second section}
+
+\subsection{First subsection}
+
+\lipsum[1]
+
+\subsection{Second subsection}
+
+\lipsum[2]
+
+\end{document}
