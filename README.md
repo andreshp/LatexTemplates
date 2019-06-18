@@ -7,15 +7,17 @@ Latex Templates developped for different tasks.
 
 The templates are classified in terms of the language and the purpose.
 
-## Templates in Spanish
+## Contents
 
-- **PlantillaBasica.** Plantilla que sirve de base para redactar el documento. Permite escoger entre diferentes estilos de portada.
-- **PaquetesLatex.** Descripción de algunos paquetes y utilidades de Latex. Puedes utilizarlos para aumentar la funcionalidad de la plantilla básica.
-- **IntroRMarkdown.** Sencillo código R-markdown que sirve de introducción al funcionamiento del mismo.
+- **Slides:** Template to write a presentation in Beamer. This template is a very customised version of the Dresden theme. 
 
-## Templates in English
+- **Report:** Template to write a report in latex. This template uses the ```fancyhdr``` package. It includes several templates for a title page and a package with all the maths commands that I use.
 
-- **CurriculumVitae** : My curriculum vitae in English. Based on a template from [latextemplates.com](http://www.latextemplates.com/cat/curricula-vitae).
+- **Thesis:** Template to write a thesis in latex. This template uses the ```fancyhdr``` package. It includes a package with all the maths commands that I use.
+
+- **CurriculumVitae:** My curriculum vitae in English. Based on a template from [latextemplates.com](http://www.latextemplates.com/cat/curricula-vitae).
+
+- **Packages:** Explanation in Spanish of many of the Latex packages that I use. When I don't remember a command, I look for it in these files. For example, there is a section about how to use minted to include code in latex.
 
 ## Other latex templates
 
