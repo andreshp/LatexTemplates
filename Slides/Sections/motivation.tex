@@ -1,0 +1,42 @@
+
+\section*{Motivation}
+
+\subsection*{Why are we interested in the Ising model?}
+%\subsection{The Ising model: a model found in statistical mechanics}
+
+\begin{frame}
+	  	The Ising model is a mathematical model of ferromagnetism in statistical mechanics.
+
+    Probability of a configuration $\sigma$ ({\color{TurkishRose}\textit{Boltzmann distribution}}):
+    \begin{align*}
+    P_\beta(\sigma) & = e^{-\beta H(\sigma)} / Z(G), \\ 
+    Z(G) & = \sum_{\sigma \colon V \to \{+,-\}} e^{- \beta H(\sigma)}.
+    \end{align*}
+    
+    \begin{itemize}
+    	\item $Z(G)$ is \textit{the partition function of the Ising model}.
+    	\item $Z(G)$ encodes information about the physical system.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+		     \begin{align*}
+		     P_\beta(\sigma) & = e^{-\beta H(\sigma)} / Z(G), \\ 
+		     Z(G) & = \sum_{\sigma \colon V \to \{+,-\}} e^{- \beta H(\sigma)}.
+		     \end{align*}
+		     
+	\begin{enumerate}			
+		\item {\color{TurkishRose} \textbf{Problem:}} What is the complexity of evaluating $Z(G)$? \\
+		%{\color{TurkishRose}\textbf{Answer:}}
+		$\# \mathfs{P}$-hard in some cases.
+		
+		\item For some of those cases, $Z(G)$ admits a \textit{fully polynomial-time randomised approximation scheme} \\
+		(Jerrum and Sinclair, 1993,  G\"odel prize in 1996).
+		
+		\item {\color{TurkishRose} \textbf{Problem:}} What is the complexity of approximating $Z(G)$?
+		
+		\item {\color{TurkishRose} \textbf{Application:}}  Strongly simulating \textit{instantaneous quantum polynomial-time circuits} is equivalent to approximating $|Z(G)|$ for some parameters.
+	\end{enumerate}
+\end{frame}
+

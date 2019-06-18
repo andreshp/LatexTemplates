@@ -1,0 +1,147 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A template based on the beamer Dresden theme
+% Author: Andrés Herrera Poyatos
+% Date: May - 2019
+% University of Oxford
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper, compress]{beamer}
+
+% Include the tempalte (slides.sty)
+\usepackage{slides}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\usepackage{pgfplots}
+
+%----------------------------------------------------------------------------------------
+%	TITLE, AUTHOR AND OTHER INFO
+%----------------------------------------------------------------------------------------
+
+% Title of the document.
+\newcommand{\doctitle}{My presentation}
+% Subtitle.
+\newcommand{\docsubtitle}{A cool subtitle}
+% Date.
+\newcommand{\docdate}{16th June 2019}
+% Author.
+\newcommand{\docauthor}{Andr\'es Herrera Poyatos}
+\newcommand{\docaddress}{University of Oxford}
+\newcommand{\docemail}{andres.herrerapoyatos@seh.ox.ac.uk}
+
+\title{\doctitle}
+\author{\docauthor}
+
+%-----------------------------------------------------------------------------------------------------
+%	TITLE PAGE
+%-----------------------------------------------------------------------------------------------------
+
+
+\setbeamertemplate{title page}{
+	\color{white}
+	\begin{minipage}[c][\paperheight]{\textwidth}
+		
+		\vspace{2em}
+		\begin{minipage}{0.8\textwidth}			
+			\usebeamerfont{title}{\textbf{\doctitle}} 
+			
+			\vspace{1em}
+			\usebeamerfont{subtitle}{\textbf{\docsubtitle}} 					
+		\end{minipage}
+		
+		\vspace{2em}
+		\begin{minipage}[t]{.7\textwidth}
+			\usebeamerfont{author}
+			\docauthor
+			
+			\vspace*{1em}			
+			\vspace{1em}
+			\docdate
+		\end{minipage}%
+		\vfill
+		\vspace{1em}
+	\end{minipage}
+}
+
+\begin{document}
+	
+%----------------------------------------------------------------------------------------
+%	Title page.
+%----------------------------------------------------------------------------------------
+
+{
+	\usebackgroundtemplate{\includegraphics[width=1\paperwidth]{./Images/background.png}}
+	\begin{frame}[plain]
+		\titlepage
+	\end{frame}
+}
+
+
+%----------------------------------------------------------------------------------------
+%	Motivation
+%----------------------------------------------------------------------------------------
+
+
+\importsection{motivation}
+
+%----------------------------------------------------------------------------------------
+%	TOC
+%----------------------------------------------------------------------------------------
+
+\section*{Outline}
+% Table of contents
+\begin{frame}
+	\tableofcontents[hideallsubsections]
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	Preliminaries
+%----------------------------------------------------------------------------------------
+
+
+\importsection{preliminaries}
+
+
+%----------------------------------------------------------------------------------------
+%	Cool section
+%----------------------------------------------------------------------------------------
+
+\importsection{cool-section}
+
+
+%----------------------------------------------------------------------------------------
+%	Conclusion
+%----------------------------------------------------------------------------------------
+
+\importsection{conclusion}
+
+%----------------------------------------------------------------------------------------
+%	Last slide
+%----------------------------------------------------------------------------------------
+
+\section*{Thank you}
+
+{ \usebackgroundtemplate{\includegraphics[width=1\paperwidth]{./Images/background.png}}
+	\begin{frame}[plain]
+		\color{white}
+		\begin{minipage}[c][\paperheight]{\textwidth}
+			\vspace{2em}
+			\begin{minipage}{0.85\textwidth}
+				\usebeamerfont{title}Thank you for your time and attention
+			\end{minipage}
+			\vspace{2em}
+			
+			\begin{minipage}{0.8\textwidth}	
+				\usebeamerfont{author} \docauthor
+				
+				\vspace{1em}
+				\texttt{\docemail}
+			\end{minipage}
+			\vfill
+			\vspace{1em}
+		\end{minipage}
+	\end{frame}
+}
+
+\end{document}

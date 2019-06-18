@@ -1,0 +1,145 @@
+\section{The Ising Model}
+
+\subsection{The partition function of the Ising model}
+
+\begin{frame}
+  \begin{definition}[The Ising model]
+    Let $G = (V, E)$ be a graph. The partition function of the Ising model on $G$ is
+    \begin{equation*}
+      Z_{\text{Ising}}(G; y, z) = \sum_{\sigma \colon V \to \{0,1\}} y^{m(\sigma)} z^{n_1(\sigma)}.
+    \end{equation*}
+  \end{definition}
+  
+  \begin{itemize}
+   \item $m(\sigma)$ is the number of monochromatic edges of $\sigma$.
+   \item $n_1(\sigma)$ is the number of vertices $v$ with $\sigma(v) = 1$.
+  \item $y$ is \emph{the edge interaction}.
+  \item $z$ is \emph{the external field}.
+  \end{itemize}
+  
+  \begin{enumerate}
+  	\item Setting 1: there is no external field ($z = 1$).  \\
+  	We write $Z_{\text{Ising}}(G; y) = Z_{\text{Ising}}(G; y, 1)$.
+  	\item Setting 2: there is an external field ($z \ne 1$).  	
+  \end{enumerate}
+  
+  
+\end{frame}
+
+\subsection{Example}
+
+\begin{frame}
+	\vspace{-4mm}
+  \begin{equation*}
+    Z_{\text{Ising}}(G; y, z) = \sum_{\sigma \colon V \to \{0,1\}} y^{m(\sigma)} z^{n_1(\sigma)}.
+  \end{equation*}
+	\vspace{-4mm}
+  \begin{example}[The Ising model]
+  	\vspace{2mm}
+    \begin{columns}
+      \column{0.2\textwidth}
+      \begin{tikzpicture}
+        \begin{scope}[every node/.style={circle,thick,draw}]
+          \node (A) at (0,0) {A}; \node (B) at (1,0.5) {B}; \node (C) at (2,0) {C};
+        \end{scope}
+
+\begin{scope}[>={Stealth[black]},
+              every edge/.style={draw=black,very thick}]
+              \path [-] (A) edge node {} (B); \path [-] (A) edge node {} (C); \path [-] (B) edge
+              node {} (C);
+            \end{scope}
+          \end{tikzpicture}
+          
+          \invisible<1-2>{
+          \begin{tikzpicture}
+            \begin{scope}[every node/.style={circle,thick,draw}]
+              \node[fill=ChetwodeBlue] (A) at (0,0) {A}; \node (B) at (1,0.5) {B}; \node (C) at
+              (2,0) {C};
+            \end{scope}
+
+\begin{scope}[>={Stealth[black]},
+              every edge/.style={draw=black,very thick}]
+              \path [-] (A) edge node {} (B); \path [-] (A) edge node {} (C); \path [-] (B) edge
+              node {} (C);
+            \end{scope}
+          \end{tikzpicture}}
+          
+          \invisible<1-3>{
+          \begin{tikzpicture}
+            \begin{scope}[every node/.style={circle,thick,draw}]
+              \node[fill=ChetwodeBlue] (A) at (0,0) {A}; \node[fill=ChetwodeBlue] (B) at (1,0.5)
+              {B}; \node (C) at (2,0) {C};
+            \end{scope}
+
+\begin{scope}[>={Stealth[black]},
+              every edge/.style={draw=black,very thick}]
+              \path [-] (A) edge node {} (B); \path [-] (A) edge node {} (C); \path [-] (B) edge
+              node {} (C);
+            \end{scope}
+          \end{tikzpicture}}
+        
+          \invisible<1-4>{                  	
+          \begin{tikzpicture}
+            \begin{scope}[every node/.style={circle,thick,draw}]
+              \node[fill=ChetwodeBlue] (A) at (0,0) {A}; \node[fill=ChetwodeBlue] (B) at (1,0.5)
+              {B}; \node[fill=ChetwodeBlue] (C) at (2,0) {C};
+            \end{scope}
+
+\begin{scope}[>={Stealth[black]},
+              every edge/.style={draw=black,very thick}]
+              \path [-] (A) edge node {} (B); \path [-] (A) edge node {} (C); \path [-] (B) edge
+              node {} (C);
+            \end{scope}
+          \end{tikzpicture}}
+          \vspace{5mm}
+          \column{0.6\textwidth}
+          \begin{align*}
+            \invisible<1>{Z_{\text{Ising}}(G; y, z) & = y^3 + \cdots} \\ \\
+            \invisible<1-2>{Z_{\text{Ising}}(G; y, z) & = y^3 + 3yz + \cdots} \\ \\
+            \invisible<1-3>{Z_{\text{Ising}}(G; y, z) & = y^3 + 3yz + 3yz^2 + \cdots} \\ \\
+            \invisible<1-4>{Z_{\text{Ising}}(G; y, z) & = y^3 + 3yz + 3yz^2 + y^3z^3} \\ \\ 
+            \invisible<1-5>{ 
+        	Z_{\text{Ising}}(G; y) & = 2 y^3 + 6y
+           }                  
+          \end{align*}
+        \end{columns}
+        \invisible<6>{}
+        \vspace{-3mm}
+      \end{example}
+  
+ \end{frame}
+    \subsection{Computational problems on the Ising model}
+
+
+\begin{frame}
+  \begin{proposition}
+    Computing the polynomial $Z_{\text{Ising}}(G; y)$ is $\# \mathsf{P}$-hard.
+  \end{proposition}
+
+  \begin{comproblem}[$\textsc{Ising}(y, z)$]
+  	\textbf{Instance:} A (multi)graph $G$. \\
+  	\textbf{Output:} $Z_{\text{Ising}}(G; y, z)$.
+  \end{comproblem}
+
+  \begin{comproblem}[$\textsc{Factor-}K \textsc{-NormIsing}(y, z)$]
+  	\textbf{Instance:} A (multi)graph $G$. \\
+  	\textbf{Output:} $\,$ A rational number $\hat{N}$ such that
+  	\begin{equation*}
+  	\frac{1}{K} \hat{N} \le \left| Z_{\text{Ising}}(G; y, z) \right| \le K \hat{N}.
+  	\end{equation*}   
+  \end{comproblem}
+
+{\color{TurkishRose} $\textsc{Factor-}K \textsc{-NormIsing}(y, z) \le_T \textsc{Ising}(y, z)$.}
+
+	
+
+%  \begin{problem}
+%    \textbf{Name:} \ \ \ $\textsc{Distance-}\rho \textsc{-Arg-Ising}(y, z)$. \\
+%    \textbf{Instance:} A (multi)graph $G$. \\
+%    \textbf{Output:} $\,$ A rational number $\hat{A}$ such that
+%    \begin{equation*}
+%      \left| \hat{A} - \arg \left( Z_{\text{Ising}}(G; y, z) \right)\right| \le \rho.
+%    \end{equation*}   
+%  \end{problem}
+
+\end{frame}

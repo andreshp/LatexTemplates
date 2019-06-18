@@ -1,0 +1,196 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Numerical semigroups and cyclotomic polynomials
+% Author: Andrés Herera Poyatos (https://andreshp.github.io/)
+%
+% My Bacherlor's thesis about numerical semigroups and cyclotomic polynomials
+%
+% This tex uses symbols of the University of Granada which are ruled as follows:
+% http://secretariageneral.ugr.es/pages/ivc/normativa
+%
+% Compilation instructions:
+%   pdflatex --shell-escape main.tex
+%   bibtex main
+%   pdflatex --shell-escape main.tex
+%   pdflatex --shell-escape main.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%-----------------------------------------------------------------------------------------------------
+% BASIC PACKAGES
+%-----------------------------------------------------------------------------------------------------
+
+% Chooses the book class
+\documentclass{book}
+
+% Loads the modern-thesis template
+\usepackage{modern-thesis}
+
+% Loads the commands needed to write mathematics
+\usepackage{mathematics}
+
+% Loads the title page configuration
+\usepackage{title-ugr}
+
+%-----------------------------------------------------------------------------------------------------
+% GRAPHS
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage{tkz-graph}
+\usepackage[pdf]{graphviz}
+
+%-----------------------------------------------------------------------------------------------------
+% MATH COMMANDS
+%-----------------------------------------------------------------------------------------------------
+
+\renewcommand{\P}{\mathrm{P}}
+\DeclareMathOperator{\Ap}{Ap}
+
+% -----------------------------------------------------------------------------------------------------
+% LANGUAGE CHOICE
+%-----------------------------------------------------------------------------------------------------
+
+% Allows stressing words.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Selects English as main language and SPanish as second language
+\usepackage[spanish, polish, main=english]{babel}
+
+%-----------------------------------------------------------------------------------------------------
+% MARGINS AND SEPARATIONS
+%-----------------------------------------------------------------------------------------------------
+
+%\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+
+%-----------------------------------------------------------------------------------------------------
+% COLORS
+%-----------------------------------------------------------------------------------------------------
+
+% Paquetes para la insercción y el resaltado del código:
+\usepackage{xcolor} % Permite crear colores propios. Utilizado para el bg de Minted.
+
+% Color institucional UGR
+% \definecolor{ugrColor}{HTML}{ed1c3e} % Versión clara.
+\definecolor{ugrColor}{HTML}{c6474b}  % Usado en el título.
+\definecolor{ugrColor2}{HTML}{c6474b} % Usado en las secciones.
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}        % Se define el color bg usado para bgcolor de Minted.
+
+%-----------------------------------------------------------------------------------------------------
+% ALGORITHMS
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% https://tex.stackexchange.com/questions/172751/how-change-font-family-in-algorithmic-package
+\usepackage{xpatch}
+\xpatchcmd{\algorithmic}{\setcounter}{\algorithmicfont\setcounter}{}{}
+\providecommand{\algorithmicfont}{}
+\providecommand{\setalgorithmicfont}[1]{\renewcommand{\algorithmicfont}{#1}}
+\renewcommand{\algorithmiccomment}[1]{{\tiny\hfill$\triangleright$ #1}}
+
+
+\setalgorithmicfont{\normalsize}
+
+% -----------------------------------------------------------------------------------------------------
+% LISTING
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage{minted}                     % Insercción y resaltado de código con Minted.
+
+\usemintedstyle{autumn}                      % Se elige el estilo para minted.
+%\renewcommand\listingscaption{Código}        % Se redefine el nombre dado a un bloque de código.
+%\renewcommand\listoflistingscaption{Códigos} % Se redefine el nombre dado a la lista de códigos.
+
+%-----------------------------------------------------------------------------------------------------
+% CHAPTERS
+%-----------------------------------------------------------------------------------------------------
+
+% Include chapters from chapters directory.
+\newcommand{\importchapter}[1]{\input{./Chapters/#1}} 
+
+%-----------------------------------------------------------------------------------------------------
+% BIBLIOGRAPHY
+%-----------------------------------------------------------------------------------------------------
+
+%\usepackage[backend=biber]{biblatex}
+
+
+% -----------------------------------------------------------------------------------------------------
+% TITLE, AUTHOR AND OTHER DATA
+%-----------------------------------------------------------------------------------------------------
+
+\newcommand{\doctitle}{Polinomios ciclotómicos y semigrupos numéricos}
+\newcommand{\docsubtitle}{Investigación y desarrollo de software}
+\newcommand{\subject}{Trabajo de Fin de	Grado}
+\newcommand{\degree}{Doble Grado en Ingeniería Informática y Matemáticas}
+\newcommand{\docdate}{Granada, a 19 de Junio de 2018}
+\newcommand{\docauthor}{Andrés Herrera Poyatos}
+\newcommand{\tutor}{Pedro A. García Sánchez}
+\newcommand{\docaddress}{Facultad de Ciencias \\ E.T.S.  Ingenierías Informática y de Telecomunicación}
+\newcommand{\docemail}{andreshp9@gmail.com}
+
+\newcommand{\doclhead}{}
+\newcommand{\docrhead}{}
+
+\author{\docauthor} 
+\date{\docdate}
+\title{\doctitle}
+
+%-----------------------------------------------------------------------------------------------------
+% DOCUMENT
+%-----------------------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\thispagestyle{plain}
+\renewcommand{\docrhead}{Abstract}
+\importchapter{summary.tex}
+
+% -----------------------------------------------------------------------------------------------------
+% TOC AND INTRODUCTION
+%-----------------------------------------------------------------------------------------------------
+
+% Depth of the TOC
+\setcounter{tocdepth}{2}
+
+\renewcommand{\docrhead}{Table of contents}
+
+\newpage
+\thispagestyle{plain}
+\tableofcontents
+\newpage
+\thispagestyle{plain}
+
+\renewcommand{\docrhead}{}
+\importchapter{introduction.tex}
+
+% -----------------------------------------------------------------------------------------------------
+% MATHEMATICS
+%-----------------------------------------------------------------------------------------------------
+
+
+\part{Mathematics}
+
+%\importchapter{cyclo-roots-unity.tex}
+
+%-----------------------------------------------------------------------------------------------------
+% Computer Science
+%-----------------------------------------------------------------------------------------------------
+
+\part{Computer Science}
+
+%\importchapter{kronecker-algorithms.tex}
+
+\part{Conclusion and future work}
+
+\importchapter{conclusion.tex}
+
+\newpage
+\renewcommand{\docrhead}{Bibliography}
+%\printbibliography
+	
+\end{document}

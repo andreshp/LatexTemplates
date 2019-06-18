@@ -1,0 +1,481 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% My beamer template.
+%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% You can put this package in the directory ~/texmf/tex/latex/ and use it with \usepackage{slydes}
+% whenever you want.
+%
+% This template requires you to define the following variables:
+
+% Title of the document.
+%\newcommand{\doctitle}{This is the title}
+% Subtitle.
+%\newcommand{\docsubtitle}{A cool subtitle}
+% Date.
+%\newcommand{\docdate}{March 17th, 2017}
+% Subject.
+%\newcommand{\subject}{LaTeX}
+% Author.
+%\newcommand{\docauthor}{Andrés Herrera Poyatos}
+%\newcommand{\docaddress}{University of Granada}
+%\newcommand{\docemail}{andreshp9@gmail.com}
+
+\ProvidesPackage{slides}[2019]
+
+
+%----------------------------------------------------------------------------------------
+%	THEME
+%----------------------------------------------------------------------------------------
+
+% Theme and colour theme
+\usetheme{Dresden}
+\usecolortheme{dolphin}
+
+\setbeamerfont{headline}{size=\normalsize}
+
+% Navigation bar with only the current section.
+% "Beamer infolines outer theme with miniframe bullets only for the current section"
+% (http://tex.stackexchange.com/a/45152/3323)
+\useoutertheme{miniframes}
+\setbeamertemplate{mini frame in other section}{}
+\usepackage{etoolbox}
+\makeatletter
+\let\beamer@section@set@min@width=\relax
+\patchcmd{\insertnavigation}{\hskip-1.875ex plus-1fill}{}{}{}
+\patchcmd{\sectionentry}{\hskip1.875ex plus 1fill}{}{}{}
+\patchcmd{\sectionentry}{\hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot shaded}}}}{}{}{}
+\patchcmd{\slideentry}{\usebeamertemplate{mini frame in other subsection}}{\usebeamertemplate{mini frame in other subsection of current section}}{}{}
+\patchcmd{\slideentry}{\usebeamertemplate{mini frame in other subsection}}{\usebeamertemplate{mini frame in other section}}{}{}
+\patchcmd{\slideentry}{\usebeamertemplate{mini frame in other subsection of current section}}{\usebeamertemplate{mini frame in other subsection}}{}{}
+%\patchcmd{\insertnavigation}{\hskip.3cm}{\hfill}{}{}\patchcmd{\insertnavigation}{\hskip.3cm}{\hfill}{}{}
+\makeatother
+
+% Put navigation dots next to section name
+% Beamer miniframes: side-by-side section names and navigation dots
+% https://tex.stackexchange.com/questions/88182/beamer-miniframes-side-by-side-section-names-and-navigation-dots
+\makeatletter
+\patchcmd{\slideentry}{\advance\beamer@tempdim by -.05cm}{\advance\beamer@tempdim by\beamer@vboxoffset\advance\beamer@tempdim by\beamer@boxsize\advance\beamer@tempdim by 1.2\pgflinewidth}{}{}
+\patchcmd{\slideentry}{\kern\beamer@tempdim}{\advance\beamer@tempdim by 5pt\advance\beamer@tempdim by\wd\beamer@sectionbox\kern\beamer@tempdim}{}{}
+\makeatother
+
+% How to increase the size of navigation circles?
+% https://tex.stackexchange.com/questions/331050/how-to-increase-the-size-of-navigation-circles
+\makeatletter
+\setbeamertemplate{mini frame}{%
+  \begin{pgfpicture}{0pt}{0pt}{0.08cm}{0.08cm}
+    \pgfpathcircle{\pgfpoint{0.08cm}{0.08cm}}{0.08cm}
+    \pgfusepath{fill,stroke}
+  \end{pgfpicture}%
+}
+
+\setbeamertemplate{mini frame in current section}{%
+  \begin{pgfpicture}{0pt}{0pt}{0.08cm}{0.08cm}
+    \pgfpathcircle{\pgfpoint{0.08cm}{0.08cm}}{0.08cm}
+    \pgfusepath{stroke}
+  \end{pgfpicture}%
+}
+
+\setbeamertemplate{mini frame in current subsection}{%
+  \begin{pgfpicture}{0pt}{0pt}{0.08cm}{0.08cm}
+    \pgfpathcircle{\pgfpoint{0.08cm}{0.08cm}}{0.08cm}
+    \pgfusepath{stroke}
+  \end{pgfpicture}%
+}
+
+\setbeamersize{mini frame size=0.4cm, mini frame offset=0.3cm}
+\makeatother
+
+% Remove footline  (stackoverflow.com/questions/1435837)
+\setbeamertemplate{footline}{}
+
+% Avoid warning boxes
+\hfuzz=20pt
+\vfuzz=20pt
+
+% Remove navigation links (stackoverflow.com/questions/3017030)
+\setbeamertemplate{navigation symbols}{}
+
+% Add margin to the frame tile
+% https://tex.stackexchange.com/questions/273551/move-frametitle-horizontally
+% https://tex.stackexchange.com/questions/109815/how-to-set-vertical-margins-for-beamer-frame
+\setbeamertemplate{frametitle}{    
+	\hskip-1.5mm
+	\insertframetitle
+}
+
+
+%-----------------------------------------------------------------------------------------------------
+%	COLOURS
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage{tcolorbox}
+
+\definecolor{OxfordBlue}{HTML}{002147}     % Main Title
+\definecolor{ChetwodeBlue}{HTML}{6b77ad} % Titles
+\definecolor{Jaguar}{HTML}{262731}       % Background
+\definecolor{TurkishRose}{HTML}{B46275}  % Comments
+\definecolor{Grandis}{HTML}{F5CF73}      % Details
+
+% Title
+\setbeamercolor{title}{fg=white}
+% Frame title
+\setbeamercolor{frametitle}{fg=ChetwodeBlue}
+% Structure
+\setbeamercolor{structure}{fg=Jaguar}
+
+
+%-----------------------------------------------------------------------------------------------------
+%	FONT SELECTION
+%-----------------------------------------------------------------------------------------------------
+
+% Choose one of these fonts
+%\usepackage[sfdefault]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+\usepackage[T1]{fontenc}
+%\usepackage[bitstream-charter]{mathdesign}
+% https://tex.stackexchange.com/questions/34265/how-to-get-beamer-math-to-look-like-article-math
+%\usefonttheme{professionalfonts}
+
+% Change the color of math font
+%\setbeamercolor{math text}{fg=DarkBlue}
+%\setbeamercolor{math text displayed}{fg=DarkBlue}
+
+% https://tex.stackexchange.com/questions/167811/change-math-color-except-in-titles-in-beamer
+%\addtobeamertemplate{frametitle}{\donotcoloroutermaths}
+%\addtobeamertemplate{blocktitle}{\donotcoloroutermaths}
+
+% Improves the font rendering.
+% https://tex.stackexchange.com/questions/82001/microtype-settings-for-dummies
+\usepackage[final]{microtype}
+
+% Title
+\setbeamerfont{title}{series=\bfseries,size*={15}{24}}
+
+%Author
+\setbeamerfont{author}{size*={13}{18}}
+
+% Frame title
+\setbeamerfont{frametitle}{series=\bfseries, size=\large}
+
+
+
+% Blocks Font size
+% https://tex.stackexchange.com/questions/96275/how-to-change-example-block-body-text-size-in-beamer
+\setbeamerfont{block body}{size=\normalsize}
+\setbeamerfont{block body alerted}{size=\normalsize}
+\setbeamerfont{block body exampled}{size=\normalsize}
+\setbeamerfont{block title}{size=\normalsize, series=\bfseries}
+\setbeamerfont{block title alerted}{size=\large, series=\bfseries}
+\setbeamerfont{block title exampled}{size=\large, series=\bfseries}
+
+% Changing the font in the navigation bar
+% https://tex.stackexchange.com/questions/140952/changing-the-font-family-of-the-mini-navigation-in-the-frankfurt-beamer-theme
+\setbeamerfont{section in head/foot}{series=\bfseries}
+\setbeamerfont{subsection in head/foot}{series=\bfseries}
+
+%-----------------------------------------------------------------------------------------------------
+%	ITEMIZES / ENUMERATES
+%-----------------------------------------------------------------------------------------------------
+
+\setbeamertemplate{itemize item}{\color{TurkishRose}$\bullet$}%\footnotesize$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{ChetwodeBlue}$\circ$}
+
+\setbeamertemplate{enumerate items}[circle]
+\setbeamercolor{item projected}{bg=TurkishRose}
+
+% Changing left margin in itemize environment of beamer class
+% https://tex.stackexchange.com/questions/5941/changing-left-margin-in-itemize-environment-of-beamer-class
+\addtolength{\leftmargini}{-2\labelsep}
+\addtolength{\leftmarginii}{-2\labelsep}
+
+% Auxiliar color for itemize
+\newcommand*\MyPitem{\item[\color{ChetwodeBlue}{\textbullet}]}
+
+% Color for alerted text in itemize / enumerate
+% https://tex.stackexchange.com/questions/96864/changing-the-color-of-alert-command-in-beamer
+\setbeamercolor{alerted text}{fg=TurkishRose}
+
+%% Avoid warnings in itemize
+\renewcommand\textbullet{\ensuremath{\bullet}}
+
+%-----------------------------------------------------------------------------------------------------
+%	IMAGES
+%-----------------------------------------------------------------------------------------------------
+
+\usepackage{graphicx}
+    
+% Allows the H placement in images.
+\usepackage{float}
+
+%-----------------------------------------------------------------------------------------------------
+%	HYPERREF SET UP
+%-----------------------------------------------------------------------------------------------------
+
+\PassOptionsToPackage{unicode}{hyperref}      % Avoid mistakes with non-ASCII characters.
+\PassOptionsToPackage{naturalnames}{hyperref} % tex.stackexchange.com/questions/10555
+
+\usepackage{hyperref}
+% Links colors (tex.stackexchange.com/questions/13423)
+\hypersetup{colorlinks,linkcolor=,urlcolor=TurkishRose}
+
+%-----------------------------------------------------------------------------------------------------
+%	COMMANDS
+%-----------------------------------------------------------------------------------------------------
+
+% New commands
+\newcommand{\importsection}[1]{\input{./Sections/#1}}        % Include sections from sections directory.
+\newcommand{\link}[3]{\href{#1}{\textbf{#2}} - {\small #3}}  % Unique style for references
+
+% Background block
+\makeatletter	
+\newbox\@backgroundblock
+\newenvironment{backgroundblock}[2]{%
+	\global\setbox\@backgroundblock=\vbox\bgroup%
+	\unvbox\@backgroundblock%
+	\vbox to0pt\bgroup\vskip#2\hbox to0pt\bgroup\hskip#1\relax%
+}{\egroup\egroup\egroup}
+\addtobeamertemplate{background}{\box\@backgroundblock}{}
+
+% Two part definitions
+\newcommand{\twopartdef}[2]
+{
+	\left\{
+	\begin{array}{ll}
+		#1 \\
+		#2
+	\end{array}
+	\right.
+}
+
+%----------------------------------------------------------------------------------------
+%   MATHEMATICS
+%----------------------------------------------------------------------------------------
+
+% Remove space around equations
+% https://tex.stackexchange.com/questions/346678/removing-superfluous-space-after-equations-at-end-of-beamer-items
+\makeatletter
+\g@addto@macro\normalsize{%
+    \setlength\belowdisplayskip{2pt}
+    \setlength\abovedisplayskip{3pt}
+}
+
+% Methods to manage strings
+\usepackage{xstring}
+
+% Modifies the words depending on the language which is being used.
+\newcommand{\exerciseWord}{\iflanguage{english}{Exercise}{Ejercicio}}
+\newcommand{\statementWord}{\iflanguage{english}{Statement}{Enunciado}}
+\newcommand{\answerWord}{\iflanguage{english}{Answer}{Solución}}
+\newcommand{\definitionWord}{\iflanguage{english}{Definition}{Definición}}
+\newcommand{\theoremWord}{\iflanguage{english}{Theorem}{Teorema}}
+\newcommand{\lemmaWord}{\iflanguage{english}{Lemma}{Lema}}
+\newcommand{\propositionWord}{\iflanguage{english}{Proposition}{Proposición}}
+\newcommand{\corollaryWord}{\iflanguage{english}{Corollary}{Corolario}}
+\newcommand{\conjectureWord}{\iflanguage{english}{Conjecture}{Conjetura}}
+\newcommand{\problemWord}{\iflanguage{english}{Problem}{Problema}}
+\newcommand{\comproblemWord}{\iflanguage{english}{Computational problem}{Problema computacional}}
+\newcommand{\exampleWord}{\iflanguage{english}{Example}{Ejemplo}}
+\newcommand{\remarkWord}{\iflanguage{english}{Remark}{Comentario}}
+\newcommand{\axiomWord}{\iflanguage{english}{Axiom}{Axioma}}
+\newcommand{\postulateWord}{\iflanguage{english}{Postulate}{Postulado}}
+\newcommand{\algorithmWord}{\iflanguage{english}{Algorithm}{Algoritmo}}
+
+\usepackage{amsmath, amsthm, amscd} 
+
+\renewenvironment<>{theorem}[1][\undefined]{
+	\begin{actionenv}#2
+		\ifx#1\undefined
+		\def\insertblocktitle{\hskip-1.25em\theoremWord}%
+		\else
+		\def\insertblocktitle{\hskip-1.25em\theoremWord\ ({\em#1})}%
+		\fi
+		\par
+		\mode<presentation>{%
+			\setbeamercolor{block title}{fg=white,bg=Jaguar!90}
+			\setbeamercolor{block body}{fg=black,bg=ChetwodeBlue!10}
+		}%
+		\usebeamertemplate{block begin}}
+	{\par\usebeamertemplate{block end}\end{actionenv}}
+
+\renewenvironment<>{lemma}[1][\undefined]{
+	\begin{actionenv}#2
+		\ifx#1\undefined
+		\def\insertblocktitle{\hskip-1.25em\lemmaWord}%
+		\else
+		\def\insertblocktitle{\hskip-1.25em\lemmaWord\ ({\em#1})}%
+		\fi
+		\par
+		\mode<presentation>{%
+			\setbeamercolor{block title}{fg=white,bg=Jaguar!80!ChetwodeBlue}
+			\setbeamercolor{block body}{fg=black,bg=ChetwodeBlue!10}
+		}%
+		\usebeamertemplate{block begin}}
+	{\par\usebeamertemplate{block end}\end{actionenv}}
+
+\newenvironment<>{proposition}[1][\undefined]{
+	\begin{actionenv}#2
+		\ifx#1\undefined
+		\def\insertblocktitle{\hskip-1.25em\propositionWord}%
+		\else
+		\def\insertblocktitle{\hskip-1.25em\propositionWord\ ({\em#1})}%
+		\fi
+		\par
+		\mode<presentation>{%
+			\setbeamercolor{block title}{fg=white,bg=Jaguar!55}
+			\setbeamercolor{block body}{fg=black,bg=ChetwodeBlue!10}
+		}%
+		\usebeamertemplate{block begin}}
+	{\par\usebeamertemplate{block end}\end{actionenv}}
+
+\newenvironment<>{corollary}[1][\undefined]{
+	\begin{actionenv}#2
+		\ifx#1\undefined
+		\def\insertblocktitle{\hskip-1.25em\corollaryWord}%
+		\else
+		\def\insertblocktitle{\hskip-1.25em\corollaryWord\ ({\em#1})}%
+		\fi
+		\par
+		\mode<presentation>{%
+			\setbeamercolor{block title}{fg=white,bg=Jaguar!80}
+			\setbeamercolor{block body}{fg=black,bg=ChetwodeBlue!10}
+		}%
+		\usebeamertemplate{block begin}}
+	{\par\usebeamertemplate{block end}\end{actionenv}}
+
+\newenvironment<>{conjecture}[1][\undefined]{
+	\begin{actionenv}#2
+		\ifx#1\undefined
+		\def\insertblocktitle{\hskip-1.25em\conjectureWord}%
+		\else
+		\def\insertblocktitle{\hskip-1.25em\conjectureWord ({\em#1})}%
+		\fi
+		\par
+		\mode<presentation>{%
+			\setbeamercolor{block title}{fg=white,bg=Jaguar!80}
+			\setbeamercolor{block body}{fg=black,bg=ChetwodeBlue!10}
+		}%
+		\usebeamertemplate{block begin}\em}
+	{\par\usebeamertemplate{block end}\end{actionenv}}
+
+      \renewenvironment<>{definition}[1][\undefined]{
+	\begin{actionenv}#2
+		\ifx#1\undefined
+		\def\insertblocktitle{\hskip-1.25em\definitionWord}%
+		\else
+		\def\insertblocktitle{\hskip-1.25em\definitionWord\ ({\em#1})}%
+		\fi
+		\par
+		\mode<presentation>{%
+			\setbeamercolor{block title}{fg=TurkishRose,bg=TurkishRose!20}
+			\setbeamercolor{block body}{fg=black,bg=TurkishRose!10}
+		}%
+		\usebeamertemplate{block begin}}
+	{\par\usebeamertemplate{block end}\end{actionenv}}
+
+
+      \renewenvironment<>{problem}[1][\undefined]{
+	\begin{actionenv}#2
+		\ifx#1\undefined
+		\def\insertblocktitle{\hskip-1.25em\problemWord}%
+		\else
+		\def\insertblocktitle{\hskip-1.25em\problemWord\ ({\em#1})}%
+		\fi
+		\par
+		\mode<presentation>{%
+            \setbeamercolor{block title}{bg=ChetwodeBlue!20, fg=ChetwodeBlue}
+            \setbeamercolor{block body}{bg=ChetwodeBlue!10,fg=black}
+		}%
+		\usebeamertemplate{block begin}\em}
+	{\par\usebeamertemplate{block end}\end{actionenv}}
+
+      \renewenvironment<>{comproblem}[1][\undefined]{
+      	\begin{actionenv}#2
+      		\ifx#1\undefined
+      		\def\insertblocktitle{\hskip-1.25em \comproblemWord}%
+      		\else
+      		\def\insertblocktitle{\hskip-1.25em \comproblemWord : {#1}}%
+      		\fi
+      		\par
+      		\mode<presentation>{%
+      			\setbeamercolor{block title}{bg=ChetwodeBlue!20, fg=ChetwodeBlue}
+      			\setbeamercolor{block body}{bg=ChetwodeBlue!10,fg=black}
+      		}%
+      		\usebeamertemplate{block begin}\em}
+      	{\par\usebeamertemplate{block end}\end{actionenv}}
+
+
+     \renewenvironment<>{example}[1][\undefined]{
+	\begin{actionenv}#2
+		\ifx#1\undefined
+		\def\insertblocktitle{\hskip-1.25em\exampleWord}%
+		\else
+		\def\insertblocktitle{\hskip-1.25em\exampleWord\ ({\em#1})}%
+		\fi
+		\par
+		\mode<presentation>{%
+            \setbeamercolor{block title}{bg=ChetwodeBlue!20, fg=ChetwodeBlue}
+            \setbeamercolor{block body}{bg=ChetwodeBlue!10,fg=black}
+		}%
+		\usebeamertemplate{block begin}}
+	{\par\usebeamertemplate{block end}\end{actionenv}}
+
+
+\renewenvironment<>{remark}[1][\undefined]{
+	\begin{actionenv}#2
+		\ifx#1\undefined
+		\def\insertblocktitle{\hskip-1.25em\remarkWord}%
+		\else
+		\def\insertblocktitle{\hskip-1.25em\remarkWord\ ({\em#1})}%
+		\fi
+		\par
+		\mode<presentation>{%
+			\setbeamercolor{block title}{fg=white,bg=Jaguar!80}
+			\setbeamercolor{block body}{fg=black,bg=ChetwodeBlue!10}
+		}%
+		\usebeamertemplate{block begin}}
+	{\par\usebeamertemplate{block end}\end{actionenv}}
+
+\renewenvironment<>{exercise}[1][\undefined]{
+	\begin{actionenv}#2
+		\ifx#1\undefined
+		\def\insertblocktitle{\hskip-1.25em\exerciseWord}%
+		\else
+		\def\insertblocktitle{\hskip-1.25em\exerciseWord\ ({\em#1})}%
+		\fi
+		\par
+		\mode<presentation>{%
+			\setbeamercolor{block title}{fg=white,bg=Jaguar!80}
+			\setbeamercolor{block body}{fg=black,bg=ChetwodeBlue!10}
+		}%
+		\usebeamertemplate{block begin}}
+	{\par\usebeamertemplate{block end}\end{actionenv}}
+
+
+%----------------------------------------------------------------------------------------
+%   TOC
+%----------------------------------------------------------------------------------------
+
+% https://tex.stackexchange.com/questions/105621/beautiful-presentations-done-with-tex-and-related-systems https://nickhigham.wordpress.com/2013/01/18/top-5-beamer-tips/
+% https://github.com/markolsonse/sthlmBeamerTheme
+      
+% How do I enumerate the items in beamer table of contents
+% https://tex.stackexchange.com/questions/44994/how-do-i-enumerate-the-items-in-beamer-table-of-contents
+\setbeamertemplate{section in toc}[circle]
+
+% Add subsections to toc
+%\setbeamertemplate{subsection in toc} {\leavevmode\leftskip=1.2em{\color{TurkishRose}    \scalebox{0.6}{$\square$}}\hskip0.8em\inserttocsubsection\par}
+
+\setbeamercolor{section number projected}{bg=TurkishRose}
+
+
+\AtBeginSection[]
+{
+\subsection*{Outline}
+\begin{frame}
+  \tableofcontents[currentsection,hideallsubsections]
+\end{frame}
+}
+
+ 

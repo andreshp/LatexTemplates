@@ -1,0 +1,233 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package which include the needed statements to write mathematics using the basic template.
+% It also contains an exercise environment.
+%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{mathematics}[2018]
+
+% Methods to manage strings
+\usepackage{xstring}
+% http://ctan.org/pkg/xparse
+% http://tex.stackexchange.com/questions/11349/how-do-you-define-your-environment-such-as-to-use-for-some-parameters
+\usepackage{xparse}
+% Works with counters.
+% http://ctan.org/pkg/etoolbox
+\usepackage{etoolbox}
+
+% Modifies the words depending on the language which is being used.
+\newcommand{\exerciseWord}{\iflanguage{english}{Exercise}{Ejercicio}}
+\newcommand{\statementWord}{\iflanguage{english}{Statement}{Enunciado}}
+\newcommand{\answerWord}{\iflanguage{english}{Answer}{Solución}}
+\newcommand{\definitionWord}{\iflanguage{english}{Definition}{Definición}}
+\newcommand{\theoremWord}{\iflanguage{english}{Theorem}{Teorema}}
+\newcommand{\lemmaWord}{\iflanguage{english}{Lemma}{Lema}}
+\newcommand{\propositionWord}{\iflanguage{english}{Proposition}{Proposición}}
+\newcommand{\corollaryWord}{\iflanguage{english}{Corollary}{Corolario}}
+\newcommand{\conjectureWord}{\iflanguage{english}{Conjecture}{Conjetura}}
+\newcommand{\problemWord}{\iflanguage{english}{Problem}{Problema}}
+\newcommand{\exampleWord}{\iflanguage{english}{Example}{Ejemplo}}
+\newcommand{\remarkWord}{\iflanguage{english}{Remark}{Comentario}}
+\newcommand{\axiomWord}{\iflanguage{english}{Axiom}{Axioma}}
+\newcommand{\postulateWord}{\iflanguage{english}{Postulate}{Postulado}}
+
+%----------------------------------------------------------------------------------------
+%  MATH ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+
+% Modifies the enumerate and itemize behaviours using the enuitem package.
+\usepackage{enumitem}
+% Remove left margin from enumerate
+\setlist[enumerate]{leftmargin=*, font=\upshape, label=\alph*)} 
+% Remove left margin from itemize
+\setlist[itemize]{leftmargin=*}
+
+% Mathematics packages: Theorems, fonts and symbols
+\usepackage{amsmath, amsthm, amssymb, amsfonts, amscd}
+
+%\numberwithin{equation}{section}
+
+% Definitions style
+\newtheoremstyle{definition-style} % Nombre del estilo
+{5pt}                % Espacio por encima
+{0pt}                % Espacio por debajo
+{}                   % Fuente del cuerpo
+{}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+{\bf}                % Fuente para la cabecera
+{.}                  % Puntuación tras la cabecera
+{.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+{}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+% Theorems style
+\newtheoremstyle{theorem-style} % Nombre del estilo
+{5pt}                % Espacio por encima
+{0pt}                % Espacio por debajo
+{\itshape}           % Fuente del cuerpo
+{}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+{\bf}                % Fuente para la cabecera
+{.}                  % Puntuación tras la cabecera
+{.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+{}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+% Examples style
+\newtheoremstyle{example-style} % Nombre del estilo
+{5pt}                % Espacio por encima
+{0pt}                % Espacio por debajo
+{}                   % Fuente del cuerpo
+{}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
+{\scshape}           % Fuente para la cabecera
+{:}                  % Puntuación tras la cabecera
+{.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+{}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+% Theorems
+\theoremstyle{theorem-style}  % Otras posibilidades: plain (por defecto), definition, remark
+\newtheorem{thm}{\theoremWord}[section] % [section] indica que el contador se reinicia cada sección
+%\renewcommand{\thethm}{\arabic{thm}}
+\newtheorem{theorem}[thm]{\theoremWord} % [thm] indica que comparte el contador con theorem
+\newtheorem{cor}[thm]{\corollaryWord} 
+\newtheorem{corollary}[thm]{\corollaryWord} 
+\newtheorem{lem}[thm]{\lemmaWord}
+\newtheorem{lemma}[thm]{\lemmaWord}
+\newtheorem{prop}[thm]{\propositionWord}
+\newtheorem{proposition}[thm]{\propositionWord}
+\newtheorem{rem}[thm]{\remarkWord} % * indica que no tiene contador
+\newtheorem{remark}[thm]{\remarkWord} % * indica que no tiene contador
+
+\newtheorem{con}[thm]{\conjectureWord}
+\newtheorem{conjecture}[thm]{\conjectureWord}
+\newtheorem{problem}[thm]{\problemWord}
+
+\newtheorem{post}{\postulateWord}
+\newtheorem{postulate}[post]{\postulateWord}
+
+% Definitions and axioms
+\theoremstyle{definition-style}
+\newtheorem{definition}{\definitionWord}[section]
+\newtheorem{axiom}{\axiomWord}[section]
+
+% Examples
+\theoremstyle{example-style}
+\newtheorem{example}[thm]{\exampleWord}
+
+% New example environment with qed symbol. Obtained from:
+% http://tex.stackexchange.com/questions/146151/indicator-at-end-of-theorem
+\newcommand{\exsymbol}{$\triangle$} % Choose the qed symbol.
+\newenvironment{ex}[1][]
+    {\begin{example}[#1]\renewcommand{\qedsymbol}{\exsymbol}\pushQED{\qed}}
+    {\popQED\end{example}}
+
+% Proof environment.
+% Removes the space after the result.
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+	\vspace{-5pt}% remove the space after the theorem
+	\pushQED{\qed}%
+	\normalfont
+	\topsep0pt \partopsep0pt % no space before
+	\trivlist
+	\item[\hskip\labelsep
+	\itshape
+	#1\@addpunct{.}]\ignorespaces
+}{%
+\popQED\endtrivlist\@endpefalse
+\addvspace{6pt plus 6pt} % some space after
+}
+\makeatother
+
+%-----------------------------------------------------------------------------------------------------
+%	EXERCISES
+%-----------------------------------------------------------------------------------------------------
+
+% Defines an exercise environment. Example:
+% \begin{exercise}[optional argument for the exercise number](optional argument for the name or description)
+%   \begin{statement}
+%     The exercise statement.
+%   \end{statement}
+%   \begin{answer}
+%     The exercise answer.
+%   \end{answer}
+% \end{exercise}
+
+% Creates a counter to keep track of the number of problems.
+\newcounter{exerciseCounter}
+\setcounter{exerciseCounter}{1}
+
+% Exercises name command. It is redefined in the exercise environment.
+\newcommand{\exerciseName}{}
+% Command which saves the current section counter's value.
+\newcounter{sectionCopy}
+
+% Two optional arguments. The first one corresponds to the exercise counter.
+% The second one is a exercise name or minor description.
+\NewDocumentEnvironment{exercise}{O{\arabic{exerciseCounter}} d()}{
+  % Assigns to \exerciseName the name of the problem
+  \renewcommand{\exerciseName}{\exerciseWord \ #1 \IfNoValueF{#2}{\ - #2}} 
+  % Make a section in the document with the custom problem count
+  \subsection*{\exerciseName}        
+
+  % Saves the current section counter's value.
+  \setcounter{sectionCopy}{\value{section}}
+  % Set the section counter for theorems, lemmas, etc.
+  \setcounter{section}{\value{exerciseCounter}}
+
+  % Obtain a counter from argument.
+  \IfSubStr{#1}{.}{\StrBefore{#1}{.}[\mycounter]}{\StrBehind{#1 }{ }[\mycounter]}
+  \setcounter{exerciseCounter}{\mycounter}
+  % Increases the counter for the number of problems
+  \stepcounter{exerciseCounter}
+} {
+  % Set the section counter to its original value.
+  \setcounter{section}{\value{sectionCopy}}
+}
+
+% Statement environment.
+% Contains the problem statement.
+\newenvironment{statement}{
+	\textbf{\statementWord:}
+}
+
+% Answer command.
+% The answer is wrapped between rectanbles.
+\newenvironment{answer}{
+  \noindent\framebox[\columnwidth][c]{\begin{minipage}{\columnwidth}\centering\answerWord\end{minipage}} \vspace{-3mm} \\
+}
+
+% Add a horizontal rectangle at the end of the answer.
+\AtEndEnvironment{answer}{~\\\noindent\framebox[\columnwidth][c]{\begin{minipage}{\columnwidth}\end{minipage}}}
+
+%----------------------------------------------------------------------------------------
+% OTHER MATH COMMANDS
+%----------------------------------------------------------------------------------------
+
+% Restriction command
+\newcommand\restrict[1]{\raisebox{-.5ex}{$|$}_{#1}}
+
+% Differential command
+\newcommand\diff{\,\mathrm{d}}
+
+% Usual sets notation
+\newcommand\C{\mathbb{C}}
+\newcommand\R{\mathbb{R}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\N{\mathbb{N}}
+
+% Interior of a subset of a topological space
+% https://tex.stackexchange.com/questions/295579/interior-of-a-set-notation
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+% Reduce the space of the pmod command
+\makeatletter
+\let\@@pmod\pmod
+\DeclareRobustCommand{\pmod}{\@ifstar\@pmods\@@pmod}
+\def\@pmods#1{\mkern4mu({\operator@font mod}\mkern 6mu#1)}
+\makeatother
+
+% Commands for the stirling numbers
+\newcommand{\stirlingone}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
+\newcommand{\stirlingtwo}[2]{\genfrac{\{}{\}}{0pt}{}{#1}{#2}}

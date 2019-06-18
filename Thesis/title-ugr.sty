@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page style with the UGR logo
+%
+% Autor: Andrés Herrera Poyatos (https://github.com/andreshp)
+%
+% This tex uses symbols of the University of Granada which are ruled as follows:
+% http://secretariageneral.ugr.es/pages/ivc/normativa
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{title-ugr}[2018]
+
+\usepackage{wallpaper}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{xcolor}
+
+% Command to add a background image
+% https://tex.stackexchange.com/questions/46280/how-to-create-a-background-image-on-title-page-with-latex
+\newcommand\BackgroundPic{%
+  \put(0,0){%
+    \parbox[b][\paperheight]{\paperwidth}{%
+      \vfill
+      \centering
+      \includegraphics[width=\paperwidth,height=\paperheight, keepaspectratio]{./Images/background.png}%
+    }
+  }
+}
+
+% Title color
+\definecolor{ugrColor}{HTML}{c6474b}
+
+% Create horizontal rule command with 1 argument for the height
+\newcommand{\horrule}[1]{{\color{ugrColor}\rule{\linewidth}{#1}}} 
+
+
+% Renew the maketitle command with the new format
+\renewcommand*{\maketitle}{
+  \AddToShipoutPicture*{\BackgroundPic}
+  
+  \begin{titlepage}  
+    \begin{figure}[htb]
+      \centering
+      \includegraphics[width=0.8\textwidth]{./Images/logo-horizontal.png}
+   \end{figure}
+   
+   \begin{center}
+     \horrule{2pt}
+ 
+     \Huge \textbf{\doctitle} 
+ 
+     \Huge \docsubtitle
+           
+     \horrule{2pt}
+ 
+     \Huge \docauthor
+     
+     \huge \textbf{Tutor:} \tutor
+ 
+     \horrule{2pt}
+     
+     \LARGE \textbf{\subject}
+ 
+     \LARGE \degree
+ 
+     \LARGE \docaddress
+ 
+     \Large\textit{\docdate}    
+ 
+     %\horrule{2pt}    
+   \end{center}
+  \end{titlepage}
+}
+
+\endinput
+

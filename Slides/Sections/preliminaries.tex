@@ -1,0 +1,96 @@
+\section{Preliminaries}
+
+\subsection{Complexity of counting}
+
+\begin{frame}
+  \begin{definition}[The complexity class $\# \mathsf{P}$]
+    A function $f \colon \{0,1\}^{*} \to \mathbb{N}$ is in $\# \mathsf{P}$ if there is a
+    nondeterministic polynomial-time Turing machine $M_f$ such that, for each input $w$, $M_f$
+    has exactly $f(w)$ accepting paths.
+  \end{definition}
+  \begin{example}[$\#SAT$]
+    \textbf{Instance:} A boolean formula $F$ in conjunctive normal form. \textit{Example:}
+    $F \equiv (x_1 \lor \neg x_2 \lor \neg x_3) \wedge (x_1 \lor x_3) \wedge (\neg x_2 \lor x_4)$.
+
+    \textbf{Output:} The number of satisfying assignments of $F$. \\
+  \end{example}
+
+  
+  \begin{definition}[$\# P$-hardness]
+    A computational problem $C$ is $\# \mathsf{P}$-hard if, for any $f \in \# \mathsf{P}$, the problem ``evaluating $f$'' is Turing reducible to $C$.
+    
+    %A function $f$ is $\# \mathsf{P}$-complete if  $f \in \#P$ and the existence of a polynomial-time algorithm that computes $f$ implies the existence of such an algorithm for any other function in $\# \mathsf{P}$.
+  \end{definition}
+\end{frame}
+
+\begin{frame}
+	  \begin{definition}[$\# P$-completeness]
+	  	A function $f \colon \{0,1\}^{*} \to \mathbb{N}$ is $\# \mathsf{P}$-complete if $f \in \# \mathsf{P}$ and evaluating $f$ is $\# \mathsf{P}$-hard.
+	  \end{definition}
+
+    \begin{enumerate}
+    	\item {\color{TurkishRose} \textbf{Cook-Levin theorem:}} $\#SAT$ is $\# \mathsf{P}$-complete.
+    	\item There are $\# \mathsf{P}$-complete problems whose decision version is trivial.
+    \end{enumerate}
+
+  \begin{example}[Counting independent sets is $\# \mathsf{P}$-complete]
+  	\begin{minipage}{0.4\textwidth}
+    \textbf{Instance:} A graph $G$. \\
+    \textit{Example: }
+  	\end{minipage}
+  	\begin{minipage}{0.4\textwidth}
+      \begin{tikzpicture}
+      \begin{scope}[every node/.style={circle,thick,draw}]
+      \node (A) at (0,0) {A}; \node (B) at (1,0.5) {B}; \node (C) at (2,0) {C}; \node (D) at (3.5,0) {D};
+      \end{scope}
+      
+      \begin{scope}[>={Stealth[black]},
+      every edge/.style={draw=black,very thick}]
+      \path [-] (A) edge node {} (B); \path [-] (A) edge node {} (C); \path [-] (B) edge
+      node {} (C); \path [-] (C) edge
+      node {} (D);
+      \end{scope}
+      \end{tikzpicture}
+  	\end{minipage}
+      
+     
+     \vspace{3mm} 
+    \textbf{Output:} The number of independent sets of $G$.\\
+  \end{example}
+\end{frame}
+
+\subsection{Partition functions}
+
+\begin{frame}
+  
+  \begin{definition}[Partition function]
+    Given a family $\mathcal{F}_n$ of subsets of the set $\{1, \ldots, n\}$, we define the partition
+    function of $\mathcal{F}_n$ as the polynomial
+    \begin{equation*}
+      P_{\mathcal{F}_n}(x_1, \ldots, x_n) = \sum_{S \in \mathcal{F}_n} \prod_{j \in S} x_j.
+    \end{equation*}
+    \vspace*{-2mm}
+  \end{definition}
+  
+  \begin{itemize}
+  \item Hard to compute: enumerating $\mathcal{F}_n$ is usually not feasible.
+    
+%    \begin{itemize}
+%    \item     \normalsize
+%     the family $\mathcal{F}$ is exponentially large on $n$;
+%    \item     \normalsize
+%     enumerating $\mathcal{F}$ is believed to not be feasible in polynomial-time.
+%    \end{itemize}
+  \item Many partition functions arise in statistical mechanics.
+  \end{itemize}
+
+  \begin{example}[The independent sets polynomial]
+    \vspace*{-1mm}
+    Let $G$ be a graph. The independent sets polynomial of $G$ is
+    \begin{equation*}
+      Z(G; y) = \sum_{I \text{ independent set of } G} y^{|I|}.    
+    \end{equation*}     
+    \vspace*{-1mm}
+  \end{example}
+  
+\end{frame}
