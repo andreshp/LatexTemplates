@@ -2,7 +2,7 @@
 
 This template uses the Dresden theme, but the navigation bar only shows dots for the current section. 
 
-** Example
+## Example
 
-![]{./Images/example.png}
+![example](./Images/example.png)
 
