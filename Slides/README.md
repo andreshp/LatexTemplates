@@ -1,13 +1,8 @@
-# Presentación para CAEPIA 2015
+# My slides template
 
-La presentación trata las siguientes ideas:
+This template uses the Dresden theme, but the navigation bar only shows dots for the current section. 
 
-## Motivación
+** Example
 
-### Problema de la diversidad de la población
+![]{./Images/example.png}
 
-- Nuestro trabajo surge a raíz de este problema.
-- Una población es diversa si los individuos que la componen son diferentes entre sí.
-- Se formaliza como la media de las distancias entre todas las parejas de cromosomas.
-- La imagen muestra cómo evoluciona la diversidad en función del tiempo para una ejecución de un algoritmo genético generacional con elitismo sobre una instancia del viajante de comercio.
-    + 
